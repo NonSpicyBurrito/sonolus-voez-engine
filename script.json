@@ -1,0 +1,246 @@
+{
+    "buckets": [
+        {
+            "sprites": [
+                {
+                    "id": 1001,
+                    "x": 0,
+                    "y": 0,
+                    "w": 2,
+                    "h": 2,
+                    "rotation": -90
+                }
+            ],
+            "windows": [
+                {
+                    "min": -30,
+                    "max": 30
+                },
+                {
+                    "min": -100,
+                    "max": 100
+                },
+                {
+                    "min": -150,
+                    "max": 150
+                }
+            ]
+        },
+        {
+            "sprites": [
+                {
+                    "id": 11001,
+                    "x": 0.5,
+                    "y": 0,
+                    "w": 2,
+                    "h": 5,
+                    "rotation": -90
+                },
+                {
+                    "id": 1001,
+                    "x": -2,
+                    "y": 0,
+                    "w": 2,
+                    "h": 2,
+                    "rotation": -90
+                }
+            ],
+            "windows": [
+                {
+                    "min": -30,
+                    "max": 30
+                },
+                {
+                    "min": -100,
+                    "max": 100
+                },
+                {
+                    "min": -150,
+                    "max": 150
+                }
+            ]
+        },
+        {
+            "sprites": [
+                {
+                    "id": 11001,
+                    "x": -0.5,
+                    "y": 0,
+                    "w": 2,
+                    "h": 5,
+                    "rotation": -90
+                },
+                {
+                    "id": 1001,
+                    "x": 2,
+                    "y": 0,
+                    "w": 2,
+                    "h": 2,
+                    "rotation": -90
+                }
+            ],
+            "windows": [
+                {
+                    "min": -30,
+                    "max": 0
+                },
+                {
+                    "min": -100,
+                    "max": 0
+                },
+                {
+                    "min": -150,
+                    "max": 0
+                }
+            ]
+        },
+        {
+            "sprites": [
+                {
+                    "id": 2001,
+                    "x": 0,
+                    "y": 0,
+                    "w": 2,
+                    "h": 2,
+                    "rotation": -90
+                }
+            ],
+            "windows": [
+                {
+                    "min": 0,
+                    "max": 30
+                },
+                {
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "min": 0,
+                    "max": 150
+                }
+            ]
+        },
+        {
+            "sprites": [
+                {
+                    "id": 21006,
+                    "x": 0,
+                    "y": 0,
+                    "w": 2,
+                    "h": 2,
+                    "rotation": -90
+                }
+            ],
+            "windows": [
+                {
+                    "min": -30,
+                    "max": 30
+                },
+                {
+                    "min": -100,
+                    "max": 100
+                },
+                {
+                    "min": -150,
+                    "max": 150
+                }
+            ]
+        }
+    ],
+    "entities": [
+        {
+            "archetype": 0
+        },
+        {
+            "archetype": 1
+        }
+    ],
+    "archetypes": [
+        {
+            "script": 0
+        },
+        {
+            "script": 1
+        },
+        {
+            "script": 2
+        },
+        {
+            "script": 3
+        },
+        {
+            "script": 4
+        },
+        {
+            "script": 5
+        },
+        {
+            "script": 6,
+            "input": true,
+            "data": {
+                "index": 4,
+                "values": [
+                    1,
+                    1001,
+                    32001,
+                    31001
+                ]
+            }
+        },
+        {
+            "script": 6,
+            "input": true,
+            "data": {
+                "index": 4,
+                "values": [
+                    2,
+                    1001,
+                    32001,
+                    31001
+                ]
+            }
+        },
+        {
+            "script": 7,
+            "input": true,
+            "data": {
+                "index": 4,
+                "values": [
+                    3,
+                    1001,
+                    32001,
+                    31001
+                ]
+            }
+        },
+        {
+            "script": 8,
+            "input": true,
+            "data": {
+                "index": 4,
+                "values": [
+                    4,
+                    2001,
+                    32001,
+                    31001
+                ]
+            }
+        },
+        {
+            "script": 9,
+            "input": true,
+            "data": {
+                "index": 4,
+                "values": [
+                    5,
+                    21006,
+                    32006,
+                    31006
+                ]
+            }
+        },
+        {
+            "script": 11
+        }
+    ]
+}
