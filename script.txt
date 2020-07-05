@@ -629,12 +629,22 @@ Transition:SwitchInteger(
         Greater(Subtract(Time InputOffset NoteStartTime) GoodWindow)
         And(
             Not(Auto)
-            Greater(Time NoteStartTime)
+            Not(InputState)
+            LessOr(Subtract(NoteStartTime Subtract(Time InputOffset)) SlideWindow)
             NoteLaneSharedMemoryDown
             Execute(
-                Set(EntityInput *Judgment JudgeSimple(Max(NoteStartTime Subtract(NoteLaneSharedMemoryST InputOffset)) NoteStartTime PerfectWindow GreatWindow GoodWindow))
+                Set(EntityMemory *InputState Activated)
+                Set(EntityMemory *SlideActivationTime Max(NoteStartTime Subtract(NoteLaneSharedMemoryST InputOffset)))
+            )
+        )
+        And(
+            Not(Auto)
+            Greater(Time NoteStartTime)
+            InputState
+            Execute(
+                Set(EntityInput *Judgment JudgeSimple(SlideActivationTime NoteStartTime PerfectWindow GreatWindow GoodWindow))
                 Set(EntityInput *Bucket NoteBucket)
-                Set(EntityInput *BucketValue Multiply(1000 Max(0 Subtract(NoteLaneSharedMemoryST InputOffset NoteStartTime))))
+                Set(EntityInput *BucketValue Multiply(1000 Max(0 Subtract(SlideActivationTime NoteStartTime))))
                 PlayNoteEffect
                 PlayJudgmentSound
                 true
@@ -850,6 +860,7 @@ PhaseEnded:4
 PerfectWindow:0.03
 GreatWindow:0.1
 GoodWindow:0.15
+SlideWindow:0.11
 
 MinVR:1.5
 
@@ -1302,6 +1313,14 @@ HoldHeadInputSuccess:Get(EntitySharedMemoryArray HoldHeadInputSuccessOffset)
 HoldHeadInputSuccessOffset:Get(EntityMemory *HoldHeadInputSuccessOffset)
 NoteTailSpawnTime:Get(EntityMemory *NoteTailSpawnTime)
 NoteTailY:Get(EntityMemory *NoteTailY)
+
+
+
+// #8 Memory Layout
+
+*SlideActivationTime:0
+
+SlideActivationTime:Get(EntityMemory *SlideActivationTime)
 
 
 
