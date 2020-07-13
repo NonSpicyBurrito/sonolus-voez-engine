@@ -18,7 +18,10 @@ InitNote:Execute(
 InitAutoNormal:And(
     Auto
     Execute(
-        PlayScheduled(EffectPerfect NoteStartTime MinEffectTime)
+        And(
+            SoundEffect
+            PlayScheduled(EffectPerfect NoteStartTime MinEffectTime)
+        )
         Set(EntityInput *Judgment JudgmentPerfect)
         Set(EntityInput *Bucket NoteBucket)
     )
@@ -26,7 +29,10 @@ InitAutoNormal:And(
 InitAutoHold:And(
     Auto
     Execute(
-        PlayScheduled(EffectPerfect NoteTailTime MinEffectTime)
+        And(
+            SoundEffect
+            PlayScheduled(EffectPerfect NoteTailTime MinEffectTime)
+        )
         Set(EntityInput *Judgment JudgmentPerfect)
         Set(EntityInput *Bucket NoteBucket)
     )
@@ -34,7 +40,10 @@ InitAutoHold:And(
 InitAutoFlick:And(
     Auto
     Execute(
-        PlayScheduled(EffectFlick NoteStartTime MinEffectTime)
+        And(
+            SoundEffect
+            PlayScheduled(EffectFlick NoteStartTime MinEffectTime)
+        )
         Set(EntityInput *Judgment JudgmentPerfect)
         Set(EntityInput *Bucket NoteBucket)
     )
