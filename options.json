@@ -1,6 +1,7 @@
 [
     {
         "name": "#AUTO",
+        "scope": "VOEZ",
         "standard": true,
         "type": "toggle",
         "def": 0
