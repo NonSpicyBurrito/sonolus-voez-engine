@@ -1,6 +1,6 @@
 //
 // VOEZ Engine
-// For Sonolus 0.3.6
+// For Sonolus 0.4.1
 //
 // A recreation of VOEZ engine
 // By Burrito
@@ -65,32 +65,14 @@ DrawNote:Draw(
 
 PlayNoteEffect:And(
     NoteEffect
-    Spawn(
-        10
-        Time
-        NoteLaneSharedMemoryX
-        NoteEffectCF
-        NoteEffectCB
-    )
-)
-PlayAutoNoteEffect:And(
-    NoteEffect
-    Spawn(
-        10
-        NoteStartTime
-        NoteLaneSharedMemoryX
-        NoteEffectCF
-        NoteEffectCB
-    )
-)
-PlayAutoNoteEffectHold:And(
-    NoteEffect
-    Spawn(
-        10
-        NoteTailTime
-        NoteLaneSharedMemoryX
-        NoteEffectCF
-        NoteEffectCB
+    SpawnParticleEffect(
+        ParticleEffectTapC
+        Subtract(NoteLaneSharedMemoryX EffectWidth) Subtract(-0.67 EffectWidth)
+        Subtract(NoteLaneSharedMemoryX EffectWidth) Add(-0.67 EffectWidth)
+        Add(NoteLaneSharedMemoryX EffectWidth) Add(-0.67 EffectWidth)
+        Add(NoteLaneSharedMemoryX EffectWidth) Subtract(-0.67 EffectWidth)
+        0.6
+        0
     )
 )
 
@@ -412,15 +394,16 @@ Transition:SwitchInteger(
         And(
             LaneDown
             LaneEffect
-            Draw(
-                TextureStageEffectLB
-                Subtract(LaneX LaneSize) -0.67
-                Subtract(LaneX LaneSize) 0.5
-                Add(LaneX LaneSize) 0.5
-                Add(LaneX LaneSize) -0.67
-                LayerLaneEffect
-                1
-            )
+            false
+            // Draw(
+            //     TextureStageEffectLB
+            //     Subtract(LaneX LaneSize) -0.67
+            //     Subtract(LaneX LaneSize) 0.5
+            //     Add(LaneX LaneSize) 0.5
+            //     Add(LaneX LaneSize) -0.67
+            //     LayerLaneEffect
+            //     1
+            // )
         )
     )
 )
@@ -500,7 +483,7 @@ Transition:SwitchInteger(
             Auto
             GreaterOr(Time NoteStartTime)
             Execute(
-                PlayAutoNoteEffect
+                PlayNoteEffect
                 true
             )
         )
@@ -533,7 +516,7 @@ Transition:SwitchInteger(
             Auto
             GreaterOr(Time NoteTailTime)
             Execute(
-                PlayAutoNoteEffectHold
+                PlayNoteEffect
                 true
             )
         )
@@ -639,7 +622,7 @@ Transition:SwitchInteger(
             Auto
             GreaterOr(Time NoteStartTime)
             Execute(
-                PlayAutoNoteEffect
+                PlayNoteEffect
                 true
             )
         )
@@ -740,7 +723,7 @@ Transition:SwitchInteger(
             Auto
             GreaterOr(Time NoteStartTime)
             Execute(
-                PlayAutoNoteEffect
+                PlayNoteEffect
                 true
             )
         )
@@ -775,49 +758,11 @@ Transition:SwitchInteger(
 
 
 
-// #10: Note Effect
+// #10: Hold Move Indicator
 
-#10.updateParallel:Execute(
-    Set(EntityMemory *EffectScale Divide(Subtract(Time EffectTime) 0.6))
-    Or(
-        GreaterOr(EffectScale 1)
-        Execute(
-            Set(EntityMemory *EffectCurrentWidth Multiply(EaseOutCubic(EffectScale) EffectWidth))
-            Set(EntityMemory *EffectCurrentAlpha Subtract(1 EaseOutQuad(EffectScale)))
-            Set(EntityMemory *EffectX1 Subtract(EffectX EffectCurrentWidth))
-            Set(EntityMemory *EffectX2 Add(EffectX EffectCurrentWidth))
-            Set(EntityMemory *EffectY1 Subtract(-0.67 EffectCurrentWidth))
-            Set(EntityMemory *EffectY2 Add(-0.67 EffectCurrentWidth))
+#10.shouldSpawn:GreaterOr(Time IndicatorSpawnTimeEarliest)
 
-            Draw(
-                EffectCB
-                EffectX1 EffectY1
-                EffectX1 EffectY2
-                EffectX2 EffectY2
-                EffectX2 EffectY1
-                LayerEffectCB
-                EffectCurrentAlpha
-            )
-            Draw(
-                EffectCF
-                EffectX1 EffectY1
-                EffectX1 EffectY2
-                EffectX2 EffectY2
-                EffectX2 EffectY1
-                LayerEffectCF
-                EffectCurrentAlpha
-            )
-        )
-    )
-)
-
-
-
-// #11: Hold Move Indicator
-
-#11.shouldSpawn:GreaterOr(Time IndicatorSpawnTimeEarliest)
-
-#11.initialize:Execute(
+#10.initialize:Execute(
     Set(EntityMemory *IndicatorSpawnTime Subtract(IndicatorStartTime NoteScreenTime))
     If(
         Or(IndicatorFromTime IndicatorToTime)
@@ -836,7 +781,7 @@ Transition:SwitchInteger(
     )
 )
 
-#11.updateParallel:And(
+#10.updateParallel:And(
     GreaterOr(Time IndicatorSpawnTime)
     Or(
         Greater(Time IndicatorStartTime)
@@ -916,7 +861,6 @@ TextureStageR:40002
 TextureLane:40100
 TextureSlot:41001
 TextureStageCover:42000
-TextureStageEffectLB:33000
 
 
 
@@ -928,6 +872,12 @@ EffectGreat:2
 EffectGood:3
 EffectFlick:4
 EffectEmpty:5
+
+
+
+// Particle Effect identifiers
+
+ParticleEffectTapC:110001
 
 
 
@@ -1352,34 +1302,6 @@ InputTouchID:Get(EntityMemory *InputTouchID)
 
 // #10 Memory Layout
 
-*EffectTime:0
-*EffectX:1
-*EffectCF:2
-*EffectCB:3
-*EffectScale:4
-*EffectCurrentWidth:5
-*EffectCurrentAlpha:6
-*EffectX1:7
-*EffectX2:8
-*EffectY1:9
-*EffectY2:10
-
-EffectTime:Get(EntityMemory *EffectTime)
-EffectX:Get(EntityMemory *EffectX)
-EffectCF:Get(EntityMemory *EffectCF)
-EffectCB:Get(EntityMemory *EffectCB)
-EffectScale:Get(EntityMemory *EffectScale)
-EffectCurrentWidth:Get(EntityMemory *EffectCurrentWidth)
-EffectCurrentAlpha:Get(EntityMemory *EffectCurrentAlpha)
-EffectX1:Get(EntityMemory *EffectX1)
-EffectX2:Get(EntityMemory *EffectX2)
-EffectY1:Get(EntityMemory *EffectY1)
-EffectY2:Get(EntityMemory *EffectY2)
-
-
-
-// #11 Memory Layout
-
 *IndicatorSpawnTime:0
 *IndicatorX:1
 *IndicatorX1:2
@@ -1394,7 +1316,7 @@ IndicatorY:Get(EntityMemory *IndicatorY)
 
 
 
-// #11 Data Layout
+// #10 Data Layout
 
 *IndicatorStartTime:0
 *IndicatorFromX:1
