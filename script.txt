@@ -134,20 +134,7 @@ Transition:SwitchInteger(
 
 // #0: Initialization
 
-#0.updateSequential:Execute(
-    Set(LevelMemory *StageX1 Multiply(AspectRatio -1))
-    Set(LevelMemory *StageX2 AspectRatio)
-    Set(LevelMemory *LaneXMultiplier Multiply(AspectRatio 0.81))
-    Set(LevelMemory *LaneSizeMultiplier Divide(AspectRatio 9))
-    Set(LevelMemory *SlotWidth Multiply(LaneSizeMultiplier 0.2 NoteSize))
-    Set(LevelMemory *BorderWidth Multiply(LaneSizeMultiplier 0.1))
-    Set(LevelMemory *NoteWidth Multiply(LaneSizeMultiplier 0.5 NoteSize))
-    Set(LevelMemory *EffectWidth Multiply(LaneSizeMultiplier 7))
-    Set(LevelMemory *IndicatorWidth Multiply(LaneSizeMultiplier NoteSize))
-    Set(LevelMemory *NoteScreenTime Subtract(1.65 Multiply(0.15 NoteSpeed)))
-    Set(LevelMemory *NoteTimeOffset Divide(LevelAudioOffset 1000))
-    Set(LevelMemory *InputOffset Add(DeviceInputOffset Divide(LevelInputOffset 1000)))
-
+#0.preprocess:Execute(
     SetShifted(LevelUI *UIMenu *UIAnchorX Subtract(0.05 AspectRatio))
     SetShifted(LevelUI *UIMenu *UIAnchorY 0.95)
     SetShifted(LevelUI *UIMenu *UIPivotX 0)
@@ -199,6 +186,21 @@ Transition:SwitchInteger(
     SetShifted(LevelUI *UIScoreValue *UIHeight 0.15)
     SetShifted(LevelUI *UIScoreValue *UIAlpha 1)
     SetShifted(LevelUI *UIScoreValue *UIHorizontalAlign 1)
+)
+
+#0.updateSequential:Execute(
+    Set(LevelMemory *StageX1 Multiply(AspectRatio -1))
+    Set(LevelMemory *StageX2 AspectRatio)
+    Set(LevelMemory *LaneXMultiplier Multiply(AspectRatio 0.81))
+    Set(LevelMemory *LaneSizeMultiplier Divide(AspectRatio 9))
+    Set(LevelMemory *SlotWidth Multiply(LaneSizeMultiplier 0.2 NoteSize))
+    Set(LevelMemory *BorderWidth Multiply(LaneSizeMultiplier 0.1))
+    Set(LevelMemory *NoteWidth Multiply(LaneSizeMultiplier 0.5 NoteSize))
+    Set(LevelMemory *EffectWidth Multiply(LaneSizeMultiplier 7))
+    Set(LevelMemory *IndicatorWidth Multiply(LaneSizeMultiplier NoteSize))
+    Set(LevelMemory *NoteScreenTime Subtract(1.65 Multiply(0.15 NoteSpeed)))
+    Set(LevelMemory *NoteTimeOffset Divide(LevelAudioOffset 1000))
+    Set(LevelMemory *InputOffset Add(DeviceInputOffset Divide(LevelInputOffset 1000)))
 
     true
 )
