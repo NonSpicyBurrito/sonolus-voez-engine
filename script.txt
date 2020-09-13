@@ -1,6 +1,6 @@
 //
 // VOEZ Engine
-// For Sonolus 0.4.1
+// For Sonolus 0.4.6
 //
 // A recreation of VOEZ engine
 // By Burrito
@@ -186,6 +186,45 @@ Transition:SwitchInteger(
     SetShifted(LevelUI *UIScoreValue *UIHeight 0.15)
     SetShifted(LevelUI *UIScoreValue *UIAlpha 1)
     SetShifted(LevelUI *UIScoreValue *UIHorizontalAlign 1)
+
+    Set(LevelBucket 0 -30)
+    Set(LevelBucket 1 30)
+    Set(LevelBucket 2 -100)
+    Set(LevelBucket 3 100)
+    Set(LevelBucket 4 -150)
+    Set(LevelBucket 5 150)
+
+    Set(LevelBucket 6 -30)
+    Set(LevelBucket 7 30)
+    Set(LevelBucket 8 -100)
+    Set(LevelBucket 9 100)
+    Set(LevelBucket 10 -150)
+    Set(LevelBucket 11 150)
+
+    Set(LevelBucket 12 -30)
+    Set(LevelBucket 13 0)
+    Set(LevelBucket 14 -100)
+    Set(LevelBucket 15 0)
+    Set(LevelBucket 16 -150)
+    Set(LevelBucket 17 0)
+
+    Set(LevelBucket 18 0)
+    Set(LevelBucket 19 30)
+    Set(LevelBucket 20 0)
+    Set(LevelBucket 21 100)
+    Set(LevelBucket 22 0)
+    Set(LevelBucket 23 150)
+
+    Set(LevelBucket 24 -30)
+    Set(LevelBucket 25 30)
+    Set(LevelBucket 26 -100)
+    Set(LevelBucket 27 100)
+    Set(LevelBucket 28 -150)
+    Set(LevelBucket 29 150)
+
+    Set(LevelScore *PerfectScoreMultiplier 1)
+    Set(LevelScore *GreatScoreMultiplier 0.8)
+    Set(LevelScore *GoodScoreMultiplier 0.5)
 )
 
 #0.updateSequential:Execute(
@@ -891,6 +930,9 @@ LevelOption:2
 LevelTransform:3
 LevelBackground:4
 LevelUI:5
+LevelBucket:6
+LevelScore:7
+LevelLife:8
 
 EntityInfoArray:10
 EntityDataArray:11
@@ -901,6 +943,8 @@ EntityMemory:21
 EntityData:22
 EntityInput:23
 EntitySharedMemory:24
+
+ArchetypeLife:30
 
 TemporaryMemory:100
 TemporaryData:101
@@ -1001,6 +1045,8 @@ UIComboAlpha:Get(LevelOption *UIComboAlpha)
 *UIComboText:33
 *UIScoreBar:44
 *UIScoreValue:55
+*UILifeBar:66
+*UILifeValue:77
 
 *UIAnchorX:0
 *UIAnchorY:1
@@ -1013,6 +1059,42 @@ UIComboAlpha:Get(LevelOption *UIComboAlpha)
 *UIHorizontalAlign:8
 *UIVerticalAlign:9
 *UIBackground:10
+
+
+
+// Level Score Layout
+
+*PerfectScoreMultiplier:0
+*GreatScoreMultiplier:1
+*GoodScoreMultiplier:2
+
+*ConsecutivePerfectScore:3
+*ConsecutiveGreatScore:6
+*ConsecutiveGoodScore:9
+
+*ConsecutiveScoreMultiplier:0
+*ConsecutiveScoreStep:1
+*ConsecutiveScoreCap:2
+
+
+
+// Level Life Layout
+
+*ConsecutivePerfectLife:0
+*ConsecutiveGreatLife:2
+*ConsecutiveGoodLife:4
+
+*ConsecutiveLifeIncrement:0
+*ConsecutiveLifeStep:1
+
+
+
+// Archetype Life Layout
+
+*PerfectLifeIncrement:0
+*GreatLifeIncrement:1
+*GoodLifeIncrement:2
+*MissLifeIncrement:3
 
 
 
