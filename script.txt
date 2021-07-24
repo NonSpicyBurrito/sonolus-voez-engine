@@ -238,8 +238,6 @@ Transition:SwitchInteger(
     Set(LevelMemory *EffectWidth Multiply(LaneSizeMultiplier 7))
     Set(LevelMemory *IndicatorWidth Multiply(LaneSizeMultiplier NoteSize))
     Set(LevelMemory *NoteScreenTime Subtract(1.65 Multiply(0.15 NoteSpeed)))
-    Set(LevelMemory *NoteTimeOffset Divide(LevelAudioOffset 1000))
-    Set(LevelMemory *InputOffset Add(DeviceInputOffset Divide(LevelInputOffset 1000)))
 
     true
 )
@@ -963,11 +961,9 @@ TemporaryData:101
 *EffectWidth:7
 *IndicatorWidth:8
 *NoteScreenTime:9
-*NoteTimeOffset:10
-*InputOffset:11
-*AnyTouchDown:12
-*AnyTouchEnded:13
-*AnyTouchET:14
+*AnyTouchDown:10
+*AnyTouchEnded:11
+*AnyTouchET:12
 
 StageX1:Get(LevelMemory *StageX1)
 StageX2:Get(LevelMemory *StageX2)
@@ -979,8 +975,6 @@ NoteWidth:Get(LevelMemory *NoteWidth)
 EffectWidth:Get(LevelMemory *EffectWidth)
 IndicatorWidth:Get(LevelMemory *IndicatorWidth)
 NoteScreenTime:Get(LevelMemory *NoteScreenTime)
-NoteTimeOffset:Get(LevelMemory *NoteTimeOffset)
-InputOffset:Get(LevelMemory *InputOffset)
 AnyTouchDown:Get(LevelMemory *AnyTouchDown)
 AnyTouchEnded:Get(LevelMemory *AnyTouchEnded)
 AnyTouchET:Get(LevelMemory *AnyTouchET)
@@ -992,37 +986,33 @@ AnyTouchET:Get(LevelMemory *AnyTouchET)
 *Time:0
 *DeltaTime:1
 *AspectRatio:2
-*DeviceAudioOffset:3
-*DeviceInputOffset:4
+*AudioOffset:3
+*InputOffset:4
 
 Time:Get(LevelData *Time)
 DeltaTime:Get(LevelData *DeltaTime)
 AspectRatio:Get(LevelData *AspectRatio)
-DeviceAudioOffset:Get(LevelData *DeviceAudioOffset)
-DeviceInputOffset:Get(LevelData *DeviceInputOffset)
+AudioOffset:Get(LevelData *AudioOffset)
+InputOffset:Get(LevelData *InputOffset)
 
 
 
 // Level Option Layout
 
 *Auto:0
-*LevelAudioOffset:1
-*LevelInputOffset:2
-*Speed:3
-*NoteSpeed:4
-*NoteSize:5
-*StageCover:6
-*SoundEffect:7
-*NoteEffect:8
-*LaneEffect:9
-*UIJudgmentSize:10
-*UIJudgmentAlpha:11
-*UIComboSize:12
-*UIComboAlpha:12
+*Speed:1
+*NoteSpeed:2
+*NoteSize:3
+*StageCover:4
+*SoundEffect:5
+*NoteEffect:6
+*LaneEffect:7
+*UIJudgmentSize:8
+*UIJudgmentAlpha:9
+*UIComboSize:10
+*UIComboAlpha:11
 
 Auto:Get(LevelOption *Auto)
-LevelAudioOffset:Get(LevelOption *LevelAudioOffset)
-LevelInputOffset:Get(LevelOption *LevelInputOffset)
 Speed:Get(LevelOption *Speed)
 NoteSpeed:Get(LevelOption *NoteSpeed)
 NoteSize:Get(LevelOption *NoteSize)
@@ -1040,13 +1030,13 @@ UIComboAlpha:Get(LevelOption *UIComboAlpha)
 // Level UI Layout
 
 *UIMenu:0
-*UIJudgment:11
-*UIComboValue:22
-*UIComboText:33
-*UIScoreBar:44
-*UIScoreValue:55
-*UILifeBar:66
-*UILifeValue:77
+*UIJudgment:10
+*UIComboValue:20
+*UIComboText:30
+*UIScoreBar:40
+*UIScoreValue:50
+*UILifeBar:60
+*UILifeValue:70
 
 *UIAnchorX:0
 *UIAnchorY:1
@@ -1057,8 +1047,7 @@ UIComboAlpha:Get(LevelOption *UIComboAlpha)
 *UIRotation:6
 *UIAlpha:7
 *UIHorizontalAlign:8
-*UIVerticalAlign:9
-*UIBackground:10
+*UIBackground:9
 
 
 
@@ -1196,7 +1185,7 @@ LaneAnimationScale:Get(EntityMemory *LaneAnimationScale)
 
 *LaneSpawnTime:0
 
-LaneSpawnTime:Divide(Add(Get(EntityData *LaneSpawnTime) NoteTimeOffset) Speed)
+LaneSpawnTime:Divide(Get(EntityData *LaneSpawnTime) Speed)
 
 
 // #3 Shared Memory Layout
@@ -1265,13 +1254,13 @@ LaneIndex:Get(EntityData *LaneIndex)
 *LaneInitializeSize:4
 *LaneInitializeAnimation:5
 
-LaneInitializeStartTime:Divide(Add(Get(EntityData *LaneInitializeStartTime) NoteTimeOffset) Speed)
-LaneInitializeEndTime:Divide(Add(Get(EntityData *LaneInitializeEndTime) NoteTimeOffset) Speed)
+LaneInitializeStartTime:Divide(Get(EntityData *LaneInitializeStartTime) Speed)
+LaneInitializeEndTime:Divide(Get(EntityData *LaneInitializeEndTime) Speed)
 LaneInitializeX:Get(EntityData *LaneInitializeX)
 LaneInitializeSize:Get(EntityData *LaneInitializeSize)
 LaneInitializeAnimation:Get(EntityData *LaneInitializeAnimation)
 
-LaneInitializeSpawnTimeEarliest:Subtract(Divide(Add(Get(EntityData *LaneInitializeStartTime) NoteTimeOffset) 1.5) 1.5)
+LaneInitializeSpawnTimeEarliest:Subtract(Divide(Get(EntityData *LaneInitializeStartTime) 1.5) 1.5)
 
 
 
@@ -1282,8 +1271,8 @@ LaneInitializeSpawnTimeEarliest:Subtract(Divide(Add(Get(EntityData *LaneInitiali
 *LaneMoveX:3
 *LaneMoveTransition:4
 
-LaneMoveStartTime:Divide(Add(Get(EntityData *LaneMoveStartTime) NoteTimeOffset) Speed)
-LaneMoveEndTime:Divide(Add(Get(EntityData *LaneMoveEndTime) NoteTimeOffset) Speed)
+LaneMoveStartTime:Divide(Get(EntityData *LaneMoveStartTime) Speed)
+LaneMoveEndTime:Divide(Get(EntityData *LaneMoveEndTime) Speed)
 LaneMoveX:Get(EntityData *LaneMoveX)
 LaneMoveTransition:Get(EntityData *LaneMoveTransition)
 
@@ -1296,8 +1285,8 @@ LaneMoveTransition:Get(EntityData *LaneMoveTransition)
 *LaneScaleSize:3
 *LaneScaleTransition:4
 
-LaneScaleStartTime:Divide(Add(Get(EntityData *LaneScaleStartTime) NoteTimeOffset) Speed)
-LaneScaleEndTime:Divide(Add(Get(EntityData *LaneScaleEndTime) NoteTimeOffset) Speed)
+LaneScaleStartTime:Divide(Get(EntityData *LaneScaleStartTime) Speed)
+LaneScaleEndTime:Divide(Get(EntityData *LaneScaleEndTime) Speed)
 LaneScaleSize:Get(EntityData *LaneScaleSize)
 LaneScaleTransition:Get(EntityData *LaneScaleTransition)
 
@@ -1334,7 +1323,7 @@ NoteLaneSharedMemoryST:GetShifted(EntitySharedMemoryArray NoteLaneSharedMemoryOf
 *NoteEffectCB:7
 
 NoteLaneIndex:Get(EntityData *NoteLaneIndex)
-NoteStartTime:Divide(Add(Get(EntityData *NoteStartTime) NoteTimeOffset) Speed)
+NoteStartTime:Divide(Get(EntityData *NoteStartTime) Speed)
 NoteData1:Get(EntityData *NoteData1)
 NoteData2:Get(EntityData *NoteData2)
 NoteBucket:Get(EntityData *NoteBucket)
@@ -1342,8 +1331,8 @@ NoteTexture:Get(EntityData *NoteTexture)
 NoteEffectCF:Get(EntityData *NoteEffectCF)
 NoteEffectCB:Get(EntityData *NoteEffectCB)
 
-NoteSpawnTimeEarliest:Subtract(Divide(Add(Get(EntityData *NoteStartTime) NoteTimeOffset) 1.5) 1.5)
-NoteTailTime:Divide(Add(Get(EntityData *NoteData2) NoteTimeOffset) Speed)
+NoteSpawnTimeEarliest:Subtract(Divide(Get(EntityData *NoteStartTime) 1.5) 1.5)
+NoteTailTime:Divide(Get(EntityData *NoteData2) Speed)
 
 
 // Note Class Shared Memory Layout
@@ -1409,7 +1398,7 @@ IndicatorY:Get(EntityMemory *IndicatorY)
 *IndicatorToTime:4
 *IndicatorTransition:5
 
-IndicatorStartTime:Divide(Add(Get(EntityData *IndicatorStartTime) NoteTimeOffset) Speed)
+IndicatorStartTime:Divide(Get(EntityData *IndicatorStartTime) Speed)
 IndicatorStartTimeRaw:Get(EntityData *IndicatorStartTime)
 IndicatorFromX:Get(EntityData *IndicatorFromX)
 IndicatorToX:Get(EntityData *IndicatorToX)
@@ -1417,4 +1406,4 @@ IndicatorFromTime:Get(EntityData *IndicatorFromTime)
 IndicatorToTime:Get(EntityData *IndicatorToTime)
 IndicatorTransition:Get(EntityData *IndicatorTransition)
 
-IndicatorSpawnTimeEarliest:Subtract(Divide(Add(Get(EntityData *IndicatorStartTime) NoteTimeOffset) 1.5) 1.5)
+IndicatorSpawnTimeEarliest:Subtract(Divide(Get(EntityData *IndicatorStartTime) 1.5) 1.5)
