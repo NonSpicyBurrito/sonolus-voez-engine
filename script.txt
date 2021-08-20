@@ -487,6 +487,11 @@ Transition:SwitchInteger(
 
 // #6: Tap Note
 
+#6.preprocess:Or(
+    Auto
+    Set(EntityInput *Accuracy GoodWindow)
+)
+
 #6.shouldSpawn:GreaterOr(Time NoteSpawnTimeEarliest)
 
 #6.initialize:Execute(
@@ -507,8 +512,9 @@ Transition:SwitchInteger(
             Set(EntityMemory *InputState Terminated)
             Set(EntitySharedMemory *InputSuccess true)
             Set(EntityInput *Judgment JudgeSimple(Subtract(TempTouchST InputOffset) NoteStartTime PerfectWindow GreatWindow GoodWindow))
+            Set(EntityInput *Accuracy Subtract(TempTouchST InputOffset NoteStartTime))
             Set(EntityInput *Bucket NoteBucket)
-            Set(EntityInput *BucketValue Multiply(1000 Subtract(TempTouchST InputOffset NoteStartTime)))
+            Set(EntityInput *BucketValue Multiply(1000 Accuracy))
             PlayNoteEffect
             PlayJudgmentSound
         )
@@ -538,6 +544,11 @@ Transition:SwitchInteger(
 
 
 // #7: Hold Note
+
+#7.preprocess:Or(
+    Auto
+    Set(EntityInput *Accuracy GoodWindow)
+)
 
 #7.shouldSpawn:GreaterOr(Time NoteSpawnTimeEarliest)
 
@@ -577,8 +588,9 @@ Transition:SwitchInteger(
                     Not(AnyTouchDown)
                     Execute(
                         Set(EntityInput *Judgment JudgeSimple(Subtract(AnyTouchET InputOffset) NoteTailTime PerfectWindow GreatWindow GoodWindow))
+                        Set(EntityInput *Accuracy Subtract(AnyTouchET InputOffset NoteTailTime))
                         Set(EntityInput *Bucket NoteBucket)
-                        Set(EntityInput *BucketValue Multiply(1000 Subtract(AnyTouchET InputOffset NoteTailTime)))
+                        Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
                         PlayJudgmentSound
                         true
@@ -588,7 +600,9 @@ Transition:SwitchInteger(
                     Greater(Subtract(Time InputOffset) NoteTailTime)
                     Execute(
                         Set(EntityInput *Judgment JudgmentPerfect)
+                        Set(EntityInput *Accuracy 0)
                         Set(EntityInput *Bucket NoteBucket)
+                        Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
                         PlayJudgmentSound
                         true
@@ -647,6 +661,11 @@ Transition:SwitchInteger(
 
 // #8: Slide Note
 
+#8.preprocess:Or(
+    Auto
+    Set(EntityInput *Accuracy GoodWindow)
+)
+
 #8.shouldSpawn:GreaterOr(Time NoteSpawnTimeEarliest)
 
 #8.initialize:Execute(
@@ -683,8 +702,9 @@ Transition:SwitchInteger(
             InputState
             Execute(
                 Set(EntityInput *Judgment JudgeSimple(SlideActivationTime NoteStartTime PerfectWindow GreatWindow GoodWindow))
+                Set(EntityInput *Accuracy Max(0 Subtract(SlideActivationTime NoteStartTime)))
                 Set(EntityInput *Bucket NoteBucket)
-                Set(EntityInput *BucketValue Multiply(1000 Max(0 Subtract(SlideActivationTime NoteStartTime))))
+                Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                 PlayNoteEffect
                 PlayJudgmentSound
                 true
@@ -700,6 +720,11 @@ Transition:SwitchInteger(
 
 
 // #9: Swipe Note
+
+#9.preprocess:Or(
+    Auto
+    Set(EntityInput *Accuracy GoodWindow)
+)
 
 #9.shouldSpawn:GreaterOr(Time NoteSpawnTimeEarliest)
 
@@ -740,8 +765,9 @@ Transition:SwitchInteger(
                     Execute(
                         Set(EntityMemory *InputState Terminated)
                         Set(EntityInput *Judgment JudgeSimple(Subtract(Time InputOffset) NoteStartTime PerfectWindow GreatWindow GoodWindow))
+                        Set(EntityInput *Accuracy Subtract(Time InputOffset NoteStartTime))
                         Set(EntityInput *Bucket NoteBucket)
-                        Set(EntityInput *BucketValue Multiply(1000 Subtract(Time InputOffset NoteStartTime)))
+                        Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
                         PlayFlickSound
                     )
@@ -1102,10 +1128,12 @@ State:Get(EntityInfo *State)
 // Entity Input Layout
 
 *Judgment:0
-*Bucket:1
-*BucketValue:2
+*Accuracy:1
+*Bucket:2
+*BucketValue:3
 
 Judgment:Get(EntityInput *Judgment)
+Accuracy:Get(EntityInput *Accuracy)
 Bucket:Get(EntityInput *Bucket)
 BucketValue:Get(EntityInput *BucketValue)
 

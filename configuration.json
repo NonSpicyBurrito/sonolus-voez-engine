@@ -1,0 +1,114 @@
+{
+    "options": [
+        {
+            "name": "#AUTO",
+            "scope": "VOEZ",
+            "standard": true,
+            "type": "toggle",
+            "def": 0
+        },
+        {
+            "name": "#SPEED",
+            "standard": true,
+            "type": "slider",
+            "def": 1,
+            "min": 0.5,
+            "max": 1.5,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#NOTE_SPEED",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 5,
+            "min": 1,
+            "max": 10,
+            "step": 0.1,
+            "display": "number"
+        },
+        {
+            "name": "#NOTE_SIZE",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 1,
+            "min": 0.1,
+            "max": 2,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#STAGE_COVER_VERTICAL",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 0,
+            "min": 0,
+            "max": 1,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#EFFECT",
+            "scope": "VOEZ",
+            "type": "toggle",
+            "def": 1
+        },
+        {
+            "name": "#NOTE_EFFECT",
+            "scope": "VOEZ",
+            "type": "toggle",
+            "def": 1
+        },
+        {
+            "name": "#LANE_EFFECT",
+            "scope": "VOEZ",
+            "type": "toggle",
+            "def": 1
+        },
+        {
+            "name": "#UI_JUDGMENT_SIZE",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 1,
+            "min": 0.1,
+            "max": 2,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#UI_JUDGMENT_ALPHA",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 1,
+            "min": 0,
+            "max": 1,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#UI_COMBO_SIZE",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 1,
+            "min": 0.1,
+            "max": 2,
+            "step": 0.05,
+            "display": "percentage"
+        },
+        {
+            "name": "#UI_COMBO_ALPHA",
+            "scope": "VOEZ",
+            "type": "slider",
+            "def": 1,
+            "min": 0,
+            "max": 1,
+            "step": 0.05,
+            "display": "percentage"
+        }
+    ],
+    "ui": {
+        "scope": "VOEZ",
+        "primaryMetric": "arcade",
+        "secondaryMetric": "life"
+    }
+}
