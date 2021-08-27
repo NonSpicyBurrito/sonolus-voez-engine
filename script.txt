@@ -42,7 +42,7 @@ InitAutoFlick:And(
     Execute(
         And(
             SoundEffect
-            PlayScheduled(EffectFlick NoteStartTime MinEffectTime)
+            PlayScheduled(EffectPerfectAlternative NoteStartTime MinEffectTime)
         )
         Set(EntityInput *Judgment JudgmentPerfect)
         Set(EntityInput *Bucket NoteBucket)
@@ -76,13 +76,13 @@ PlayNoteEffect:And(
     )
 )
 
-PlayJudgmentSound:And(
+PlayTapJudgmentSound:And(
     SoundEffect
-    Play(Judgment MinEffectTime)
+    Play(Add(EffectMiss Judgment) MinEffectTime)
 )
-PlayFlickSound:And(
+PlayFlickJudgmentSound:And(
     SoundEffect
-    Play(EffectFlick MinEffectTime)
+    Play(Add(EffectMissAlternative Judgment) MinEffectTime)
 )
 
 
@@ -516,7 +516,7 @@ Transition:SwitchInteger(
             Set(EntityInput *Bucket NoteBucket)
             Set(EntityInput *BucketValue Multiply(1000 Accuracy))
             PlayNoteEffect
-            PlayJudgmentSound
+            PlayTapJudgmentSound
         )
     )
 )
@@ -592,7 +592,7 @@ Transition:SwitchInteger(
                         Set(EntityInput *Bucket NoteBucket)
                         Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
-                        PlayJudgmentSound
+                        PlayTapJudgmentSound
                         true
                     )
                 )
@@ -604,7 +604,7 @@ Transition:SwitchInteger(
                         Set(EntityInput *Bucket NoteBucket)
                         Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
-                        PlayJudgmentSound
+                        PlayTapJudgmentSound
                         true
                     )
                 )
@@ -706,7 +706,7 @@ Transition:SwitchInteger(
                 Set(EntityInput *Bucket NoteBucket)
                 Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                 PlayNoteEffect
-                PlayJudgmentSound
+                PlayTapJudgmentSound
                 true
             )
         )
@@ -769,7 +769,7 @@ Transition:SwitchInteger(
                         Set(EntityInput *Bucket NoteBucket)
                         Set(EntityInput *BucketValue Multiply(1000 Accuracy))
                         PlayNoteEffect
-                        PlayFlickSound
+                        PlayFlickJudgmentSound
                     )
                 )
                 And(
@@ -935,8 +935,13 @@ EffectMiss:0
 EffectPerfect:1
 EffectGreat:2
 EffectGood:3
-EffectFlick:4
-EffectEmpty:5
+
+EffectMissAlternative:1000
+EffectPerfectAlternative:1001
+EffectGreatAlternative:1002
+EffectGoodAlternative:1003
+
+EffectStage:10000
 
 
 
