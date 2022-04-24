@@ -257,17 +257,20 @@ Transition:SwitchInteger(
 
 #1.touch:Or(
     Auto
-    If(
-        TempTouchEnded
+    Execute(
         If(
-            AnyTouchEnded
-            Set(LevelMemory *AnyTouchET Max(AnyTouchET TempTouchT))
-            Execute(
-                Set(LevelMemory *AnyTouchEnded true)
-                Set(LevelMemory *AnyTouchET TempTouchT)
+            TempTouchEnded
+            If(
+                AnyTouchEnded
+                Set(LevelMemory *AnyTouchET Max(AnyTouchET TempTouchT))
+                Execute(
+                    Set(LevelMemory *AnyTouchEnded true)
+                    Set(LevelMemory *AnyTouchET TempTouchT)
+                )
             )
+            Set(LevelMemory *AnyTouchDown true)
         )
-        Set(LevelMemory *AnyTouchDown true)
+        Set(LevelMemory *TouchOccupied false)
     )
 )
 
@@ -505,10 +508,10 @@ Transition:SwitchInteger(
         Not(InputState)
         IsNoteInGoodWindow
         TempTouchStarted
-        Not(TempTouchOccupied)
+        Not(TouchOccupied)
         LessOr(Abs(Subtract(TempTouchX NoteLaneSharedMemoryX)) NoteLaneSharedMemorySize)
         Execute(
-            Set(TemporaryMemory *TempTouchOccupied true)
+            Set(LevelMemory *TouchOccupied true)
             Set(EntityMemory *InputState Terminated)
             Set(EntitySharedMemory *InputSuccess true)
             Set(EntityInput *Judgment JudgeSimple(Subtract(TempTouchST InputOffset) NoteStartTime PerfectWindow GreatWindow GoodWindow))
@@ -740,10 +743,10 @@ Transition:SwitchInteger(
             Not(InputState)
             IsNoteInGoodWindow
             TempTouchStarted
-            Not(TempTouchOccupied)
+            Not(TouchOccupied)
             LessOr(Abs(Subtract(TempTouchX NoteLaneSharedMemoryX)) NoteLaneSharedMemorySize)
             Execute(
-                Set(TemporaryMemory *TempTouchOccupied true)
+                Set(LevelMemory *TouchOccupied true)
                 Set(EntityMemory *InputState Activated)
                 Set(EntityMemory *InputTouchID TempTouchID)
             )
@@ -753,7 +756,7 @@ Transition:SwitchInteger(
             NotEqual(InputState Terminated)
             Equal(TempTouchID InputTouchID)
             Execute(
-                Set(TemporaryMemory *TempTouchOccupied true)
+                Set(LevelMemory *TouchOccupied true)
                 And(
                     IsNoteInGoodWindow
                     GreaterOr(TempTouchVR MinVR)
@@ -995,6 +998,7 @@ TemporaryData:101
 *AnyTouchDown:10
 *AnyTouchEnded:11
 *AnyTouchET:12
+*TouchOccupied:13
 
 StageX1:Get(LevelMemory *StageX1)
 StageX2:Get(LevelMemory *StageX2)
@@ -1009,6 +1013,7 @@ NoteScreenTime:Get(LevelMemory *NoteScreenTime)
 AnyTouchDown:Get(LevelMemory *AnyTouchDown)
 AnyTouchEnded:Get(LevelMemory *AnyTouchEnded)
 AnyTouchET:Get(LevelMemory *AnyTouchET)
+TouchOccupied:Get(LevelMemory *TouchOccupied)
 
 
 
@@ -1141,14 +1146,6 @@ Judgment:Get(EntityInput *Judgment)
 Accuracy:Get(EntityInput *Accuracy)
 Bucket:Get(EntityInput *Bucket)
 BucketValue:Get(EntityInput *BucketValue)
-
-
-
-// Touch Temporary Memory Layout
-
-*TempTouchOccupied:0
-
-TempTouchOccupied:Get(TemporaryMemory *TempTouchOccupied)
 
 
 
