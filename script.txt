@@ -178,12 +178,12 @@ Transition:SwitchInteger(
     SetShifted(LevelUI *UIScoreBar *UIHorizontalAlign -1)
     SetShifted(LevelUI *UIScoreBar *UIBackground true)
 
-    SetShifted(LevelUI *UIScoreValue *UIAnchorX Subtract(AspectRatio 0.075))
-    SetShifted(LevelUI *UIScoreValue *UIAnchorY 0.925)
+    SetShifted(LevelUI *UIScoreValue *UIAnchorX Subtract(AspectRatio 0.085))
+    SetShifted(LevelUI *UIScoreValue *UIAnchorY 0.915)
     SetShifted(LevelUI *UIScoreValue *UIPivotX 1)
     SetShifted(LevelUI *UIScoreValue *UIPivotY 1)
-    SetShifted(LevelUI *UIScoreValue *UIWidth 0.575)
-    SetShifted(LevelUI *UIScoreValue *UIHeight 0.1)
+    SetShifted(LevelUI *UIScoreValue *UIWidth 0)
+    SetShifted(LevelUI *UIScoreValue *UIHeight 0.08)
     SetShifted(LevelUI *UIScoreValue *UIAlpha 1)
     SetShifted(LevelUI *UIScoreValue *UIHorizontalAlign 1)
 
