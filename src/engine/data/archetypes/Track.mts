@@ -202,6 +202,7 @@ export class Track extends Archetype {
     }
 
     drawTrackGlow(w: number, h: number) {
+        if (!options.laneEffectEnabled) return
         if (!this.sharedMemory.isActive) return
 
         const l = this.sharedMemory.x - w
