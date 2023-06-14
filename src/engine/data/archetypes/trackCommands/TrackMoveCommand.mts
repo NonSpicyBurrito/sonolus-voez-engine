@@ -12,6 +12,6 @@ export class TrackMoveCommand extends TrackCommand {
     }
 
     update(value: number) {
-        this.trackSharedMemory.x = value
+        this.trackSharedMemory.x = Math.lerp(this.data.startValue, this.data.endValue, value)
     }
 }

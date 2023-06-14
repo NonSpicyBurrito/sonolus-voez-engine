@@ -55,15 +55,18 @@ export const vsToVC = (vs: VoezSource): VoezChart => {
 
     const x = (pos: number) => (pos * 2 - 1) * 7.29
     const w = (size: number) => size
+    const c = (color: number) => color
     const ease = (ease: string) => easeMap[ease] ?? 'Linear'
 
     for (const track of vs.tracks) {
         let lastX = x(track.X)
         let lastW = w(track.Size)
+        let lastC = c(track.Color)
 
         vc.tracks.push({
             x: lastX,
             w: lastW,
+            c: lastC,
             startBeat: track.Start,
             endBeat: track.End,
             animateStart: track.EntranceOn,
@@ -84,6 +87,19 @@ export const vsToVC = (vs: VoezSource): VoezChart => {
                 const startValue = lastW
                 const endValue = w(command.To)
                 lastW = endValue
+
+                return {
+                    startBeat: command.Start,
+                    startValue,
+                    endBeat: command.End,
+                    endValue,
+                    ease: ease(command.Ease),
+                }
+            }),
+            colorCommands: track.ColorChange.map((command) => {
+                const startValue = lastC
+                const endValue = c(command.To)
+                lastC = endValue
 
                 return {
                     startBeat: command.Start,

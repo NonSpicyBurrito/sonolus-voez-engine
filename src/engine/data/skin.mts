@@ -4,7 +4,16 @@ export const skin = defineSkin({
     sprites: {
         judgmentLine: SkinSpriteName.JudgmentLine,
 
-        trackBody: 'VOEZ Track Body',
+        trackBody0: 'VOEZ Track Body 0',
+        trackBody1: 'VOEZ Track Body 1',
+        trackBody2: 'VOEZ Track Body 2',
+        trackBody3: 'VOEZ Track Body 3',
+        trackBody4: 'VOEZ Track Body 4',
+        trackBody5: 'VOEZ Track Body 5',
+        trackBody6: 'VOEZ Track Body 6',
+        trackBody7: 'VOEZ Track Body 7',
+        trackBody8: 'VOEZ Track Body 8',
+        trackBody9: 'VOEZ Track Body 9',
         trackLine: 'VOEZ Track Line',
         trackLeftBorder: 'VOEZ Track Left Border',
         trackRightBorder: 'VOEZ Track Right Border',

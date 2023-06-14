@@ -3,12 +3,26 @@ import { skin } from '../skin.mjs'
 import { note } from './constants.mjs'
 import { layer } from './layer.mjs'
 import { scaledScreen } from './shared.mjs'
-import { getZ } from './utils.mjs'
+import { getZ, setColor } from './utils.mjs'
+
+const colorSprites = [
+    skin.sprites.trackBody0,
+    skin.sprites.trackBody1,
+    skin.sprites.trackBody2,
+    skin.sprites.trackBody3,
+    skin.sprites.trackBody4,
+    skin.sprites.trackBody5,
+    skin.sprites.trackBody6,
+    skin.sprites.trackBody7,
+    skin.sprites.trackBody8,
+    skin.sprites.trackBody9,
+]
 
 export class Track extends Archetype {
     data = this.defineData({
         x: { name: 'x', type: Number },
         w: { name: 'w', type: Number },
+        c: { name: 'c', type: Number },
         startBeat: { name: 'startBeat', type: Number },
         endBeat: { name: 'endBeat', type: Number },
         animateStart: { name: 'animateStart', type: Boolean },
@@ -17,6 +31,7 @@ export class Track extends Archetype {
     sharedMemory = this.defineSharedMemory({
         x: Number,
         w: Number,
+        c: colorSprites.map(() => Number),
         hitbox: {
             l: Number,
             r: Number,
@@ -44,6 +59,7 @@ export class Track extends Archetype {
 
         this.sharedMemory.x = this.data.x
         this.sharedMemory.w = this.data.w
+        setColor(this.sharedMemory.c, this.data.c, 1)
 
         this.times.start = bpmChanges.at(this.data.startBeat).time
     }
@@ -107,7 +123,7 @@ export class Track extends Archetype {
 
     get useFallbackTrack() {
         return (
-            !skin.sprites.trackBody ||
+            !colorSprites.every((sprite) => sprite.exists) ||
             !skin.sprites.trackLine ||
             !skin.sprites.trackLeftBorder ||
             !skin.sprites.trackRightBorder
@@ -160,7 +176,12 @@ export class Track extends Archetype {
             b: 0,
         }).translate(0, 1)
 
-        skin.sprites.trackBody.draw(bodyLayout, this.zs.body, 1)
+        for (const [i, sprite] of colorSprites.entries()) {
+            const a = this.sharedMemory.c[i]
+            if (a <= 0) continue
+
+            sprite.draw(bodyLayout, this.zs.body, a)
+        }
 
         const lineLayout = new Rect({
             l: -4 / 128,

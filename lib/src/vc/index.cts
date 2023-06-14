@@ -12,11 +12,13 @@ export type Bpm = {
 export type Track = {
     x: number
     w: number
+    c: number
     startBeat: number
     endBeat: number
     animateStart: boolean
     moveCommands: TrackCommand[]
     scaleCommands: TrackCommand[]
+    colorCommands: TrackCommand[]
     notes: Note[]
 }
 

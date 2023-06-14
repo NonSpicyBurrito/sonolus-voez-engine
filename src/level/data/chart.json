@@ -39,6 +39,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 2
                 },
@@ -459,6 +463,325 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 9.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 10
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 10
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 11
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 11
+                },
+                {
+                    "name": "endValue",
+                    "value": 9
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12
+                },
+                {
+                    "name": "startValue",
+                    "value": 9
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 13
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 13
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 14
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 14
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 15
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 15
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "0"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 29.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 29.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -560,6 +883,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -1127,6 +1454,354 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 6.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 9.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 10
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 10
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 11
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 11
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 13
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 13
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 15
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 15
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 28
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 28
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 29.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 31.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "1"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -1449,6 +2124,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -1929,6 +2608,383 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 3.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 4
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 6.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 9.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 10
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 10
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 11
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 11
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 13
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 13
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 14
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 14
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 15
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 15
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "2"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 28
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 28
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -2134,6 +3190,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -2498,6 +3558,383 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 3.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 4
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 6.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 9.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 10
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 10
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 11
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 11
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 13
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 13
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 14
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 14
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 15
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 15
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "3"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 28
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 28
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -2638,6 +4075,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -3089,6 +4530,412 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 3.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 4
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 6.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 6.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 9.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 10
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 10
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 11
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 11
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 12.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 13
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 13
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 14
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 14
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 15
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 15
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 16.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 24.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 28
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 28
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "4"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 29.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 29.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -3281,6 +5128,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -3483,6 +5334,10 @@
                     "value": 1.2
                 },
                 {
+                    "name": "c",
+                    "value": 5
+                },
+                {
                     "name": "startBeat",
                     "value": 32.75
                 },
@@ -3518,6 +5373,64 @@
                 {
                     "name": "endValue",
                     "value": 7.29
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "6"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "6"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 39.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 40
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
                 },
                 {
                     "name": "ease",
@@ -3694,6 +5607,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 33
                 },
@@ -3766,6 +5683,64 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "7"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "7"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 39.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 40
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "8",
             "archetype": "Track",
             "data": [
@@ -3776,6 +5751,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 5
                 },
                 {
                     "name": "startBeat",
@@ -3821,6 +5800,64 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "8"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "8"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 39.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 40
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "9",
             "archetype": "Track",
             "data": [
@@ -3831,6 +5868,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -3905,6 +5946,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "9"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 36.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "10",
             "archetype": "Track",
             "data": [
@@ -3915,6 +5985,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -3943,6 +6017,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 42.5625
                 },
@@ -3967,6 +6045,10 @@
                 {
                     "name": "w",
                     "value": 1.4
+                },
+                {
+                    "name": "c",
+                    "value": 7
                 },
                 {
                     "name": "startBeat",
@@ -3995,6 +6077,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 42.6875
                 },
@@ -4021,6 +6107,10 @@
                     "value": 2
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 42.75
                 },
@@ -4045,6 +6135,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -4102,6 +6196,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 43.375
                 },
@@ -4145,6 +6243,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "16"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 44
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 44
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -4168,6 +6295,10 @@
                 {
                     "name": "w",
                     "value": 1.4
+                },
+                {
+                    "name": "c",
+                    "value": 7
                 },
                 {
                     "name": "startBeat",
@@ -4474,6 +6605,122 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "17"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 44
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 44
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "17"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 45.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 45.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "17"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 47
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 47.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "17"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 50
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 50
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "18",
             "archetype": "Track",
             "data": [
@@ -4484,6 +6731,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -4935,6 +7186,122 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "18"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 44
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 44
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "18"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 47
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 47.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "18"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 50
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 50
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "18"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 53.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 53.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -5102,6 +7469,10 @@
                     "value": 2
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 43.5625
                 },
@@ -5145,6 +7516,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "23"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 44
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 44
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "24",
             "archetype": "Track",
             "data": [
@@ -5155,6 +7555,10 @@
                 {
                     "name": "w",
                     "value": 2
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -5181,6 +7585,10 @@
                 {
                     "name": "w",
                     "value": 3
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -5363,6 +7771,151 @@
                 {
                     "name": "endValue",
                     "value": 1.3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "25"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 52.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 53.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "25"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 58
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 58
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "25"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 59.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 59.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "25"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 60.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 60.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "25"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
                 },
                 {
                     "name": "ease",
@@ -5564,6 +8117,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 48
                 },
@@ -5587,6 +8144,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -5643,6 +8204,10 @@
                 {
                     "name": "w",
                     "value": 1.3
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -5717,6 +8282,93 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "32"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 59.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 59.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "32"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 60.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 60.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "32"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "33",
             "archetype": "Track",
             "data": [
@@ -5727,6 +8379,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -5975,6 +8631,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "33"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 60.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 60.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "34",
             "archetype": "Track",
             "data": [
@@ -5985,6 +8670,10 @@
                 {
                     "name": "w",
                     "value": 1.2
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -6030,6 +8719,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "34"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 63.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "35",
             "archetype": "Track",
             "data": [
@@ -6040,6 +8758,10 @@
                 {
                     "name": "w",
                     "value": 1.5
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -6897,6 +9619,760 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 69.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 69.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 78.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 79.25
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 82
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 82.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 85.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 86
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 89.875
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 89.875
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 90
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 90
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 93.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 94
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 97.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 98
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 101
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 101.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 106
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 106.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 107
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 107.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 108
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 108.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 109
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 109.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 110
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 110.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 111
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 111.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 112
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 112.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 113
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 113.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 114
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 115.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 118
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 120
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 122
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 123.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 126
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 127.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 130
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 132
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 134
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 136
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 136.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 137.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 142
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 144
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "35"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 151
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 153
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "FlickNote",
             "data": [
                 {
@@ -7635,6 +11111,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 66.75
                 },
@@ -7699,6 +11179,64 @@
                 {
                     "name": "endValue",
                     "value": 1.3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "40"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 78.375
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 78.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "40"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 80
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 81.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
                 },
                 {
                     "name": "ease",
@@ -7823,6 +11361,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 66.75
                 },
@@ -7887,6 +11429,64 @@
                 {
                     "name": "endValue",
                     "value": 1.3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "41"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 78.375
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 78.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "41"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 80
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 81.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
                 },
                 {
                     "name": "ease",
@@ -7996,6 +11596,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -8265,6 +11869,93 @@
                 {
                     "name": "endValue",
                     "value": 1.3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "42"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 78
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 78.375
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "42"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 97.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 98
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "42"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 101
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 101.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
                 },
                 {
                     "name": "ease",
@@ -8892,6 +12583,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -9923,6 +13618,528 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 78
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 78.375
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 97.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 98
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 101
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 101.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 106
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 106.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 107
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 107.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 108
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 108.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 109
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 109.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 110
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 110.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 111
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 111.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 112
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 112.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 7
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 113
+                },
+                {
+                    "name": "startValue",
+                    "value": 7
+                },
+                {
+                    "name": "endBeat",
+                    "value": 113.98
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 114
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 115.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 118
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 120
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 122
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 123.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 130
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 132
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 134
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 136
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 142
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 144
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "51"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 150
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 152
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "archetype": "TapNote",
             "data": [
                 {
@@ -10734,6 +14951,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 69.5
                 },
@@ -10758,6 +14979,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -10786,6 +15011,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 69.75
                 },
@@ -10812,6 +15041,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 69.875
                 },
@@ -10836,6 +15069,10 @@
                 {
                     "name": "w",
                     "value": 2
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -11154,6 +15391,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 74
                 },
@@ -11178,6 +15419,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11206,6 +15451,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 74.75
                 },
@@ -11230,6 +15479,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11258,6 +15511,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 75.375
                 },
@@ -11282,6 +15539,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11310,6 +15571,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 76
                 },
@@ -11334,6 +15599,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11362,6 +15631,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 76.75
                 },
@@ -11386,6 +15659,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11414,6 +15691,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 77.375
                 },
@@ -11438,6 +15719,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11466,6 +15751,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 78
                 },
@@ -11490,6 +15779,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11518,6 +15811,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 78.75
                 },
@@ -11542,6 +15839,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -11570,6 +15871,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 79.375
                 },
@@ -11596,6 +15901,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 79.75
                 },
@@ -11620,6 +15929,10 @@
                 {
                     "name": "w",
                     "value": 3
+                },
+                {
+                    "name": "c",
+                    "value": 1
                 },
                 {
                     "name": "startBeat",
@@ -11677,6 +15990,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 89.5
                 },
@@ -11703,6 +16020,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 89.75
                 },
@@ -11726,6 +16047,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -11755,6 +16080,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 97.5
                 },
@@ -11778,6 +16107,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -11845,6 +16178,64 @@
                 {
                     "name": "endValue",
                     "value": 1.44
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "82"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 98
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 98.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "82"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 101
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 101.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
                 },
                 {
                     "name": "ease",
@@ -12040,6 +16431,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 97.875
                 },
@@ -12162,6 +16557,64 @@
                 {
                     "name": "endValue",
                     "value": 1.44
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "85"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 98
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 98.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "85"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 101
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 101.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
                 },
                 {
                     "name": "ease",
@@ -12468,6 +16921,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 100
                 },
@@ -12491,6 +16948,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -12520,6 +16981,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 100.125
                 },
@@ -12546,6 +17011,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 105
                 },
@@ -12569,6 +17038,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -12598,6 +17071,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 105.125
                 },
@@ -12621,6 +17098,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -12650,6 +17131,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 111.25
                 },
@@ -12674,6 +17159,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -12702,6 +17191,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 111.75
                 },
@@ -12726,6 +17219,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -12781,6 +17278,10 @@
                 {
                     "name": "w",
                     "value": 1.3
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -13162,6 +17663,209 @@
                 {
                     "name": "endBeat",
                     "value": 153
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 114.0625
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 115.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 8
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 118
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 120
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 122
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 123.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 130
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 132
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 134
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 136
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 142
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 144
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "97"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 150
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 152
                 },
                 {
                     "name": "endValue",
@@ -13573,6 +18277,10 @@
                     "value": 1.3
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 114
                 },
@@ -13977,6 +18685,267 @@
                 {
                     "name": "startValue",
                     "value": 1.3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 153
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 114.0625
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 115.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 118
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 120
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 122
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 123.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 126
+                },
+                {
+                    "name": "startValue",
+                    "value": 4
+                },
+                {
+                    "name": "endBeat",
+                    "value": 127.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 130
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 132
+                },
+                {
+                    "name": "endValue",
+                    "value": 1
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 134
+                },
+                {
+                    "name": "startValue",
+                    "value": 1
+                },
+                {
+                    "name": "endBeat",
+                    "value": 136
+                },
+                {
+                    "name": "endValue",
+                    "value": 5
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 136.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 5
+                },
+                {
+                    "name": "endBeat",
+                    "value": 137.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 142
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 144
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "106"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 151
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
                 },
                 {
                     "name": "endBeat",
@@ -14639,6 +19608,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 114
                 },
@@ -14662,6 +19635,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -14691,6 +19668,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 116
                 },
@@ -14717,6 +19698,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 116
                 },
@@ -14740,6 +19725,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -14769,6 +19758,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 116.750008
                 },
@@ -14793,6 +19786,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -14847,6 +19844,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -14905,6 +19906,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 120
                 },
@@ -14929,6 +19934,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -14957,6 +19966,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 120.75
                 },
@@ -14981,6 +19994,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 9
                 },
                 {
                     "name": "startBeat",
@@ -15009,6 +20026,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 121.5
                 },
@@ -15033,6 +20054,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -15061,6 +20086,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 121.75
                 },
@@ -15084,6 +20113,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -15111,6 +20144,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 0
                 },
                 {
                     "name": "startBeat",
@@ -15168,6 +20205,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 124
                 },
@@ -15191,6 +20232,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -15220,6 +20265,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 7
+                },
+                {
                     "name": "startBeat",
                     "value": 124.75
                 },
@@ -15244,6 +20293,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 7
                 },
                 {
                     "name": "startBeat",
@@ -15272,6 +20325,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 124.75
                 },
@@ -15298,6 +20355,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 124.75
                 },
@@ -15322,6 +20383,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 7
                 },
                 {
                     "name": "startBeat",
@@ -15379,6 +20444,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 7
+                },
+                {
                     "name": "startBeat",
                     "value": 125.75
                 },
@@ -15434,6 +20503,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 128
                 },
@@ -15460,6 +20533,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 128
                 },
@@ -15483,6 +20560,10 @@
                 },
                 {
                     "name": "w",
+                    "value": 1
+                },
+                {
+                    "name": "c",
                     "value": 1
                 },
                 {
@@ -15512,6 +20593,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 128.75
                 },
@@ -15536,6 +20621,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -15714,6 +20803,151 @@
                 {
                     "name": "endBeat",
                     "value": 153
+                },
+                {
+                    "name": "endValue",
+                    "value": 2
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "146"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 130
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 132
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "146"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 134
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 136
+                },
+                {
+                    "name": "endValue",
+                    "value": 0
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "146"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 136.5
+                },
+                {
+                    "name": "startValue",
+                    "value": 0
+                },
+                {
+                    "name": "endBeat",
+                    "value": 137.5
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "146"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 142
+                },
+                {
+                    "name": "startValue",
+                    "value": 6
+                },
+                {
+                    "name": "endBeat",
+                    "value": 144
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "146"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 148
+                },
+                {
+                    "name": "startValue",
+                    "value": 3
+                },
+                {
+                    "name": "endBeat",
+                    "value": 149
                 },
                 {
                     "name": "endValue",
@@ -16235,6 +21469,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 1
+                },
+                {
                     "name": "startBeat",
                     "value": 129.5
                 },
@@ -16259,6 +21497,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -16287,6 +21529,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 129.75
                 },
@@ -16313,6 +21559,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 5
+                },
+                {
                     "name": "startBeat",
                     "value": 129.875
                 },
@@ -16337,6 +21587,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 0
                 },
                 {
                     "name": "startBeat",
@@ -16394,6 +21648,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 130
                 },
@@ -16449,6 +21707,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 5
+                },
+                {
                     "name": "startBeat",
                     "value": 131.5
                 },
@@ -16473,6 +21735,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 5
                 },
                 {
                     "name": "startBeat",
@@ -16501,6 +21767,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 132
                 },
@@ -16525,6 +21795,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -16553,6 +21827,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 132.75
                 },
@@ -16577,6 +21855,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 9
                 },
                 {
                     "name": "startBeat",
@@ -16605,6 +21887,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 133.75
                 },
@@ -16629,6 +21915,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -16657,6 +21947,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 134
                 },
@@ -16681,6 +21975,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -16709,6 +22007,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 140
                 },
@@ -16733,6 +22035,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -16761,6 +22067,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 4
+                },
+                {
                     "name": "startBeat",
                     "value": 140
                 },
@@ -16785,6 +22095,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",
@@ -16813,6 +22127,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 140.75
                 },
@@ -16837,6 +22155,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -16865,6 +22187,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 140.75
                 },
@@ -16889,6 +22215,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 3
                 },
                 {
                     "name": "startBeat",
@@ -16917,6 +22247,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 141.75
                 },
@@ -16927,6 +22261,35 @@
                 {
                     "name": "animateStart",
                     "value": 1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "177"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 143.875
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 143.875
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
                 }
             ]
         },
@@ -16956,6 +22319,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 141.75
                 },
@@ -16966,6 +22333,35 @@
                 {
                     "name": "animateStart",
                     "value": 1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "178"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 143.875
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 143.875
+                },
+                {
+                    "name": "endValue",
+                    "value": 4
+                },
+                {
+                    "name": "ease",
+                    "value": -1
                 }
             ]
         },
@@ -17008,6 +22404,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 142
                 },
@@ -17018,6 +22418,35 @@
                 {
                     "name": "animateStart",
                     "value": 1
+                }
+            ]
+        },
+        {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "179"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 143.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 143.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
                 }
             ]
         },
@@ -17034,6 +22463,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 142
                 },
@@ -17048,6 +22481,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "180"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 143.75
+                },
+                {
+                    "name": "startValue",
+                    "value": 2
+                },
+                {
+                    "name": "endBeat",
+                    "value": 143.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 6
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "181",
             "archetype": "Track",
             "data": [
@@ -17058,6 +22520,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 2
                 },
                 {
                     "name": "startBeat",
@@ -17125,6 +22591,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 2
+                },
+                {
                     "name": "startBeat",
                     "value": 144
                 },
@@ -17177,6 +22647,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 150
                 },
@@ -17201,6 +22675,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -17229,6 +22707,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 6
+                },
+                {
                     "name": "startBeat",
                     "value": 150.5
                 },
@@ -17253,6 +22735,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 6
                 },
                 {
                     "name": "startBeat",
@@ -17281,6 +22767,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 151.25
                 },
@@ -17305,6 +22795,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 9
                 },
                 {
                     "name": "startBeat",
@@ -17333,6 +22827,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 9
+                },
+                {
                     "name": "startBeat",
                     "value": 151.75
                 },
@@ -17357,6 +22855,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -17431,6 +22933,35 @@
             ]
         },
         {
+            "archetype": "TrackColorCommand",
+            "data": [
+                {
+                    "name": "trackRef",
+                    "ref": "190"
+                },
+                {
+                    "name": "startBeat",
+                    "value": 152.25
+                },
+                {
+                    "name": "startValue",
+                    "value": 8
+                },
+                {
+                    "name": "endBeat",
+                    "value": 153.75
+                },
+                {
+                    "name": "endValue",
+                    "value": 3
+                },
+                {
+                    "name": "ease",
+                    "value": -1
+                }
+            ]
+        },
+        {
             "ref": "191",
             "archetype": "Track",
             "data": [
@@ -17441,6 +22972,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -17469,6 +23004,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 156.25
                 },
@@ -17493,6 +23032,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -17521,6 +23064,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 156.75
                 },
@@ -17545,6 +23092,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -17573,6 +23124,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 159.25
                 },
@@ -17599,6 +23154,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 8
+                },
+                {
                     "name": "startBeat",
                     "value": 159.5
                 },
@@ -17623,6 +23182,10 @@
                 {
                     "name": "w",
                     "value": 1
+                },
+                {
+                    "name": "c",
+                    "value": 8
                 },
                 {
                     "name": "startBeat",
@@ -17680,6 +23243,10 @@
                     "value": 1
                 },
                 {
+                    "name": "c",
+                    "value": 3
+                },
+                {
                     "name": "startBeat",
                     "value": 160
                 },
@@ -17735,6 +23302,10 @@
                     "value": 2
                 },
                 {
+                    "name": "c",
+                    "value": 0
+                },
+                {
                     "name": "startBeat",
                     "value": 163.75
                 },
@@ -17759,6 +23330,10 @@
                 {
                     "name": "w",
                     "value": 1.7
+                },
+                {
+                    "name": "c",
+                    "value": 9
                 },
                 {
                     "name": "startBeat",
@@ -17787,6 +23362,10 @@
                     "value": 2
                 },
                 {
+                    "name": "c",
+                    "value": 7
+                },
+                {
                     "name": "startBeat",
                     "value": 164.25
                 },
@@ -17811,6 +23390,10 @@
                 {
                     "name": "w",
                     "value": 1.7
+                },
+                {
+                    "name": "c",
+                    "value": 4
                 },
                 {
                     "name": "startBeat",

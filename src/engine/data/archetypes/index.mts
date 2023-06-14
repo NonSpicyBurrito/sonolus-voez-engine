@@ -11,6 +11,7 @@ import { TrackScaleCommand } from './trackCommands/TrackScaleCommand.mjs'
 
 import { HoldConnector } from './HoldConnector.mjs'
 import { HoldEndNote } from './notes/HoldEndNote.mjs'
+import { TrackColorCommand } from './trackCommands/TrackColorCommand.mjs'
 
 export const archetypes = defineArchetypes({
     Initialization,
@@ -21,6 +22,7 @@ export const archetypes = defineArchetypes({
     Track,
     TrackMoveCommand,
     TrackScaleCommand,
+    TrackColorCommand,
 
     TapNote,
     SlideNote,

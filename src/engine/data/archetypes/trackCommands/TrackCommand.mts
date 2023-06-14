@@ -72,14 +72,13 @@ export abstract class TrackCommand extends Archetype {
 
     updateSequential() {
         if (time.now >= this.times.end) {
-            this.update(this.data.endValue)
+            this.update(1)
 
             this.despawn = true
             return
         }
 
-        const s = Math.unlerp(this.times.start, this.times.end, time.now)
-        this.update(Math.lerp(this.data.startValue, this.data.endValue, this.ease(s)))
+        this.update(this.ease(Math.unlerp(this.times.start, this.times.end, time.now)))
     }
 
     abstract update(value: number): void

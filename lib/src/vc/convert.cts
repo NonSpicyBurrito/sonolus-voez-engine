@@ -93,6 +93,7 @@ export const vcToLevelData = (vc: VoezChart): LevelData => {
             data: {
                 x: track.x,
                 w: track.w,
+                c: track.c,
                 startBeat: track.startBeat,
                 endBeat: track.endBeat,
                 animateStart: +track.animateStart,
@@ -118,6 +119,10 @@ export const vcToLevelData = (vc: VoezChart): LevelData => {
 
         for (const command of track.scaleCommands) {
             addCommand('TrackScaleCommand', command)
+        }
+
+        for (const command of track.colorCommands) {
+            addCommand('TrackColorCommand', command)
         }
 
         for (const note of track.notes) {

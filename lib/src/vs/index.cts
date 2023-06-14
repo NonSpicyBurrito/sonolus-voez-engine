@@ -10,8 +10,10 @@ export type Track = {
     Size: number
     Start: number
     End: number
+    Color: number
     Move: TrackCommand[]
     Scale: TrackCommand[]
+    ColorChange: TrackCommand[]
 }
 
 export type TrackCommand = {
