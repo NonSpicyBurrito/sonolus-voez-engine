@@ -1,5 +1,5 @@
-import { VoezChart } from '../vc/index.cjs'
-import { VoezSource } from './index.cjs'
+import { VC } from '../vc/index.cjs'
+import { VS } from './index.cjs'
 
 const easeMap: Record<string, string | undefined> = {
     easeinsine: 'InSine',
@@ -41,8 +41,8 @@ const easeMap: Record<string, string | undefined> = {
     easeoutinelastic: 'OutInElastic',
 }
 
-export const vsToVC = (vs: VoezSource): VoezChart => {
-    const vc: VoezChart = {
+export const vsToVC = (vs: VS): VC => {
+    const vc: VC = {
         offset: 0,
         bpms: [
             {

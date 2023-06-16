@@ -1,9 +1,9 @@
-export type VoezSource = {
-    notes: Note[]
-    tracks: Track[]
+export type VS = {
+    notes: VSNote[]
+    tracks: VSTrack[]
 }
 
-export type Track = {
+export type VSTrack = {
     Id: number
     EntranceOn: boolean
     X: number
@@ -11,19 +11,19 @@ export type Track = {
     Start: number
     End: number
     Color: number
-    Move: TrackCommand[]
-    Scale: TrackCommand[]
-    ColorChange: TrackCommand[]
+    Move: VSTrackCommand[]
+    Scale: VSTrackCommand[]
+    ColorChange: VSTrackCommand[]
 }
 
-export type TrackCommand = {
+export type VSTrackCommand = {
     To: number
     Ease: string
     Start: number
     End: number
 }
 
-export type Note = {
+export type VSNote = {
     Type: 'click' | 'hold' | 'slide' | 'swipe'
     Track: number
     Time: number

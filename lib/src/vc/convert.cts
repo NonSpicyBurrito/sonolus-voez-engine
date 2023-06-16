@@ -4,7 +4,7 @@ import {
     LevelData,
     LevelDataEntity,
 } from 'sonolus-core'
-import { TrackCommand, VoezChart } from './index.cjs'
+import { VC, VCTrackCommand } from './index.cjs'
 
 const ease = [
     'InSine',
@@ -45,7 +45,7 @@ const ease = [
     'OutInElastic',
 ]
 
-export const vcToLevelData = (vc: VoezChart): LevelData => {
+export const vcToLevelData = (vc: VC): LevelData => {
     const entities: LevelDataEntity[] = [
         {
             archetype: 'Initialization',
@@ -100,7 +100,7 @@ export const vcToLevelData = (vc: VoezChart): LevelData => {
             },
         })
 
-        const addCommand = (archetype: string, command: TrackCommand) =>
+        const addCommand = (archetype: string, command: VCTrackCommand) =>
             add({
                 archetype,
                 data: {
