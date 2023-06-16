@@ -2,7 +2,9 @@ import { EngineInfo } from 'sonolus-core'
 import { Resource } from './Resource.cjs'
 
 export { vcToLevelData } from './vc/convert.cjs'
+export * from './vc/index.cjs'
 export { vsToVC } from './vs/convert.cjs'
+export * from './vs/index.cjs'
 
 export const version = '1.0.0'
 
