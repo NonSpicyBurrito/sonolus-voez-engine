@@ -1,4 +1,6 @@
 export const layer = {
+    cover: 1000,
+
     note: 100,
 
     slide: 90,

@@ -36,5 +36,7 @@ export const skin = defineSkin({
         holdStartNote: SkinSpriteName.NoteHeadRed,
         holdConnector: SkinSpriteName.NoteConnectionRed,
         holdEndNote: SkinSpriteName.NoteTailRed,
+
+        cover: SkinSpriteName.StageCover,
     },
 })

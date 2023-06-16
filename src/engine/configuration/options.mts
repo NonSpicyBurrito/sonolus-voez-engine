@@ -86,4 +86,14 @@ export const options = defineOptions({
         type: 'toggle',
         def: 1,
     },
+    stageCover: {
+        name: NameText.VerticalStageCover,
+        scope: 'VOEZ',
+        type: 'slider',
+        def: 0,
+        min: 0,
+        max: 1,
+        step: 0.05,
+        unit: UnitText.Percentage,
+    },
 })
