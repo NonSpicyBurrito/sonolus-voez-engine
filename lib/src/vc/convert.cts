@@ -45,7 +45,7 @@ const ease = [
     'OutInElastic',
 ]
 
-export const vcToLevelData = (vc: VC): LevelData => {
+export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
     const entities: LevelDataEntity[] = [
         {
             archetype: 'Initialization',
@@ -195,7 +195,7 @@ export const vcToLevelData = (vc: VC): LevelData => {
     }
 
     return {
-        bgmOffset: vc.offset,
+        bgmOffset: offset,
         entities,
     }
 }

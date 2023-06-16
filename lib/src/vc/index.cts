@@ -1,5 +1,4 @@
 export type VC = {
-    offset: number
     bpms: VCBpm[]
     tracks: VCTrack[]
 }

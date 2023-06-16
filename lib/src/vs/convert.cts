@@ -43,7 +43,6 @@ const easeMap: Record<string, string | undefined> = {
 
 export const vsToVC = (vs: VS): VC => {
     const vc: VC = {
-        offset: 0,
         bpms: [
             {
                 beat: 0,
