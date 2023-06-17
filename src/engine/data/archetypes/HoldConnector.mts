@@ -124,9 +124,11 @@ export class HoldConnector extends Archetype {
             max: Math.unlerp(visibleTime.max - Note.duration, visibleTime.max, time.now),
         }
 
+        const w = (note.h * options.noteSize) / scaledScreen.wToH
+
         const layout = new Rect({
-            l: -note.h / scaledScreen.wToH,
-            r: note.h / scaledScreen.wToH,
+            l: -w,
+            r: w,
             t: y.min,
             b: y.max,
         }).translate(this.trackSharedMemory.x, 0)
