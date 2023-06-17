@@ -38,27 +38,30 @@ export class FlickNote extends SingleNote {
     initialize() {
         super.initialize()
 
+        const h = note.h * options.noteSize
+        const w = h / scaledScreen.wToH
+
         if (this.flickData.direction === FlickDirection.Left) {
             new Quad({
-                x1: note.h / scaledScreen.wToH,
-                x2: -note.h / scaledScreen.wToH,
-                x3: -note.h / scaledScreen.wToH,
-                x4: note.h / scaledScreen.wToH,
-                y1: note.h,
-                y2: note.h,
-                y3: -note.h,
-                y4: -note.h,
+                x1: w,
+                x2: -w,
+                x3: -w,
+                x4: w,
+                y1: h,
+                y2: h,
+                y3: -h,
+                y4: -h,
             }).copyTo(this.layout)
         } else {
             new Quad({
-                x1: -note.h / scaledScreen.wToH,
-                x2: note.h / scaledScreen.wToH,
-                x3: note.h / scaledScreen.wToH,
-                x4: -note.h / scaledScreen.wToH,
-                y1: -note.h,
-                y2: -note.h,
-                y3: note.h,
-                y4: note.h,
+                x1: -w,
+                x2: w,
+                x3: w,
+                x4: -w,
+                y1: -h,
+                y2: -h,
+                y3: h,
+                y4: h,
             }).copyTo(this.layout)
         }
     }
