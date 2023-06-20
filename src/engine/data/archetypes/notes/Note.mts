@@ -91,7 +91,8 @@ export abstract class Note extends Archetype {
         if (time.now > this.inputTime.max) this.despawn = true
         if (this.despawn) return
 
-        if (this.shouldScheduleSFX && !this.hasSFXScheduled) this.scheduleSFX()
+        if (this.shouldScheduleSFX && !this.hasSFXScheduled && time.now >= this.scheduleSFXTime)
+            this.scheduleSFX()
 
         if (time.now < this.visualTime.min) return
         if (options.hidden > 0 && time.now > this.visualTime.hidden) return
