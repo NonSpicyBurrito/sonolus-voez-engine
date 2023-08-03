@@ -10,7 +10,7 @@ export const version = '1.0.2'
 
 export const engineInfo = {
     name: 'voez',
-    version: 8,
+    version: 9,
     title: {
         en: 'VOEZ',
     },
@@ -34,5 +34,5 @@ export const engineInfo = {
 } as const satisfies Partial<EngineInfo>
 
 export const engineConfiguration = new Resource('EngineConfiguration')
-export const engineData = new Resource('EngineData')
+export const enginePlayData = new Resource('EnginePlayData')
 export const engineThumbnail = new Resource('thumbnail.png')
