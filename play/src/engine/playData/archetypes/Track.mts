@@ -124,9 +124,9 @@ export class Track extends Archetype {
     get useFallbackTrack() {
         return (
             !colorSprites.every((sprite) => sprite.exists) ||
-            !skin.sprites.trackLine ||
-            !skin.sprites.trackLeftBorder ||
-            !skin.sprites.trackRightBorder
+            !skin.sprites.trackLine.exists ||
+            !skin.sprites.trackLeftBorder.exists ||
+            !skin.sprites.trackRightBorder.exists
         )
     }
 

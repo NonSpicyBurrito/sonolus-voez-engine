@@ -129,6 +129,7 @@ export abstract class Note extends Archetype {
         this.hasSFXScheduled = true
     }
 
+    // eslint-disable-next-line @typescript-eslint/class-literal-property-style
     get shouldRender() {
         return true
     }
