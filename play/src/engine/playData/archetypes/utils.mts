@@ -1,6 +1,6 @@
 import { options } from '../../configuration/options.mjs'
-import { note } from './constants.mjs'
-import { scaledScreen } from './shared.mjs'
+import { note } from './note.mjs'
+import { scaledScreen } from './scaledScreen.mjs'
 
 export const setColor = (colors: number[], i: number, value: number) => {
     if (i === 0) {

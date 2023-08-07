@@ -1,6 +1,5 @@
 import { options } from '../../../../configuration/options.mjs'
-import { effect } from '../../../effect.mjs'
-import { minSFXDistance } from '../../constants.mjs'
+import { effect, sfxDistance } from '../../../effect.mjs'
 import { effectLayout, getScheduleSFXTime } from '../../utils.mjs'
 import { Note } from '../Note.mjs'
 
@@ -38,16 +37,16 @@ export abstract class SingleNote extends Note {
     scheduleSFX() {
         super.scheduleSFX()
 
-        effect.clips.perfect.schedule(this.targetTime, minSFXDistance)
+        effect.clips.perfect.schedule(this.targetTime, sfxDistance)
     }
 
     playSFX() {
         if (this.result.judgment === Judgment.Perfect) {
-            effect.clips.perfect.play(minSFXDistance)
+            effect.clips.perfect.play(sfxDistance)
         } else if (this.result.judgment === Judgment.Great) {
-            effect.clips.great.play(minSFXDistance)
+            effect.clips.great.play(sfxDistance)
         } else if (this.result.judgment === Judgment.Good) {
-            effect.clips.good.play(minSFXDistance)
+            effect.clips.good.play(sfxDistance)
         }
     }
 

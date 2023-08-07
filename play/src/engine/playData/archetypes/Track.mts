@@ -1,8 +1,8 @@
 import { options } from '../../configuration/options.mjs'
 import { skin } from '../skin.mjs'
-import { note } from './constants.mjs'
 import { layer } from './layer.mjs'
-import { scaledScreen } from './shared.mjs'
+import { note } from './note.mjs'
+import { scaledScreen } from './scaledScreen.mjs'
 import { getZ, setColor } from './utils.mjs'
 
 const colorSprites = [
