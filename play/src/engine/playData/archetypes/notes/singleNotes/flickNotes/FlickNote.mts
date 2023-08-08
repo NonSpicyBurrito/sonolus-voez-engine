@@ -1,3 +1,4 @@
+import { leftRotated, rightRotated } from '../../../../../../../../shared/src/engine/data/utils.mjs'
 import { options } from '../../../../../configuration/options.mjs'
 import { buckets } from '../../../../buckets.mjs'
 import { flick } from '../../../../flick.mjs'
@@ -42,27 +43,9 @@ export class FlickNote extends SingleNote {
         const w = h / scaledScreen.wToH
 
         if (this.flickData.direction === FlickDirection.Left) {
-            new Quad({
-                x1: w,
-                x2: -w,
-                x3: -w,
-                x4: w,
-                y1: h,
-                y2: h,
-                y3: -h,
-                y4: -h,
-            }).copyTo(this.layout)
+            leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
         } else {
-            new Quad({
-                x1: -w,
-                x2: w,
-                x3: w,
-                x4: -w,
-                y1: -h,
-                y2: -h,
-                y3: h,
-                y4: h,
-            }).copyTo(this.layout)
+            rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
         }
     }
 
