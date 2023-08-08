@@ -3,6 +3,10 @@ import { scaledScreen } from './scaledScreen.mjs'
 
 export const note = {
     h: 0.05,
+
+    get duration() {
+        return Math.remap(1, 10, 1.5, 0.15, options.noteSpeed)
+    },
 }
 
 export const noteLayout = () =>

@@ -3,7 +3,6 @@ import { note, noteLayout } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
 import { getZ, layer, skin } from '../skin.mjs'
 import { archetypes } from './index.mjs'
-import { Note } from './notes/Note.mjs'
 
 export class HoldConnector extends Archetype {
     data = this.defineData({
@@ -37,7 +36,7 @@ export class HoldConnector extends Archetype {
     preprocess() {
         this.head.time = bpmChanges.at(this.headData.beat).time
 
-        this.visualTime.min = this.head.time - Note.duration
+        this.visualTime.min = this.head.time - note.duration
 
         this.spawnTime = this.visualTime.min
     }
@@ -58,7 +57,7 @@ export class HoldConnector extends Archetype {
         this.visualTime.max = this.tail.time
 
         if (options.hidden > 0)
-            this.visualTime.hidden = this.tail.time - Note.duration * options.hidden
+            this.visualTime.hidden = this.tail.time - note.duration * options.hidden
 
         this.zs.connector = getZ(layer.connector, this.head.time)
         this.zs.slide = getZ(layer.slide, this.head.time)
@@ -110,16 +109,16 @@ export class HoldConnector extends Archetype {
     renderConnector() {
         if (options.hidden > 0 && time.now > this.visualTime.hidden) return
 
-        const hiddenDuration = options.hidden > 0 ? Note.duration * options.hidden : 0
+        const hiddenDuration = options.hidden > 0 ? note.duration * options.hidden : 0
 
         const visibleTime = {
             min: Math.max(this.head.time, time.now + hiddenDuration),
-            max: Math.min(this.tail.time, time.now + Note.duration),
+            max: Math.min(this.tail.time, time.now + note.duration),
         }
 
         const y = {
-            min: Math.unlerp(visibleTime.min - Note.duration, visibleTime.min, time.now),
-            max: Math.unlerp(visibleTime.max - Note.duration, visibleTime.max, time.now),
+            min: Math.unlerp(visibleTime.min - note.duration, visibleTime.min, time.now),
+            max: Math.unlerp(visibleTime.max - note.duration, visibleTime.max, time.now),
         }
 
         const w = (note.h * options.noteSize) / scaledScreen.wToH

@@ -1,8 +1,8 @@
 import { EngineArchetypeDataName } from 'sonolus-core'
 import { options } from '../../../configuration/options.mjs'
+import { note } from '../../note.mjs'
 import { getZ, layer } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
-import { SingleNote } from './singleNotes/SingleNote.mjs'
 
 export abstract class Note extends Archetype {
     hasInput = true
@@ -62,7 +62,7 @@ export abstract class Note extends Archetype {
         this.targetTime = bpmChanges.at(this.data.beat).time
 
         this.visualTime.max = this.targetTime
-        this.visualTime.min = this.visualTime.max - SingleNote.duration
+        this.visualTime.min = this.visualTime.max - note.duration
     }
 
     spawnOrder() {
@@ -78,7 +78,7 @@ export abstract class Note extends Archetype {
         this.inputTime.max = this.targetTime + this.windows.good.max + input.offset
 
         if (options.hidden > 0)
-            this.visualTime.hidden = this.visualTime.max - SingleNote.duration * options.hidden
+            this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
         this.z = getZ(layer.note, this.targetTime)
     }
@@ -135,9 +135,5 @@ export abstract class Note extends Archetype {
 
     render() {
         this.y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
-    }
-
-    static get duration() {
-        return Math.remap(1, 10, 1.5, 0.15, options.noteSpeed)
     }
 }
