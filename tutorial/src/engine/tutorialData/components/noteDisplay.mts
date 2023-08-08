@@ -1,7 +1,7 @@
-import { layer } from '../layer.mjs'
-import { scaledScreen, segment } from '../shared.mjs'
-import { skin } from '../skin.mjs'
-import { approach, noteLayout } from '../utils.mjs'
+import { noteLayout } from '../note.mjs'
+import { scaledScreen } from '../scaledScreen.mjs'
+import { segment } from '../segment.mjs'
+import { layer, skin } from '../skin.mjs'
 
 const sprites = {
     tap: skin.sprites.tapNote,
@@ -28,7 +28,7 @@ export const noteDisplay = {
 
             skin.sprites.draw(id, new Rect({ l, r, t, b }), layer.note, a)
         } else {
-            const y = mode === 2 ? approach(segment.time) : 1
+            const y = mode === 2 ? Math.unlerp(0, 2, segment.time) : 1
 
             skin.sprites.draw(id, noteLayout().translate(0, y), layer.note, 1)
         }

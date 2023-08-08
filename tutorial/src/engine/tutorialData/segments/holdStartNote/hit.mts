@@ -1,8 +1,8 @@
 import { connector } from '../../components/connector.mjs'
 import { noteDisplay } from '../../components/noteDisplay.mjs'
 import { effect } from '../../effect.mjs'
-import { particle } from '../../particle.mjs'
-import { drawHand, playNoteEffect, spawnHoldEffect } from '../../utils.mjs'
+import { drawHand } from '../../instruction.mjs'
+import { particle, playNoteEffect, spawnHoldEffect } from '../../particle.mjs'
 
 let sfxInstanceId = tutorialMemory(LoopedEffectClipInstanceId)
 let effectInstanceId = tutorialMemory(ParticleEffectInstanceId)

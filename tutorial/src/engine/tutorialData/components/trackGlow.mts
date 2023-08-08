@@ -1,6 +1,5 @@
-import { layer } from '../layer.mjs'
-import { scaledScreen } from '../shared.mjs'
-import { skin } from '../skin.mjs'
+import { scaledScreen } from '../scaledScreen.mjs'
+import { layer, skin } from '../skin.mjs'
 
 const sprites = {
     body: skin.sprites.trackGlowBody,

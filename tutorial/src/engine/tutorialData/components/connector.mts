@@ -1,8 +1,7 @@
-import { note } from '../constants.mjs'
-import { layer } from '../layer.mjs'
-import { scaledScreen, segment } from '../shared.mjs'
-import { skin } from '../skin.mjs'
-import { approach } from '../utils.mjs'
+import { note } from '../../../../../shared/src/engine/data/note.mjs'
+import { scaledScreen } from '../scaledScreen.mjs'
+import { segment } from '../segment.mjs'
+import { layer, skin } from '../skin.mjs'
 
 const sprites = {
     connector: skin.sprites.holdConnector,
@@ -30,7 +29,7 @@ export const connector = {
             const w = note.h / scaledScreen.wToH
 
             const t = 0
-            const b = approach(mode === 2 ? segment.time : 2)
+            const b = Math.unlerp(0, 2, mode === 2 ? segment.time : 2)
 
             const layout = new Rect({ l: -w, r: w, b, t })
 

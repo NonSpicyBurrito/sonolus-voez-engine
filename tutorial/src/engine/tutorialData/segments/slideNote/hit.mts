@@ -1,5 +1,5 @@
 import { effect } from '../../effect.mjs'
-import { playNoteEffect } from '../../utils.mjs'
+import { playNoteEffect } from '../../particle.mjs'
 
 export const slideNoteHit = {
     enter() {

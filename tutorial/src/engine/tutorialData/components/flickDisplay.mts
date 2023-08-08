@@ -1,7 +1,8 @@
-import { layer } from '../layer.mjs'
-import { scaledScreen, segment } from '../shared.mjs'
-import { skin } from '../skin.mjs'
-import { approach, noteLayout, rightRotated } from '../utils.mjs'
+import { rightRotated } from '../../../../../shared/src/engine/data/utils.mjs'
+import { noteLayout } from '../note.mjs'
+import { scaledScreen } from '../scaledScreen.mjs'
+import { segment } from '../segment.mjs'
+import { layer, skin } from '../skin.mjs'
 
 const sprites = {
     note: skin.sprites.flickNote,
@@ -40,7 +41,7 @@ export const flickDisplay = {
                 sprites.note.draw(rightRotated(layout), layer.marker, a)
             }
         } else {
-            const y = mode === 2 ? approach(segment.time) : 1
+            const y = mode === 2 ? Math.unlerp(0, 2, segment.time) : 1
 
             const layout = noteLayout()
 
