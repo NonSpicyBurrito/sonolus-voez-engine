@@ -1,8 +1,9 @@
+import { note as _note } from '../../../../shared/src/engine/data/note.mjs'
 import { options } from '../configuration/options.mjs'
 import { scaledScreen } from './scaledScreen.mjs'
 
 export const note = {
-    h: 0.05,
+    ..._note,
 
     get duration() {
         return Math.remap(1, 10, 1.5, 0.15, options.noteSpeed)
