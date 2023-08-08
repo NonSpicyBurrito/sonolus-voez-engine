@@ -1,11 +1,11 @@
 import { options } from '../../configuration/options.mjs'
+import { layer } from '../layer.mjs'
+import { note } from '../note.mjs'
+import { scaledScreen } from '../scaledScreen.mjs'
 import { skin } from '../skin.mjs'
+import { getZ, noteLayout } from '../utils.mjs'
 import { archetypes } from './index.mjs'
-import { layer } from './layer.mjs'
-import { note } from './note.mjs'
 import { Note } from './notes/Note.mjs'
-import { scaledScreen } from './scaledScreen.mjs'
-import { getZ, noteLayout } from './utils.mjs'
 
 export class HoldConnector extends Archetype {
     data = this.defineData({

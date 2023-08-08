@@ -1,8 +1,8 @@
 import { options } from '../../../../../../configuration/options.mjs'
 import { buckets } from '../../../../../buckets.mjs'
 import { skin } from '../../../../../skin.mjs'
+import { windows } from '../../../../../windows.mjs'
 import { isUsed, markAsUsed } from '../../../../InputManager.mjs'
-import { windows } from '../../../../windows.mjs'
 import { SimpleNote } from '../SimpleNote.mjs'
 
 export class TapNote extends SimpleNote {

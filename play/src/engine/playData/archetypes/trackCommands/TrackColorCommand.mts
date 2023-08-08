@@ -1,4 +1,4 @@
-import { setColor } from '../utils.mjs'
+import { setColor } from '../../utils.mjs'
 import { TrackCommand } from './TrackCommand.mjs'
 
 export class TrackColorCommand extends TrackCommand {

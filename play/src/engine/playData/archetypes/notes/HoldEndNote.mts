@@ -3,9 +3,9 @@ import { buckets } from '../../buckets.mjs'
 import { effect } from '../../effect.mjs'
 import { particle } from '../../particle.mjs'
 import { skin } from '../../skin.mjs'
+import { effectLayout, getScheduleSFXTime, noteLayout } from '../../utils.mjs'
+import { windows } from '../../windows.mjs'
 import { archetypes } from '../index.mjs'
-import { effectLayout, getScheduleSFXTime, noteLayout } from '../utils.mjs'
-import { windows } from '../windows.mjs'
 import { Note } from './Note.mjs'
 
 export class HoldEndNote extends Note {

@@ -1,4 +1,4 @@
-import { options } from '../../configuration/options.mjs'
+import { options } from '../configuration/options.mjs'
 import { note } from './note.mjs'
 import { scaledScreen } from './scaledScreen.mjs'
 
