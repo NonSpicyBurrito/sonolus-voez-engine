@@ -58,3 +58,5 @@ export const layer = {
     trackLine: 1,
     trackBody: 0,
 }
+
+export const getZ = (layer: number, time: number) => layer - time / 1000

@@ -1,8 +1,8 @@
 import { options } from '../../configuration/options.mjs'
 import { note } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
-import { layer, skin } from '../skin.mjs'
-import { getZ, setColor } from '../utils.mjs'
+import { getZ, layer, skin } from '../skin.mjs'
+import { setColor } from '../utils.mjs'
 
 const colorSprites = [
     skin.sprites.trackBody0,

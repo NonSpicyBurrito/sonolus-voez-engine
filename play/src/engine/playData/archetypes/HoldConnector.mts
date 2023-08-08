@@ -1,8 +1,7 @@
 import { options } from '../../configuration/options.mjs'
-import { note } from '../note.mjs'
+import { note, noteLayout } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
-import { layer, skin } from '../skin.mjs'
-import { getZ, noteLayout } from '../utils.mjs'
+import { getZ, layer, skin } from '../skin.mjs'
 import { archetypes } from './index.mjs'
 import { Note } from './notes/Note.mjs'
 

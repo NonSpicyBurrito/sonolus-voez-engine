@@ -1,7 +1,6 @@
 import { EngineArchetypeDataName } from 'sonolus-core'
 import { options } from '../../../configuration/options.mjs'
-import { layer } from '../../skin.mjs'
-import { getZ } from '../../utils.mjs'
+import { getZ, layer } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 import { SingleNote } from './singleNotes/SingleNote.mjs'
 

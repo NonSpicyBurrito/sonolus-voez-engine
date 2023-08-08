@@ -1,6 +1,6 @@
 import { options } from '../../../../configuration/options.mjs'
-import { effect, sfxDistance } from '../../../effect.mjs'
-import { effectLayout, getScheduleSFXTime } from '../../../utils.mjs'
+import { effect, getScheduleSFXTime, sfxDistance } from '../../../effect.mjs'
+import { effectLayout } from '../../../particle.mjs'
 import { Note } from '../Note.mjs'
 
 export abstract class SingleNote extends Note {
