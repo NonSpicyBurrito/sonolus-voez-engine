@@ -17,13 +17,20 @@ const sprites = {
     },
 }
 
-let mode = tutorialMemory(DataType<0 | 1 | 2 | 3>)
+enum Mode {
+    None,
+    Overlay,
+    Fall,
+    Frozen,
+}
+
+let mode = tutorialMemory(DataType<Mode>)
 
 export const flickDisplay = {
     update() {
         if (!mode) return
 
-        if (mode === 1) {
+        if (mode === Mode.Overlay) {
             const a = Math.unlerpClamped(1, 0.75, segment.time)
 
             const l = -2
@@ -41,7 +48,7 @@ export const flickDisplay = {
                 sprites.note.draw(rightRotated(layout), layer.marker, a)
             }
         } else {
-            const y = mode === 2 ? Math.unlerp(0, 2, segment.time) : 1
+            const y = mode === Mode.Fall ? Math.unlerp(0, 2, segment.time) : 1
 
             const layout = noteLayout()
 
@@ -55,18 +62,18 @@ export const flickDisplay = {
     },
 
     showOverlay() {
-        mode = 1
+        mode = Mode.Overlay
     },
 
     showFall() {
-        mode = 2
+        mode = Mode.Fall
     },
 
     showFrozen() {
-        mode = 3
+        mode = Mode.Frozen
     },
 
     clear() {
-        mode = 0
+        mode = Mode.None
     },
 }
