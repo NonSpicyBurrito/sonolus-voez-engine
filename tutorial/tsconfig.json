@@ -1,17 +1,16 @@
 {
     "compilerOptions": {
         "lib": [
-            "ES2021"
+            "ESNext"
         ],
-        "target": "ES2021",
+        "target": "ESNext",
         "module": "Node16",
         "moduleResolution": "Node16",
         "strict": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "skipLibCheck": true,
         "exactOptionalPropertyTypes": true,
-        "forceConsistentCasingInFileNames": true,
-        "outDir": "../dist",
-        "rootDir": "./src",
-        "declaration": true
+        "forceConsistentCasingInFileNames": true
     }
 }
