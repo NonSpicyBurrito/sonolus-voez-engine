@@ -10,7 +10,7 @@ export const version = '1.1.0'
 
 export const engineInfo = {
     name: 'voez',
-    version: 9,
+    version: 10,
     title: {
         en: 'VOEZ',
     },
