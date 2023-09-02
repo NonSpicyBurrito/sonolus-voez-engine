@@ -1,43 +1,5 @@
+import { Ease, ease } from '../../../../../../shared/src/engine/data/Ease.mjs'
 import { archetypes } from '../index.mjs'
-
-const ease = [
-    ['In', 'Sine'],
-    ['Out', 'Sine'],
-    ['InOut', 'Sine'],
-    ['OutIn', 'Sine'],
-    ['In', 'Quad'],
-    ['Out', 'Quad'],
-    ['InOut', 'Quad'],
-    ['OutIn', 'Quad'],
-    ['In', 'Cubic'],
-    ['Out', 'Cubic'],
-    ['InOut', 'Cubic'],
-    ['OutIn', 'Cubic'],
-    ['In', 'Quart'],
-    ['Out', 'Quart'],
-    ['InOut', 'Quart'],
-    ['OutIn', 'Quart'],
-    ['In', 'Quint'],
-    ['Out', 'Quint'],
-    ['InOut', 'Quint'],
-    ['OutIn', 'Quint'],
-    ['In', 'Expo'],
-    ['Out', 'Expo'],
-    ['InOut', 'Expo'],
-    ['OutIn', 'Expo'],
-    ['In', 'Circ'],
-    ['Out', 'Circ'],
-    ['InOut', 'Circ'],
-    ['OutIn', 'Circ'],
-    ['In', 'Back'],
-    ['Out', 'Back'],
-    ['InOut', 'Back'],
-    ['OutIn', 'Back'],
-    ['In', 'Elastic'],
-    ['Out', 'Elastic'],
-    ['InOut', 'Elastic'],
-    ['OutIn', 'Elastic'],
-] as const
 
 export abstract class TrackCommand extends Archetype {
     data = this.defineData({
@@ -46,7 +8,7 @@ export abstract class TrackCommand extends Archetype {
         startValue: { name: 'startValue', type: Number },
         endBeat: { name: 'endBeat', type: Number },
         endValue: { name: 'endValue', type: Number },
-        ease: { name: 'ease', type: Number },
+        ease: { name: 'ease', type: DataType<Ease> },
     })
 
     times = this.entityMemory({
@@ -88,10 +50,6 @@ export abstract class TrackCommand extends Archetype {
     }
 
     ease(x: number) {
-        for (const [index, [direction, curve]] of ease.entries()) {
-            if (this.data.ease === index) return Math.ease(direction, curve, x)
-        }
-
-        return x
+        return ease(this.data.ease, x)
     }
 }
