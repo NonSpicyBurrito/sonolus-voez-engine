@@ -2,7 +2,6 @@ import { options } from '../../configuration/options.mjs'
 import { note } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
 import { getZ, layer, skin } from '../skin.mjs'
-import { setColor } from '../utils.mjs'
 
 const colorSprites = [
     skin.sprites.trackBody0,
@@ -30,7 +29,7 @@ export class Track extends Archetype {
     sharedMemory = this.defineSharedMemory({
         x: Number,
         w: Number,
-        c: colorSprites.map(() => Number),
+        c: Tuple(colorSprites.length, Number),
         hitbox: {
             l: Number,
             r: Number,
@@ -58,7 +57,7 @@ export class Track extends Archetype {
 
         this.sharedMemory.x = this.data.x
         this.sharedMemory.w = this.data.w
-        setColor(this.sharedMemory.c, this.data.c, 1)
+        this.sharedMemory.c.set(this.data.c, 1)
 
         this.times.start = bpmChanges.at(this.data.startBeat).time
     }
@@ -176,7 +175,7 @@ export class Track extends Archetype {
         }).translate(0, 1)
 
         for (const [i, sprite] of colorSprites.entries()) {
-            const a = this.sharedMemory.c[i]
+            const a = this.sharedMemory.c.get(i)
             if (a <= 0) continue
 
             sprite.draw(bodyLayout, this.zs.body, a)
