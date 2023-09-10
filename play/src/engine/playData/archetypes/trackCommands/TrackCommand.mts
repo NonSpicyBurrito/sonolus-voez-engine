@@ -9,38 +9,40 @@ export abstract class TrackCommand extends Archetype {
         endBeat: { name: 'endBeat', type: Number },
         endValue: { name: 'endValue', type: Number },
         ease: { name: 'ease', type: DataType<Ease> },
+        nextRef: { name: 'nextRef', type: Number },
     })
 
-    times = this.entityMemory({
-        start: Number,
-        end: Number,
+    sharedMemory = this.defineSharedMemory({
+        startTime: Number,
+        endTime: Number,
     })
 
     preprocess() {
-        this.times.start = bpmChanges.at(this.data.startBeat).time
+        this.sharedMemory.startTime = bpmChanges.at(this.data.startBeat).time
+        this.sharedMemory.endTime = bpmChanges.at(this.data.endBeat).time
     }
 
     spawnOrder() {
-        return 1000 + this.times.start
+        return 1000 + this.sharedMemory.startTime
     }
 
     shouldSpawn() {
-        return time.now >= this.times.start
-    }
-
-    initialize() {
-        this.times.end = bpmChanges.at(this.data.endBeat).time
+        return time.now >= this.sharedMemory.startTime
     }
 
     updateSequential() {
-        if (time.now >= this.times.end) {
+        if (time.now >= this.sharedMemory.endTime) {
             this.update(1)
 
             this.despawn = true
             return
         }
 
-        this.update(this.ease(Math.unlerp(this.times.start, this.times.end, time.now)))
+        this.update(
+            this.ease(
+                Math.unlerp(this.sharedMemory.startTime, this.sharedMemory.endTime, time.now),
+            ),
+        )
     }
 
     abstract update(value: number): void

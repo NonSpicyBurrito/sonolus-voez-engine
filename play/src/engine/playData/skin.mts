@@ -35,6 +35,7 @@ export const skin = defineSkin({
 
         holdStartNote: SkinSpriteName.NoteHeadRed,
         holdConnector: SkinSpriteName.NoteConnectionRed,
+        holdLine: SkinSpriteName.SimultaneousMarkerRed,
         holdEndNote: SkinSpriteName.NoteTailRed,
 
         cover: SkinSpriteName.StageCover,
@@ -43,6 +44,8 @@ export const skin = defineSkin({
 
 export const layer = {
     cover: 1000,
+
+    holdLine: 200,
 
     note: {
         marker: 101,

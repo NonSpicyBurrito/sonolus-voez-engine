@@ -1,4 +1,5 @@
 import { HoldConnector } from './HoldConnector.mjs'
+import { HoldLine } from './HoldLine.mjs'
 import { Initialization } from './Initialization.mjs'
 import { InputManager } from './InputManager.mjs'
 import { Stage } from './Stage.mjs'
@@ -30,4 +31,5 @@ export const archetypes = defineArchetypes({
     HoldStartNote,
     HoldEndNote,
     HoldConnector,
+    HoldLine,
 })

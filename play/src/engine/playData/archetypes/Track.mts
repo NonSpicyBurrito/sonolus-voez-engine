@@ -24,6 +24,7 @@ export class Track extends Archetype {
         startBeat: { name: 'startBeat', type: Number },
         endBeat: { name: 'endBeat', type: Number },
         animateStart: { name: 'animateStart', type: Boolean },
+        moveRef: { name: 'moveRef', type: Number },
     })
 
     sharedMemory = this.defineSharedMemory({
