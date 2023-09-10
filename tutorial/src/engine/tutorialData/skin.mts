@@ -41,7 +41,9 @@ export const layer = {
     trackGlow: 11,
     judgmentLine: 10,
 
-    trackBorder: 2,
-    trackLine: 1,
-    trackBody: 0,
+    track: {
+        line: 2,
+        border: 1,
+        body: 0,
+    },
 }

@@ -46,7 +46,7 @@ export const track = {
             b: 0,
         }).translate(0, 1)
 
-        sprites.body.draw(bodyLayout, layer.trackBody, 1)
+        sprites.body.draw(bodyLayout, layer.track.body, 1)
 
         const lineLayout = new Rect({
             l: -4 / 128,
@@ -55,7 +55,7 @@ export const track = {
             b: 0,
         }).translate(0, 1)
 
-        sprites.line.draw(lineLayout, layer.trackLine, 1)
+        sprites.line.draw(lineLayout, layer.track.line, 1)
 
         const leftLayout = new Rect({
             l: -33 / 128,
@@ -64,7 +64,7 @@ export const track = {
             b: 0,
         }).translate(l, 1)
 
-        sprites.leftBorder.draw(leftLayout, layer.trackBorder, 1)
+        sprites.leftBorder.draw(leftLayout, layer.track.border, 1)
 
         const rightLayout = new Rect({
             l: 0,
@@ -73,7 +73,7 @@ export const track = {
             b: 0,
         }).translate(r, 1)
 
-        sprites.rightBorder.draw(rightLayout, layer.trackBorder, 1)
+        sprites.rightBorder.draw(rightLayout, layer.track.border, 1)
     },
 
     drawFallbackTrack() {
@@ -84,7 +84,7 @@ export const track = {
             b: 0,
         }).translate(0, 1)
 
-        sprites.fallback.draw(layout, layer.trackBody, 1)
+        sprites.fallback.draw(layout, layer.track.body, 1)
     },
 
     drawSlot() {

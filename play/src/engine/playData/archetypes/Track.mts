@@ -78,9 +78,9 @@ export class Track extends Archetype {
         this.times.end = bpmChanges.at(this.data.endBeat).time
         this.times.ended = this.times.end + animateDuration
 
-        this.zs.body = getZ(layer.trackBody, -this.times.start)
-        this.zs.line = getZ(layer.trackLine, -this.times.start)
-        this.zs.border = getZ(layer.trackBorder, -this.times.start)
+        this.zs.body = getZ(layer.track.body, -this.times.start)
+        this.zs.line = getZ(layer.track.line, -this.times.start)
+        this.zs.border = getZ(layer.track.border, -this.times.start)
         this.zs.glow = getZ(layer.trackGlow, -this.times.start)
         this.zs.slot = getZ(layer.slot, -this.times.start)
     }
