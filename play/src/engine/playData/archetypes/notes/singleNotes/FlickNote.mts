@@ -6,7 +6,7 @@ import { flick } from '../../../flick.mjs'
 import { note, noteLayout } from '../../../note.mjs'
 import { particle } from '../../../particle.mjs'
 import { scaledScreen } from '../../../scaledScreen.mjs'
-import { skin } from '../../../skin.mjs'
+import { getZ, layer, skin } from '../../../skin.mjs'
 import { windows } from '../../../windows.mjs'
 import { isUsed, markAsUsed } from '../../InputManager.mjs'
 import { SingleNote } from './SingleNote.mjs'
@@ -33,6 +33,7 @@ export class FlickNote extends SingleNote {
     bucket = buckets.flickNote
 
     layout = this.entityMemory(Quad)
+    markerZ = this.entityMemory(Number)
 
     activatedTouchId = this.entityMemory(TouchId)
 
@@ -47,6 +48,8 @@ export class FlickNote extends SingleNote {
         } else {
             rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
         }
+
+        if (this.useFallbackSprites) this.markerZ = getZ(layer.note.marker, this.targetTime)
     }
 
     touch() {
@@ -113,7 +116,11 @@ export class FlickNote extends SingleNote {
 
         if (this.useFallbackSprites) {
             this.sprites.fallback.note.draw(noteLayout().translate(this.x, this.y), this.z, 1)
-            this.sprites.fallback.marker.draw(this.layout.translate(this.x, this.y), this.z, 1)
+            this.sprites.fallback.marker.draw(
+                this.layout.translate(this.x, this.y),
+                this.markerZ,
+                1,
+            )
         } else {
             this.sprites.note.draw(this.layout.translate(this.x, this.y), this.z, 1)
         }

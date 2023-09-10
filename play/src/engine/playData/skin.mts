@@ -44,7 +44,10 @@ export const skin = defineSkin({
 export const layer = {
     cover: 1000,
 
-    note: 100,
+    note: {
+        marker: 101,
+        body: 100,
+    },
 
     slide: 90,
 

@@ -33,11 +33,11 @@ export const noteDisplay = {
             const t = 0.5 - 2 * scaledScreen.wToH
             const b = 0.5 + 2 * scaledScreen.wToH
 
-            skin.sprites.draw(id, new Rect({ l, r, t, b }), layer.note, a)
+            skin.sprites.draw(id, new Rect({ l, r, t, b }), layer.note.body, a)
         } else {
             const y = mode === Mode.Fall ? Math.unlerp(0, 2, segment.time) : 1
 
-            skin.sprites.draw(id, noteLayout().translate(0, y), layer.note, 1)
+            skin.sprites.draw(id, noteLayout().translate(0, y), layer.note.body, 1)
         }
     },
 
