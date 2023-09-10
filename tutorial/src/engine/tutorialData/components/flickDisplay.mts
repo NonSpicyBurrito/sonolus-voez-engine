@@ -43,7 +43,11 @@ export const flickDisplay = {
 
             if (sprites.useFallback) {
                 sprites.fallback.note.draw(layout, layer.note.body, a)
-                sprites.fallback.marker.draw(rightRotated(layout), layer.note.marker, a)
+                sprites.fallback.marker.draw(
+                    rightRotated(layout).translate(layout.r, 0),
+                    layer.note.marker,
+                    a,
+                )
             } else {
                 sprites.note.draw(rightRotated(layout), layer.note.marker, a)
             }
@@ -55,7 +59,7 @@ export const flickDisplay = {
             if (sprites.useFallback) {
                 sprites.fallback.note.draw(layout.translate(0, y), layer.note.body, 1)
                 sprites.fallback.marker.draw(
-                    rightRotated(layout).translate(0, y),
+                    rightRotated(layout).translate(layout.r, y),
                     layer.note.marker,
                     1,
                 )

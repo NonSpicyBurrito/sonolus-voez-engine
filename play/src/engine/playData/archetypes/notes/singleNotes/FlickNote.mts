@@ -43,13 +43,21 @@ export class FlickNote extends SingleNote {
         const h = note.h * options.noteSize
         const w = h / scaledScreen.wToH
 
-        if (this.flickData.direction === FlickDirection.Left) {
-            leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
-        } else {
-            rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
-        }
+        if (this.useFallbackSprites) {
+            if (this.flickData.direction === FlickDirection.Left) {
+                leftRotated({ l: -2 * w, r: 0, t: -h, b: h }).copyTo(this.layout)
+            } else {
+                rightRotated({ l: 0, r: 2 * w, t: -h, b: h }).copyTo(this.layout)
+            }
 
-        if (this.useFallbackSprites) this.markerZ = getZ(layer.note.marker, this.targetTime)
+            this.markerZ = getZ(layer.note.marker, this.targetTime)
+        } else {
+            if (this.flickData.direction === FlickDirection.Left) {
+                leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
+            } else {
+                rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
+            }
+        }
     }
 
     touch() {
