@@ -1,5 +1,4 @@
 import { SkinSpriteName } from 'sonolus-core'
-import { note } from './note.mjs'
 import { panel } from './panel.mjs'
 
 export const skin = defineSkin({
@@ -65,8 +64,8 @@ export const line = (sprite: SkinSprite, beat: number, a: number) => {
         new Rect({
             l: -8,
             r: 8,
-            b: -note.h / 5,
-            t: note.h / 5,
+            b: -panel.h * 0.0025,
+            t: panel.h * 0.0025,
         }).add(pos),
         layer.line,
         a,
