@@ -7,13 +7,20 @@ const sprites = {
     connector: skin.sprites.holdConnector,
 }
 
-let mode = tutorialMemory(DataType<0 | 1 | 2 | 3>)
+enum Mode {
+    None,
+    Overlay,
+    Fall,
+    Frozen,
+}
+
+let mode = tutorialMemory(DataType<Mode>)
 
 export const connector = {
     update() {
         if (!mode) return
 
-        if (mode === 1) {
+        if (mode === Mode.Overlay) {
             const a = Math.unlerpClamped(1, 0.75, segment.time)
 
             const l = -2
@@ -29,7 +36,7 @@ export const connector = {
             const w = note.h / scaledScreen.wToH
 
             const t = 0
-            const b = Math.unlerp(0, 2, mode === 2 ? segment.time : 2)
+            const b = Math.unlerp(0, 2, mode === Mode.Fall ? segment.time : 2)
 
             const layout = new Rect({ l: -w, r: w, b, t })
 
@@ -38,18 +45,18 @@ export const connector = {
     },
 
     showOverlay() {
-        mode = 1
+        mode = Mode.Overlay
     },
 
     showFall() {
-        mode = 2
+        mode = Mode.Fall
     },
 
     showFrozen() {
-        mode = 3
+        mode = Mode.Frozen
     },
 
     clear() {
-        mode = 0
+        mode = Mode.None
     },
 }

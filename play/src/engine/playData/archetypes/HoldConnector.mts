@@ -33,6 +33,8 @@ export class HoldConnector extends Archetype {
         slide: Number,
     })
 
+    nextLineTime = this.entityMemory(Number)
+
     preprocess() {
         this.head.time = bpmChanges.at(this.headData.beat).time
 
@@ -61,6 +63,24 @@ export class HoldConnector extends Archetype {
 
         this.zs.connector = getZ(layer.connector, this.head.time)
         this.zs.slide = getZ(layer.slide, this.head.time)
+
+        this.nextLineTime = 999999
+        if (this.tail.time - this.head.time <= 0.08) return
+
+        let nextRef = this.trackData.moveRef
+        while (nextRef) {
+            const data = archetypes.TrackMoveCommand.data.get(nextRef)
+
+            const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(nextRef)
+            if (sharedMemory.startTime >= this.tail.time) break
+
+            if (sharedMemory.endTime > this.head.time) {
+                this.nextLineTime = this.head.time + 0.08
+                break
+            }
+
+            nextRef = data.nextRef
+        }
     }
 
     updateParallel() {
@@ -68,6 +88,8 @@ export class HoldConnector extends Archetype {
             this.despawn = true
             return
         }
+
+        this.spawnLine()
 
         if (time.now < this.visualTime.min || time.now >= this.visualTime.max) return
 
@@ -90,6 +112,10 @@ export class HoldConnector extends Archetype {
         return entityInfos.get(this.data.tailRef)
     }
 
+    get trackData() {
+        return archetypes.Track.data.get(this.trackRef)
+    }
+
     get trackSharedMemory() {
         return archetypes.Track.sharedMemory.get(this.trackRef)
     }
@@ -103,6 +129,20 @@ export class HoldConnector extends Archetype {
             return time.now >= this.tail.time
         } else {
             return this.tailInfo.state === EntityState.Despawned
+        }
+    }
+
+    spawnLine() {
+        if (time.now < this.nextLineTime - note.duration) return
+
+        archetypes.HoldLine.spawn({
+            time: this.nextLineTime,
+            tailRef: this.data.tailRef,
+            trackRef: this.trackRef,
+        })
+
+        if ((this.nextLineTime += 0.08) >= this.tail.time) {
+            this.nextLineTime = 999999
         }
     }
 

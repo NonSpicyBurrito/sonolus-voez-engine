@@ -2,7 +2,6 @@ import { options } from '../../configuration/options.mjs'
 import { note } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
 import { getZ, layer, skin } from '../skin.mjs'
-import { setColor } from '../utils.mjs'
 
 const colorSprites = [
     skin.sprites.trackBody0,
@@ -25,12 +24,13 @@ export class Track extends Archetype {
         startBeat: { name: 'startBeat', type: Number },
         endBeat: { name: 'endBeat', type: Number },
         animateStart: { name: 'animateStart', type: Boolean },
+        moveRef: { name: 'moveRef', type: Number },
     })
 
     sharedMemory = this.defineSharedMemory({
         x: Number,
         w: Number,
-        c: colorSprites.map(() => Number),
+        c: Tuple(colorSprites.length, Number),
         hitbox: {
             l: Number,
             r: Number,
@@ -58,7 +58,7 @@ export class Track extends Archetype {
 
         this.sharedMemory.x = this.data.x
         this.sharedMemory.w = this.data.w
-        setColor(this.sharedMemory.c, this.data.c, 1)
+        this.sharedMemory.c.set(this.data.c, 1)
 
         this.times.start = bpmChanges.at(this.data.startBeat).time
     }
@@ -79,9 +79,9 @@ export class Track extends Archetype {
         this.times.end = bpmChanges.at(this.data.endBeat).time
         this.times.ended = this.times.end + animateDuration
 
-        this.zs.body = getZ(layer.trackBody, -this.times.start)
-        this.zs.line = getZ(layer.trackLine, -this.times.start)
-        this.zs.border = getZ(layer.trackBorder, -this.times.start)
+        this.zs.body = getZ(layer.track.body, -this.times.start)
+        this.zs.line = getZ(layer.track.line, -this.times.start)
+        this.zs.border = getZ(layer.track.border, -this.times.start)
         this.zs.glow = getZ(layer.trackGlow, -this.times.start)
         this.zs.slot = getZ(layer.slot, -this.times.start)
     }
@@ -176,7 +176,7 @@ export class Track extends Archetype {
         }).translate(0, 1)
 
         for (const [i, sprite] of colorSprites.entries()) {
-            const a = this.sharedMemory.c[i]
+            const a = this.sharedMemory.c.get(i)
             if (a <= 0) continue
 
             sprite.draw(bodyLayout, this.zs.body, a)

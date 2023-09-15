@@ -30,8 +30,10 @@ export const skin = defineSkin({
 })
 
 export const layer = {
-    marker: 101,
-    note: 100,
+    note: {
+        marker: 101,
+        body: 100,
+    },
 
     slide: 90,
 
@@ -41,7 +43,9 @@ export const layer = {
     trackGlow: 11,
     judgmentLine: 10,
 
-    trackBorder: 2,
-    trackLine: 1,
-    trackBody: 0,
+    track: {
+        line: 2,
+        border: 1,
+        body: 0,
+    },
 }

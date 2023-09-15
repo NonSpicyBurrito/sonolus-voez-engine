@@ -86,22 +86,18 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
 
     for (const track of vc.tracks) {
         const ref = next()
+        const data: Record<string, number | string> = {
+            x: track.x,
+            w: track.w,
+            c: track.c,
+            startBeat: track.startBeat,
+            endBeat: track.endBeat,
+            animateStart: +track.animateStart,
+        }
 
-        add({
-            ref,
-            archetype: 'Track',
-            data: {
-                x: track.x,
-                w: track.w,
-                c: track.c,
-                startBeat: track.startBeat,
-                endBeat: track.endBeat,
-                animateStart: +track.animateStart,
-            },
-        })
-
-        const addCommand = (archetype: string, command: VCTrackCommand) =>
-            add({
+        const addCommands = (commands: VCTrackCommand[], archetype: string, dataName: string) => {
+            const entities = commands.map((command) => ({
+                ref: next(),
                 archetype,
                 data: {
                     trackRef: ref,
@@ -111,19 +107,36 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
                     endValue: command.endValue,
                     ease: ease.indexOf(command.ease),
                 },
-            })
+            }))
 
-        for (const command of track.moveCommands) {
-            addCommand('TrackMoveCommand', command)
+            if (entities.length) {
+                data[dataName] = entities[0].ref
+            }
+
+            for (const [index, entity] of entities.entries()) {
+                if (index === entities.length - 1) {
+                    add(entity)
+                } else {
+                    add({
+                        ...entity,
+                        data: {
+                            ...entity.data,
+                            nextRef: entities[index + 1].ref,
+                        },
+                    })
+                }
+            }
         }
 
-        for (const command of track.scaleCommands) {
-            addCommand('TrackScaleCommand', command)
-        }
+        addCommands(track.moveCommands, 'TrackMoveCommand', 'moveRef')
+        addCommands(track.scaleCommands, 'TrackScaleCommand', 'scaleRef')
+        addCommands(track.colorCommands, 'TrackColorCommand', 'colorRef')
 
-        for (const command of track.colorCommands) {
-            addCommand('TrackColorCommand', command)
-        }
+        add({
+            ref,
+            archetype: 'Track',
+            data,
+        })
 
         for (const note of track.notes) {
             switch (note.type) {

@@ -80,7 +80,7 @@ export abstract class Note extends Archetype {
         if (options.hidden > 0)
             this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
-        this.z = getZ(layer.note, this.targetTime)
+        this.z = getZ(layer.note.body, this.targetTime)
     }
 
     touchOrder = 1

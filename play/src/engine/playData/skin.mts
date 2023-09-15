@@ -35,6 +35,7 @@ export const skin = defineSkin({
 
         holdStartNote: SkinSpriteName.NoteHeadRed,
         holdConnector: SkinSpriteName.NoteConnectionRed,
+        holdLine: SkinSpriteName.SimultaneousMarkerRed,
         holdEndNote: SkinSpriteName.NoteTailRed,
 
         cover: SkinSpriteName.StageCover,
@@ -44,7 +45,12 @@ export const skin = defineSkin({
 export const layer = {
     cover: 1000,
 
-    note: 100,
+    holdLine: 200,
+
+    note: {
+        marker: 101,
+        body: 100,
+    },
 
     slide: 90,
 
@@ -54,9 +60,11 @@ export const layer = {
     trackGlow: 11,
     judgmentLine: 10,
 
-    trackBorder: 2,
-    trackLine: 1,
-    trackBody: 0,
+    track: {
+        line: 2,
+        border: 1,
+        body: 0,
+    },
 }
 
 export const getZ = (layer: number, time: number) => layer - time / 1000

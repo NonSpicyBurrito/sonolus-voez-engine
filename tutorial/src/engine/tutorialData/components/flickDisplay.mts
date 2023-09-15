@@ -17,13 +17,20 @@ const sprites = {
     },
 }
 
-let mode = tutorialMemory(DataType<0 | 1 | 2 | 3>)
+enum Mode {
+    None,
+    Overlay,
+    Fall,
+    Frozen,
+}
+
+let mode = tutorialMemory(DataType<Mode>)
 
 export const flickDisplay = {
     update() {
         if (!mode) return
 
-        if (mode === 1) {
+        if (mode === Mode.Overlay) {
             const a = Math.unlerpClamped(1, 0.75, segment.time)
 
             const l = -2
@@ -35,38 +42,46 @@ export const flickDisplay = {
             const layout = new Rect({ l, r, t, b })
 
             if (sprites.useFallback) {
-                sprites.fallback.note.draw(layout, layer.note, a)
-                sprites.fallback.marker.draw(rightRotated(layout), layer.marker, a)
+                sprites.fallback.note.draw(layout, layer.note.body, a)
+                sprites.fallback.marker.draw(
+                    rightRotated(layout).translate(layout.r, 0),
+                    layer.note.marker,
+                    a,
+                )
             } else {
-                sprites.note.draw(rightRotated(layout), layer.marker, a)
+                sprites.note.draw(rightRotated(layout), layer.note.marker, a)
             }
         } else {
-            const y = mode === 2 ? Math.unlerp(0, 2, segment.time) : 1
+            const y = mode === Mode.Fall ? Math.unlerp(0, 2, segment.time) : 1
 
             const layout = noteLayout()
 
             if (sprites.useFallback) {
-                sprites.fallback.note.draw(layout.translate(0, y), layer.note, 1)
-                sprites.fallback.marker.draw(rightRotated(layout).translate(0, y), layer.marker, 1)
+                sprites.fallback.note.draw(layout.translate(0, y), layer.note.body, 1)
+                sprites.fallback.marker.draw(
+                    rightRotated(layout).translate(layout.r, y),
+                    layer.note.marker,
+                    1,
+                )
             } else {
-                sprites.note.draw(rightRotated(layout).translate(0, y), layer.marker, 1)
+                sprites.note.draw(rightRotated(layout).translate(0, y), layer.note.marker, 1)
             }
         }
     },
 
     showOverlay() {
-        mode = 1
+        mode = Mode.Overlay
     },
 
     showFall() {
-        mode = 2
+        mode = Mode.Fall
     },
 
     showFrozen() {
-        mode = 3
+        mode = Mode.Frozen
     },
 
     clear() {
-        mode = 0
+        mode = Mode.None
     },
 }
