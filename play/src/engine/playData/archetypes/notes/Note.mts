@@ -86,7 +86,6 @@ export abstract class Note extends Archetype {
     touchOrder = 1
 
     updateParallel() {
-        if (options.autoplay && time.now >= this.targetTime) this.despawn = true
         if (time.now > this.inputTime.max) this.despawn = true
         if (this.despawn) return
 
@@ -101,11 +100,11 @@ export abstract class Note extends Archetype {
     }
 
     get shouldScheduleSFX() {
-        return options.sfxEnabled && (options.autoplay || options.autoSFX)
+        return options.sfxEnabled && options.autoSFX
     }
 
     get shouldPlaySFX() {
-        return options.sfxEnabled && !options.autoplay && !options.autoSFX
+        return options.sfxEnabled && !options.autoSFX
     }
 
     get trackSharedMemory() {

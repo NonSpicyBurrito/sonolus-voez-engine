@@ -1,4 +1,3 @@
-import { options } from '../../../../../../configuration/options.mjs'
 import { buckets } from '../../../../../buckets.mjs'
 import { skin } from '../../../../../skin.mjs'
 import { windows } from '../../../../../windows.mjs'
@@ -15,8 +14,6 @@ export class TapNote extends SimpleNote {
     bucket = buckets.tapNote
 
     touch() {
-        if (options.autoplay) return
-
         if (time.now < this.inputTime.min) return
 
         for (const touch of touches) {

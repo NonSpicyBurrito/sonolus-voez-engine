@@ -93,14 +93,10 @@ export class Track extends Archetype {
         this.sharedMemory.hitbox.l = transform(this.sharedMemory.x - this.sharedMemory.w)
         this.sharedMemory.hitbox.r = transform(this.sharedMemory.x + this.sharedMemory.w)
 
-        if (!options.autoplay) {
-            this.sharedMemory.isActive = false
-        }
+        this.sharedMemory.isActive = false
     }
 
     touch() {
-        if (options.autoplay) return
-
         for (const touch of touches) {
             if (touch.x < this.sharedMemory.hitbox.l || touch.x > this.sharedMemory.hitbox.r)
                 continue

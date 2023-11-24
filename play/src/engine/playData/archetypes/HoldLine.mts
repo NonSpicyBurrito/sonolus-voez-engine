@@ -72,10 +72,7 @@ export class HoldLine extends SpawnableArchetype({
     }
 
     get isDead() {
-        return (
-            time.now >= this.spawnData.time ||
-            (!options.autoplay && this.tailInfo.state === EntityState.Despawned)
-        )
+        return time.now >= this.spawnData.time || this.tailInfo.state === EntityState.Despawned
     }
 
     render() {

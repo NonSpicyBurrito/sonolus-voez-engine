@@ -61,8 +61,6 @@ export class FlickNote extends SingleNote {
     }
 
     touch() {
-        if (options.autoplay) return
-
         if (time.now < this.inputTime.min) return
 
         if (!this.activatedTouchId) this.touchActivate()

@@ -39,31 +39,13 @@ export class HoldEndNote extends Note {
     initialize() {
         super.initialize()
 
-        if (options.autoplay) {
-            this.result.judgment = Judgment.Perfect
-
-            this.result.bucket.index = this.bucket.index
-        } else {
-            this.result.accuracy = this.windows.good.min
-        }
+        this.result.accuracy = this.windows.good.min
     }
 
     updateParallel() {
         this.handleInput()
 
-        if (options.autoplay && this.shouldHoldEffect && time.now >= this.headTime) {
-            if (!this.holdEffectInstanceId) this.spawnHoldEffect()
-
-            this.moveHoldEffect()
-        }
-
         super.updateParallel()
-    }
-
-    terminate() {
-        if (!options.autoplay) return
-
-        if (this.shouldHoldEffect && this.holdEffectInstanceId) this.destroyHoldEffect()
     }
 
     get headInfo() {
@@ -75,15 +57,11 @@ export class HoldEndNote extends Note {
     }
 
     get shouldScheduleSFX() {
-        return (
-            options.sfxEnabled && effect.clips.hold.exists && (options.autoplay || options.autoSFX)
-        )
+        return options.sfxEnabled && effect.clips.hold.exists && options.autoSFX
     }
 
     get shouldPlaySFX() {
-        return (
-            options.sfxEnabled && effect.clips.hold.exists && !options.autoplay && !options.autoSFX
-        )
+        return options.sfxEnabled && effect.clips.hold.exists && !options.autoSFX
     }
 
     get shouldHoldEffect() {
@@ -122,8 +100,6 @@ export class HoldEndNote extends Note {
     }
 
     handleInput() {
-        if (options.autoplay) return
-
         if (this.headInfo.state !== EntityState.Despawned) return
 
         if (this.trackSharedMemory.isActive && time.now < this.inputTime.max) {

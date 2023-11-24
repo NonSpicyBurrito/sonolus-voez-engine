@@ -125,11 +125,7 @@ export class HoldConnector extends Archetype {
     }
 
     get isDead() {
-        if (options.autoplay) {
-            return time.now >= this.tail.time
-        } else {
-            return this.tailInfo.state === EntityState.Despawned
-        }
+        return this.tailInfo.state === EntityState.Despawned
     }
 
     spawnLine() {
