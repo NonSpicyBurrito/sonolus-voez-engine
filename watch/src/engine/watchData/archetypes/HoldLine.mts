@@ -6,9 +6,10 @@ import { archetypes } from './index.mjs'
 
 export class HoldLine extends SpawnableArchetype({
     time: Number,
-    tailRef: Number,
     trackRef: Number,
 }) {
+    initialized = this.entityMemory(Boolean)
+
     visualTime = this.entityMemory({
         min: Number,
         max: Number,
@@ -17,10 +18,31 @@ export class HoldLine extends SpawnableArchetype({
 
     x = this.entityMemory(Number)
 
-    initialize() {
+    spawnTime() {
         this.visualTime.max = this.spawnData.time
         this.visualTime.min = this.visualTime.max - note.duration
 
+        return this.visualTime.min
+    }
+
+    despawnTime() {
+        return this.visualTime.max
+    }
+
+    initialize() {
+        if (this.initialized) return
+        this.initialized = true
+
+        this.globalInitialize()
+    }
+
+    updateParallel() {
+        if (options.hidden > 0 && time.now > this.visualTime.hidden) return
+
+        this.render()
+    }
+
+    globalInitialize() {
         if (options.hidden > 0)
             this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
@@ -54,25 +76,6 @@ export class HoldLine extends SpawnableArchetype({
 
             nextRef = data.nextRef
         }
-    }
-
-    updateParallel() {
-        if (this.isDead) {
-            this.despawn = true
-            return
-        }
-
-        if (options.hidden > 0 && time.now > this.visualTime.hidden) return
-
-        this.render()
-    }
-
-    get tailInfo() {
-        return entityInfos.get(this.spawnData.tailRef)
-    }
-
-    get isDead() {
-        return time.now >= this.spawnData.time || this.tailInfo.state === EntityState.Despawned
     }
 
     render() {

@@ -3,6 +3,8 @@ import { note } from '../note.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
 import { getZ, layer, skin } from '../skin.mjs'
 
+const animateDuration = 1 / 3
+
 const colorSprites = [
     skin.sprites.trackBody0,
     skin.sprites.trackBody1,
@@ -31,12 +33,9 @@ export class Track extends Archetype {
         x: Number,
         w: Number,
         c: Tuple(colorSprites.length, Number),
-        hitbox: {
-            l: Number,
-            r: Number,
-        },
-        isActive: Boolean,
     })
+
+    initialized = this.entityMemory(Boolean)
 
     times = this.entityMemory({
         start: Number,
@@ -49,69 +48,43 @@ export class Track extends Archetype {
         body: Number,
         line: Number,
         border: Number,
-        glow: Number,
         slot: Number,
     })
 
     preprocess() {
         if (options.mirror) this.data.x *= -1
 
-        this.sharedMemory.x = this.data.x
-        this.sharedMemory.w = this.data.w
-        this.sharedMemory.c.set(this.data.c, 1)
-
         this.times.start = bpmChanges.at(this.data.startBeat).time
-    }
-
-    spawnOrder() {
-        return 1000 + this.times.start
-    }
-
-    shouldSpawn() {
-        return time.now >= this.times.start
-    }
-
-    initialize() {
-        const animateDuration = 1 / 3
-
-        this.times.started = this.times.start + (this.data.animateStart ? animateDuration : 0)
 
         this.times.end = bpmChanges.at(this.data.endBeat).time
         this.times.ended = this.times.end + animateDuration
-
-        this.zs.body = getZ(layer.track.body, -this.times.start)
-        this.zs.line = getZ(layer.track.line, -this.times.start)
-        this.zs.border = getZ(layer.track.border, -this.times.start)
-        this.zs.glow = getZ(layer.trackGlow, -this.times.start)
-        this.zs.slot = getZ(layer.slot, -this.times.start)
     }
 
-    updateSequentialOrder = 1
+    spawnTime() {
+        return this.times.start
+    }
+
+    despawnTime() {
+        return this.times.ended
+    }
+
+    initialize() {
+        if (this.initialized) return
+        this.initialized = true
+
+        this.globalInitialize()
+    }
+
     updateSequential() {
-        const transform = (x: number) => new Vec(x, 0).transform(skin.transform).x
-
-        this.sharedMemory.hitbox.l = transform(this.sharedMemory.x - this.sharedMemory.w)
-        this.sharedMemory.hitbox.r = transform(this.sharedMemory.x + this.sharedMemory.w)
-
-        this.sharedMemory.isActive = false
-    }
-
-    touch() {
-        for (const touch of touches) {
-            if (touch.x < this.sharedMemory.hitbox.l || touch.x > this.sharedMemory.hitbox.r)
-                continue
-
-            this.sharedMemory.isActive = true
-            return
+        this.sharedMemory.x = this.data.x
+        this.sharedMemory.w = this.data.w
+        for (let i = 0; i < this.sharedMemory.c.length; i++) {
+            this.sharedMemory.c.set(i, 0)
         }
+        this.sharedMemory.c.set(this.data.c, 1)
     }
 
     updateParallel() {
-        if (time.now >= this.times.ended) {
-            this.despawn = true
-            return
-        }
-
         this.drawTrack()
         this.drawSlot()
     }
@@ -125,12 +98,13 @@ export class Track extends Archetype {
         )
     }
 
-    get shouldDrawTrackGlow() {
-        return (
-            skin.sprites.trackGlowBody.exists &&
-            skin.sprites.trackGlowLeftBorder.exists &&
-            skin.sprites.trackGlowRightBorder.exists
-        )
+    globalInitialize() {
+        this.times.started = this.times.start + (this.data.animateStart ? animateDuration : 0)
+
+        this.zs.body = getZ(layer.track.body, -this.times.start)
+        this.zs.line = getZ(layer.track.line, -this.times.start)
+        this.zs.border = getZ(layer.track.border, -this.times.start)
+        this.zs.slot = getZ(layer.slot, -this.times.start)
     }
 
     drawTrack() {
@@ -153,10 +127,6 @@ export class Track extends Archetype {
             this.drawFallbackTrack(w, h)
         } else {
             this.drawVoezTrack(w, h)
-        }
-
-        if (this.shouldDrawTrackGlow) {
-            this.drawTrackGlow(w, h)
         }
     }
 
@@ -215,44 +185,6 @@ export class Track extends Archetype {
         }).translate(this.sharedMemory.x, 1)
 
         skin.sprites.trackFallback.draw(layout, this.zs.body, 1)
-    }
-
-    drawTrackGlow(w: number, h: number) {
-        if (!options.laneEffectEnabled) return
-        if (!this.sharedMemory.isActive) return
-
-        const l = this.sharedMemory.x - w
-        const r = this.sharedMemory.x + w
-
-        const b = (-27 / 128) * h
-        const t = b + h
-
-        const bodyLayout = new Rect({
-            l,
-            r,
-            t,
-            b,
-        }).translate(0, 1)
-
-        skin.sprites.trackGlowBody.draw(bodyLayout, this.zs.glow, 1)
-
-        const leftLayout = new Rect({
-            l: -52 / 128,
-            r: 0,
-            t,
-            b,
-        }).translate(l, 1)
-
-        skin.sprites.trackGlowLeftBorder.draw(leftLayout, this.zs.glow, 1)
-
-        const rightLayout = new Rect({
-            l: 0,
-            r: 52 / 128,
-            t,
-            b,
-        }).translate(r, 1)
-
-        skin.sprites.trackGlowRightBorder.draw(rightLayout, this.zs.glow, 1)
     }
 
     drawSlot() {

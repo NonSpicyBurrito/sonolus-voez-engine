@@ -37,6 +37,12 @@ export class FlickNote extends SingleNote {
 
     activatedTouchId = this.entityMemory(TouchId)
 
+    preprocess() {
+        super.preprocess()
+
+        if (options.mirror) this.flickData.direction *= -1
+    }
+
     initialize() {
         super.initialize()
 
@@ -61,8 +67,6 @@ export class FlickNote extends SingleNote {
     }
 
     touch() {
-        if (options.autoplay) return
-
         if (time.now < this.inputTime.min) return
 
         if (!this.activatedTouchId) this.touchActivate()

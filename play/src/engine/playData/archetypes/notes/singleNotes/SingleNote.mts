@@ -19,19 +19,7 @@ export abstract class SingleNote extends Note {
     initialize() {
         super.initialize()
 
-        if (options.autoplay) {
-            this.result.judgment = Judgment.Perfect
-
-            this.result.bucket.index = this.bucket.index
-        } else {
-            this.result.accuracy = this.windows.good.max
-        }
-    }
-
-    terminate() {
-        if (!options.autoplay) return
-
-        if (options.noteEffectEnabled) this.playNoteEffect()
+        this.result.accuracy = this.windows.good.max
     }
 
     scheduleSFX() {

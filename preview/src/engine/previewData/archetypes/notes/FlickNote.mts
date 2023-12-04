@@ -11,6 +11,12 @@ export class FlickNote extends Note {
         direction: { name: 'direction', type: DataType<FlickDirection> },
     })
 
+    preprocess() {
+        super.preprocess()
+
+        if (options.mirror) this.flickData.direction *= -1
+    }
+
     render() {
         const { time, layout, z } = super.render()
 
