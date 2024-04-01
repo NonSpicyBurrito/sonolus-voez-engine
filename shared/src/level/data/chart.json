@@ -6,10 +6,6 @@
             "data": []
         },
         {
-            "archetype": "InputManager",
-            "data": []
-        },
-        {
             "archetype": "Stage",
             "data": []
         },

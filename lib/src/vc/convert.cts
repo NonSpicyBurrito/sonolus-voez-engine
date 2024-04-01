@@ -52,10 +52,6 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
             data: [],
         },
         {
-            archetype: 'InputManager',
-            data: [],
-        },
-        {
             archetype: 'Stage',
             data: [],
         },
