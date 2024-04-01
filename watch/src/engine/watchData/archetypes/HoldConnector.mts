@@ -57,8 +57,11 @@ export class HoldConnector extends Archetype {
         }
 
         if (options.sfxEnabled) {
-            const id = effect.clips.hold.scheduleLoop(this.head.time)
-            effect.clips.scheduleStopLoop(id, this.tail.time)
+            if (replay.isReplay) {
+                this.scheduleReplaySFX()
+            } else {
+                this.scheduleSFX()
+            }
         }
     }
 
@@ -66,8 +69,10 @@ export class HoldConnector extends Archetype {
         return this.visualTime.min
     }
 
-    despawnTime() {
-        return this.visualTime.max
+    despawnTime(): number {
+        return replay.isReplay
+            ? Math.min(this.tailSharedMemory.despawnTime, this.tail.time)
+            : this.tail.time
     }
 
     initialize() {
@@ -84,11 +89,13 @@ export class HoldConnector extends Archetype {
 
         if (time.now < this.head.time) return
 
+        this.renderSlide()
+
+        if (time.now < this.headSharedMemory.despawnTime) return
+
         if (this.shouldScheduleHoldEffect && !this.holdEffectInstanceId) this.spawnHoldEffect()
 
         if (this.holdEffectInstanceId) this.updateHoldEffect()
-
-        this.renderSlide()
     }
 
     terminate() {
@@ -99,8 +106,16 @@ export class HoldConnector extends Archetype {
         return archetypes.HoldStartNote.import.get(this.import.headRef)
     }
 
+    get headSharedMemory() {
+        return archetypes.HoldEndNote.sharedMemory.get(this.import.headRef)
+    }
+
     get tailImport() {
         return archetypes.HoldEndNote.import.get(this.import.tailRef)
+    }
+
+    get tailSharedMemory() {
+        return archetypes.HoldEndNote.sharedMemory.get(this.import.tailRef)
     }
 
     get trackImport() {
@@ -139,6 +154,22 @@ export class HoldConnector extends Archetype {
 
         this.zs.connector = getZ(layer.connector, this.head.time)
         this.zs.slide = getZ(layer.slide, this.head.time)
+    }
+
+    scheduleSFX() {
+        const id = effect.clips.hold.scheduleLoop(this.head.time)
+        effect.clips.scheduleStopLoop(id, this.tail.time)
+    }
+
+    scheduleReplaySFX() {
+        if (!this.headImport.judgment) return
+
+        const start = Math.max(this.head.time, this.headSharedMemory.despawnTime)
+        const end = Math.min(this.tail.time, this.tailSharedMemory.despawnTime)
+        if (start >= end) return
+
+        const id = effect.clips.hold.scheduleLoop(start)
+        effect.clips.scheduleStopLoop(id, end)
     }
 
     renderConnector() {

@@ -51,17 +51,20 @@ export class HoldEndNote extends Note {
 
     handleInput() {
         if (time.now < this.inputTime.max && this.trackSharedMemory.isActive) return
+
+        if (time.now >= this.inputTime.min) {
+            const hitTime = Math.min(time.now - input.offset, this.targetTime)
+
+            this.result.judgment = input.judge(hitTime, this.targetTime, this.windows)
+            this.result.accuracy = hitTime - this.targetTime
+
+            this.result.bucket.index = this.bucket.index
+            this.result.bucket.value = this.result.accuracy * 1000
+        }
+
+        this.export('accuracyDiff', time.now - this.result.accuracy - this.targetTime)
+
         this.despawn = true
-
-        if (time.now < this.inputTime.min) return
-
-        const hitTime = Math.min(time.now - input.offset, this.targetTime)
-
-        this.result.judgment = input.judge(hitTime, this.targetTime, this.windows)
-        this.result.accuracy = hitTime - this.targetTime
-
-        this.result.bucket.index = this.bucket.index
-        this.result.bucket.value = this.result.accuracy * 1000
     }
 
     render() {

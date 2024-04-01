@@ -12,6 +12,10 @@ export abstract class Note extends Archetype {
         beat: { name: EngineArchetypeDataName.Beat, type: Number },
     })
 
+    export = this.defineExport({
+        accuracyDiff: { name: 'accuracyDiff', type: Number },
+    })
+
     abstract sprites: {
         note: SkinSprite
     }
@@ -130,5 +134,11 @@ export abstract class Note extends Archetype {
 
     render() {
         this.y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
+    }
+
+    incomplete(hitTime: number) {
+        this.export('accuracyDiff', hitTime - this.result.accuracy - this.targetTime)
+
+        this.despawn = true
     }
 }

@@ -1,6 +1,27 @@
 import { skin } from '../../skin.mjs'
+import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
 
 export class HoldEndNote extends Note {
+    holdImport = this.defineImport({
+        headRef: { name: 'headRef', type: Number },
+    })
+
     sprite = skin.sprites.holdEndNote
+
+    get hitTime() {
+        return replay.isReplay
+            ? this.headImport.judgment
+                ? this.targetTime + this.import.accuracy + this.import.accuracyDiff
+                : this.headSharedMemory.despawnTime
+            : this.targetTime
+    }
+
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.holdImport.headRef)
+    }
+
+    get headSharedMemory() {
+        return archetypes.HoldStartNote.sharedMemory.get(this.holdImport.headRef)
+    }
 }

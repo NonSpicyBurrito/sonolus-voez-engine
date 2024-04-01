@@ -9,7 +9,13 @@ export abstract class SingleNote extends Note {
     preprocess() {
         super.preprocess()
 
-        if (options.sfxEnabled) this.scheduleSFX()
+        if (options.sfxEnabled) {
+            if (replay.isReplay) {
+                this.scheduleReplaySFX()
+            } else {
+                this.scheduleSFX()
+            }
+        }
     }
 
     terminate() {
@@ -19,10 +25,28 @@ export abstract class SingleNote extends Note {
     }
 
     scheduleSFX() {
-        effect.clips.perfect.schedule(this.targetTime, sfxDistance)
+        effect.clips.perfect.schedule(this.hitTime, sfxDistance)
+    }
+
+    scheduleReplaySFX() {
+        if (!this.import.judgment) return
+
+        switch (this.import.judgment) {
+            case Judgment.Perfect:
+                effect.clips.perfect.schedule(this.hitTime, sfxDistance)
+                break
+            case Judgment.Great:
+                effect.clips.great.schedule(this.hitTime, sfxDistance)
+                break
+            case Judgment.Good:
+                effect.clips.good.schedule(this.hitTime, sfxDistance)
+                break
+        }
     }
 
     despawnTerminate() {
+        if (replay.isReplay && !this.import.judgment) return
+
         if (options.noteEffectEnabled) this.playNoteEffect()
     }
 

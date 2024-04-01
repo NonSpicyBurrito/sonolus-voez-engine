@@ -6,4 +6,10 @@ export class HoldStartNote extends SingleNote {
     sprite = skin.sprites.holdStartNote
 
     effect = particle.effects.hit
+
+    render() {
+        if (time.now >= this.targetTime) return
+
+        super.render()
+    }
 }
