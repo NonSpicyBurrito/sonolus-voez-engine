@@ -11,7 +11,7 @@ export class TapNote extends SimpleNote {
 
     windows = windows.tapNote
 
-    bucket = buckets.tapNote
+    bucket: Bucket = buckets.tapNote
 
     touch() {
         if (time.now < this.inputTime.min) return
