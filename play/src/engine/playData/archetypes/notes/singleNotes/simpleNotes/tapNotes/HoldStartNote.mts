@@ -12,7 +12,9 @@ export class HoldStartNote extends TapNote {
 
     bucket = buckets.holdStartNote
 
-    get shouldRender() {
-        return time.now < this.targetTime
+    render() {
+        if (time.now >= this.targetTime) return
+
+        super.render()
     }
 }

@@ -94,7 +94,6 @@ export abstract class Note extends Archetype {
 
         if (time.now < this.visualTime.min) return
         if (options.hidden > 0 && time.now > this.visualTime.hidden) return
-        if (!this.shouldRender) return
 
         this.render()
     }
@@ -125,11 +124,6 @@ export abstract class Note extends Archetype {
 
     scheduleSFX() {
         this.hasSFXScheduled = true
-    }
-
-    // eslint-disable-next-line @typescript-eslint/class-literal-property-style
-    get shouldRender() {
-        return true
     }
 
     render() {
