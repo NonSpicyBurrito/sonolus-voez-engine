@@ -21,6 +21,10 @@ export abstract class Note extends Archetype {
 
     abstract sprite: SkinSprite
 
+    abstract windows: JudgmentWindows
+
+    abstract bucket: Bucket
+
     initialized = this.entityMemory(Boolean)
 
     targetTime = this.entityMemory(Number)
@@ -36,6 +40,17 @@ export abstract class Note extends Archetype {
     y = this.entityMemory(Number)
 
     globalPreprocess() {
+        const toMs = ({ min, max }: JudgmentWindow) => ({
+            min: Math.round(min * 1000),
+            max: Math.round(max * 1000),
+        })
+
+        this.bucket.set({
+            perfect: toMs(this.windows.perfect),
+            great: toMs(this.windows.great),
+            good: toMs(this.windows.good),
+        })
+
         this.life.miss = -40
     }
 
@@ -48,6 +63,13 @@ export abstract class Note extends Archetype {
         this.sharedMemory.despawnTime = this.hitTime
 
         this.result.time = this.targetTime
+
+        if (!replay.isReplay) {
+            this.result.bucket.index = this.bucket.index
+        } else if (this.import.judgment) {
+            this.result.bucket.index = this.bucket.index
+            this.result.bucket.value = this.import.accuracy * 1000
+        }
     }
 
     spawnTime() {

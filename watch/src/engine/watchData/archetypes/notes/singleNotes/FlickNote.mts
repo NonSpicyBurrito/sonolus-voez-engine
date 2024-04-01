@@ -1,6 +1,8 @@
 import { FlickDirection } from '../../../../../../../shared/src/engine/data/FlickDirection.mjs'
 import { leftRotated, rightRotated } from '../../../../../../../shared/src/engine/data/utils.mjs'
+import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
 import { options } from '../../../../configuration/options.mjs'
+import { buckets } from '../../../buckets.mjs'
 import { note, noteLayout } from '../../../note.mjs'
 import { particle } from '../../../particle.mjs'
 import { scaledScreen } from '../../../scaledScreen.mjs'
@@ -16,6 +18,10 @@ export class FlickNote extends SingleNote {
     }
 
     effect = particle.effects.flick
+
+    windows = windows.flickNote
+
+    bucket = buckets.flickNote
 
     flickImport = this.defineImport({
         direction: { name: 'direction', type: DataType<FlickDirection> },

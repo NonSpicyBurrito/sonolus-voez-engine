@@ -1,3 +1,5 @@
+import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
+import { buckets } from '../../buckets.mjs'
 import { skin } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
@@ -8,6 +10,10 @@ export class HoldEndNote extends Note {
     })
 
     sprite = skin.sprites.holdEndNote
+
+    windows = windows.holdEndNote
+
+    bucket = buckets.holdEndNote
 
     get hitTime() {
         return replay.isReplay
