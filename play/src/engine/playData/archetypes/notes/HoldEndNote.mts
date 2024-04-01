@@ -9,7 +9,7 @@ import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
 
 export class HoldEndNote extends Note {
-    holdData = this.defineData({
+    holdImport = this.defineImport({
         headRef: { name: 'headRef', type: Number },
     })
 
@@ -30,7 +30,7 @@ export class HoldEndNote extends Note {
     preprocess() {
         super.preprocess()
 
-        this.headTime = bpmChanges.at(this.headData.beat).time
+        this.headTime = bpmChanges.at(this.headImport.beat).time
         this.scheduleSFXTime = getScheduleSFXTime(this.headTime)
 
         this.spawnTime = Math.min(this.visualTime.min, this.scheduleSFXTime)
@@ -49,11 +49,11 @@ export class HoldEndNote extends Note {
     }
 
     get headInfo() {
-        return entityInfos.get(this.holdData.headRef)
+        return entityInfos.get(this.holdImport.headRef)
     }
 
-    get headData() {
-        return archetypes.HoldStartNote.data.get(this.holdData.headRef)
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.holdImport.headRef)
     }
 
     get shouldScheduleSFX() {

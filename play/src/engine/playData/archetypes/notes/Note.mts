@@ -7,7 +7,7 @@ import { archetypes } from '../index.mjs'
 export abstract class Note extends Archetype {
     hasInput = true
 
-    data = this.defineData({
+    import = this.defineImport({
         trackRef: { name: 'trackRef', type: Number },
         beat: { name: EngineArchetypeDataName.Beat, type: Number },
     })
@@ -59,7 +59,7 @@ export abstract class Note extends Archetype {
     }
 
     preprocess() {
-        this.targetTime = bpmChanges.at(this.data.beat).time
+        this.targetTime = bpmChanges.at(this.import.beat).time
 
         this.visualTime.max = this.targetTime
         this.visualTime.min = this.visualTime.max - note.duration
@@ -108,7 +108,7 @@ export abstract class Note extends Archetype {
     }
 
     get trackSharedMemory() {
-        return archetypes.Track.sharedMemory.get(this.data.trackRef)
+        return archetypes.Track.sharedMemory.get(this.import.trackRef)
     }
 
     get x() {

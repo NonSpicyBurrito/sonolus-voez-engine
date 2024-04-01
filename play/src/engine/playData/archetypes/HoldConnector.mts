@@ -5,7 +5,7 @@ import { getZ, layer, skin } from '../skin.mjs'
 import { archetypes } from './index.mjs'
 
 export class HoldConnector extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         headRef: { name: 'headRef', type: Number },
         tailRef: { name: 'tailRef', type: Number },
     })
@@ -36,7 +36,7 @@ export class HoldConnector extends Archetype {
     nextLineTime = this.entityMemory(Number)
 
     preprocess() {
-        this.head.time = bpmChanges.at(this.headData.beat).time
+        this.head.time = bpmChanges.at(this.headImport.beat).time
 
         this.visualTime.min = this.head.time - note.duration
 
@@ -52,9 +52,9 @@ export class HoldConnector extends Archetype {
     }
 
     initialize() {
-        this.trackRef = this.headData.trackRef
+        this.trackRef = this.headImport.trackRef
 
-        this.tail.time = bpmChanges.at(this.tailData.beat).time
+        this.tail.time = bpmChanges.at(this.tailImport.beat).time
 
         this.visualTime.max = this.tail.time
 
@@ -67,9 +67,9 @@ export class HoldConnector extends Archetype {
         this.nextLineTime = 999999
         if (this.tail.time - this.head.time <= 0.08) return
 
-        let nextRef = this.trackData.moveRef
+        let nextRef = this.trackImport.moveRef
         while (nextRef) {
-            const data = archetypes.TrackMoveCommand.data.get(nextRef)
+            const commandImport = archetypes.TrackMoveCommand.import.get(nextRef)
 
             const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(nextRef)
             if (sharedMemory.startTime >= this.tail.time) break
@@ -79,7 +79,7 @@ export class HoldConnector extends Archetype {
                 break
             }
 
-            nextRef = data.nextRef
+            nextRef = commandImport.nextRef
         }
     }
 
@@ -101,27 +101,27 @@ export class HoldConnector extends Archetype {
     }
 
     get headInfo() {
-        return entityInfos.get(this.data.headRef)
+        return entityInfos.get(this.import.headRef)
     }
 
-    get headData() {
-        return archetypes.HoldStartNote.data.get(this.data.headRef)
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.import.headRef)
     }
 
     get tailInfo() {
-        return entityInfos.get(this.data.tailRef)
+        return entityInfos.get(this.import.tailRef)
     }
 
-    get trackData() {
-        return archetypes.Track.data.get(this.trackRef)
+    get trackImport() {
+        return archetypes.Track.import.get(this.trackRef)
     }
 
     get trackSharedMemory() {
         return archetypes.Track.sharedMemory.get(this.trackRef)
     }
 
-    get tailData() {
-        return archetypes.HoldEndNote.data.get(this.data.tailRef)
+    get tailImport() {
+        return archetypes.HoldEndNote.import.get(this.import.tailRef)
     }
 
     get isDead() {
@@ -133,7 +133,7 @@ export class HoldConnector extends Archetype {
 
         archetypes.HoldLine.spawn({
             time: this.nextLineTime,
-            tailRef: this.data.tailRef,
+            tailRef: this.import.tailRef,
             trackRef: this.trackRef,
         })
 

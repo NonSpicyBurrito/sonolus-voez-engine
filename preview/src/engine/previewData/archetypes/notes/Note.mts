@@ -8,13 +8,13 @@ import { getZ, layer } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 
 export abstract class Note extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         trackRef: { name: 'trackRef', type: Number },
         beat: { name: EngineArchetypeDataName.Beat, type: Number },
     })
 
     render() {
-        const time = bpmChanges.at(this.data.beat).time
+        const time = bpmChanges.at(this.import.beat).time
 
         const layout = new Rect({
             l: -note.h * scaledScreen.hToW * options.noteSize,
@@ -31,31 +31,31 @@ export abstract class Note extends Archetype {
     }
 
     getX(time: number) {
-        const data = archetypes.Track.data.get(this.data.trackRef)
+        const trackImport = archetypes.Track.import.get(this.import.trackRef)
 
-        let x = data.x
+        let x = trackImport.x
 
-        let ref = data.moveRef
+        let ref = trackImport.moveRef
         while (ref) {
-            const data = archetypes.TrackMoveCommand.data.get(ref)
+            const commandImport = archetypes.TrackMoveCommand.import.get(ref)
             const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(ref)
 
             if (time < sharedMemory.startTime) break
 
             if (time <= sharedMemory.endTime) {
                 x = Math.lerp(
-                    data.startValue,
-                    data.endValue,
+                    commandImport.startValue,
+                    commandImport.endValue,
                     ease(
-                        data.ease,
+                        commandImport.ease,
                         Math.unlerpClamped(sharedMemory.startTime, sharedMemory.endTime, time),
                     ),
                 )
                 break
             }
 
-            x = data.endValue
-            ref = data.nextRef
+            x = commandImport.endValue
+            ref = commandImport.nextRef
         }
 
         return x

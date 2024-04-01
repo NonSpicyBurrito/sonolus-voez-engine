@@ -6,8 +6,8 @@ export class TrackMoveCommand extends TrackCommand {
         super.preprocess()
 
         if (options.mirror) {
-            this.data.startValue *= -1
-            this.data.endValue *= -1
+            this.import.startValue *= -1
+            this.import.endValue *= -1
         }
     }
 }

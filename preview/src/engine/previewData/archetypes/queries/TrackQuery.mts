@@ -13,8 +13,8 @@ export abstract class TrackQuery {
     nextRef = 0
 
     constructor(index: number) {
-        const data = archetypes.Track.data.get(index)
-        this.startTime = this.endTime = bpmChanges.at(data.startBeat).time
+        const trackImport = archetypes.Track.import.get(index)
+        this.startTime = this.endTime = bpmChanges.at(trackImport.startBeat).time
     }
 
     get(time: number) {
@@ -31,17 +31,17 @@ export abstract class TrackQuery {
         if (time <= this.endTime) return
 
         while (this.nextRef) {
-            const data = this.command.data.get(this.nextRef)
+            const commandImport = this.command.import.get(this.nextRef)
             const sharedMemory = this.command.sharedMemory.get(this.nextRef)
 
             if (time < sharedMemory.startTime) return
 
             this.startTime = sharedMemory.startTime
             this.endTime = sharedMemory.endTime
-            this.startValue = data.startValue
-            this.endValue = data.endValue
-            this.ease = data.ease
-            this.nextRef = data.nextRef
+            this.startValue = commandImport.startValue
+            this.endValue = commandImport.endValue
+            this.ease = commandImport.ease
+            this.nextRef = commandImport.nextRef
         }
     }
 }

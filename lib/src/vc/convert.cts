@@ -93,7 +93,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
 
         const addCommands = (commands: VCTrackCommand[], archetype: string, dataName: string) => {
             const entities = commands.map((command) => ({
-                ref: next(),
+                name: next(),
                 archetype,
                 data: {
                     trackRef: ref,
@@ -106,7 +106,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
             }))
 
             if (entities.length) {
-                data[dataName] = entities[0].ref
+                data[dataName] = entities[0].name
             }
 
             for (const [index, entity] of entities.entries()) {
@@ -117,7 +117,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
                         ...entity,
                         data: {
                             ...entity.data,
-                            nextRef: entities[index + 1].ref,
+                            nextRef: entities[index + 1].name,
                         },
                     })
                 }
@@ -129,7 +129,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
         addCommands(track.colorCommands, 'TrackColorCommand', 'colorRef')
 
         add({
-            ref,
+            name: ref,
             archetype: 'Track',
             data,
         })
@@ -172,7 +172,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
                     const tailRef = next()
 
                     add({
-                        ref: headRef,
+                        name: headRef,
                         archetype: 'HoldStartNote',
                         data: {
                             trackRef: ref,
@@ -181,7 +181,7 @@ export const vcToLevelData = (vc: VC, offset = 0): LevelData => {
                     })
 
                     add({
-                        ref: tailRef,
+                        name: tailRef,
                         archetype: 'HoldEndNote',
                         data: {
                             trackRef: ref,

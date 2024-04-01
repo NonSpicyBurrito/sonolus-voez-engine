@@ -7,15 +7,15 @@ import { archetypes } from './index.mjs'
 import { TrackXQuery } from './queries/TrackXQuery.mjs'
 
 export class HoldConnector extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         headRef: { name: 'headRef', type: Number },
         tailRef: { name: 'tailRef', type: Number },
     })
 
     render() {
         const t = {
-            min: bpmChanges.at(this.headData.beat).time,
-            max: bpmChanges.at(this.tailData.beat).time,
+            min: bpmChanges.at(this.headImport.beat).time,
+            max: bpmChanges.at(this.tailImport.beat).time,
         }
 
         const index = {
@@ -25,7 +25,7 @@ export class HoldConnector extends Archetype {
 
         const z = getZ(layer.connector, t.min)
 
-        const xQuery = new TrackXQuery(this.headData.trackRef)
+        const xQuery = new TrackXQuery(this.headImport.trackRef)
 
         for (let i = index.min; i <= index.max; i++) {
             const pt = i * panel.h
@@ -63,11 +63,11 @@ export class HoldConnector extends Archetype {
         }
     }
 
-    get headData() {
-        return archetypes.HoldStartNote.data.get(this.data.headRef)
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.import.headRef)
     }
 
-    get tailData() {
-        return archetypes.HoldEndNote.data.get(this.data.tailRef)
+    get tailImport() {
+        return archetypes.HoldEndNote.import.get(this.import.tailRef)
     }
 }

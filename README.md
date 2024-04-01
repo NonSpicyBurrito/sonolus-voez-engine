@@ -43,9 +43,9 @@ npm install sonolus-voez-engine
 
 Package version.
 
-### `engineInfo`
+### `databaseEngineItem`
 
-Partial engine information compatible with [sonolus-express](https://github.com/NonSpicyBurrito/sonolus-express).
+Partial database engine item compatible with [sonolus-express](https://github.com/NonSpicyBurrito/sonolus-express).
 
 ### `engineConfigurationPath`
 

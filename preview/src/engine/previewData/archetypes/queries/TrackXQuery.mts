@@ -9,8 +9,8 @@ export class TrackXQuery extends TrackQuery {
     constructor(index: number) {
         super(index)
 
-        const data = archetypes.Track.data.get(index)
-        this.startValue = this.endValue = data.x
-        this.nextRef = data.moveRef
+        const trackImport = archetypes.Track.import.get(index)
+        this.startValue = this.endValue = trackImport.x
+        this.nextRef = trackImport.moveRef
     }
 }
