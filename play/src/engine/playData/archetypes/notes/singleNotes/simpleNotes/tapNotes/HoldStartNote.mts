@@ -12,9 +12,19 @@ export class HoldStartNote extends TapNote {
 
     bucket = buckets.holdStartNote
 
+    sharedMemory = this.defineSharedMemory({
+        activated: Boolean,
+    })
+
     render() {
         if (time.now >= this.targetTime) return
 
         super.render()
+    }
+
+    complete(touch: Touch) {
+        super.complete(touch)
+
+        this.sharedMemory.activated = true
     }
 }

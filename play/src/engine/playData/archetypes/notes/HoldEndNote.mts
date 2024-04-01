@@ -1,8 +1,5 @@
-import { options } from '../../../configuration/options.mjs'
 import { buckets } from '../../buckets.mjs'
-import { effect, getScheduleSFXTime } from '../../effect.mjs'
 import { noteLayout } from '../../note.mjs'
-import { effectLayout, particle } from '../../particle.mjs'
 import { skin } from '../../skin.mjs'
 import { windows } from '../../windows.mjs'
 import { archetypes } from '../index.mjs'
@@ -21,29 +18,21 @@ export class HoldEndNote extends Note {
 
     bucket = buckets.holdEndNote
 
-    headTime = this.entityMemory(Number)
-
-    sfxInstanceId = this.entityMemory(LoopedEffectClipInstanceId)
-
-    holdEffectInstanceId = this.entityMemory(ParticleEffectInstanceId)
-
     preprocess() {
         super.preprocess()
 
-        this.headTime = bpmChanges.at(this.headImport.beat).time
-        this.scheduleSFXTime = getScheduleSFXTime(this.headTime)
+        const minHeadInputTime =
+            bpmChanges.at(this.headImport.beat).time + windows.holdStartNote.good.min + input.offset
 
-        this.spawnTime = Math.min(this.visualTime.min, this.scheduleSFXTime)
-    }
-
-    initialize() {
-        super.initialize()
-
-        this.result.accuracy = this.windows.good.min
+        this.spawnTime = Math.min(this.scheduleSFXTime, this.visualTime.min, minHeadInputTime)
     }
 
     updateParallel() {
-        this.handleInput()
+        if (this.headSharedMemory.activated) {
+            this.handleInput()
+        } else if (this.headInfo.state === EntityState.Despawned) {
+            this.despawn = true
+        }
 
         super.updateParallel()
     }
@@ -56,66 +45,12 @@ export class HoldEndNote extends Note {
         return archetypes.HoldStartNote.import.get(this.holdImport.headRef)
     }
 
-    get shouldScheduleSFX() {
-        return options.sfxEnabled && effect.clips.hold.exists && options.autoSFX
-    }
-
-    get shouldPlaySFX() {
-        return options.sfxEnabled && effect.clips.hold.exists && !options.autoSFX
-    }
-
-    get shouldHoldEffect() {
-        return options.noteEffectEnabled && particle.effects.hold.exists
-    }
-
-    scheduleSFX() {
-        super.scheduleSFX()
-
-        const id = effect.clips.hold.scheduleLoop(this.headTime)
-        effect.clips.scheduleStopLoop(id, this.targetTime)
-    }
-
-    playSFX() {
-        this.sfxInstanceId = effect.clips.hold.loop()
-    }
-
-    stopSFX() {
-        effect.clips.stopLoop(this.sfxInstanceId)
-    }
-
-    spawnHoldEffect() {
-        const layout = effectLayout(this.trackSharedMemory.x)
-
-        this.holdEffectInstanceId = particle.effects.hold.spawn(layout, 0.5, true)
-    }
-
-    moveHoldEffect() {
-        const layout = effectLayout(this.trackSharedMemory.x)
-
-        particle.effects.move(this.holdEffectInstanceId, layout)
-    }
-
-    destroyHoldEffect() {
-        particle.effects.destroy(this.holdEffectInstanceId)
+    get headSharedMemory() {
+        return archetypes.HoldStartNote.sharedMemory.get(this.holdImport.headRef)
     }
 
     handleInput() {
-        if (this.headInfo.state !== EntityState.Despawned) return
-
-        if (this.trackSharedMemory.isActive && time.now < this.inputTime.max) {
-            if (this.shouldPlaySFX && !this.sfxInstanceId) this.playSFX()
-
-            if (this.shouldHoldEffect) {
-                if (!this.holdEffectInstanceId) this.spawnHoldEffect()
-
-                this.moveHoldEffect()
-            }
-
-            return
-        }
-
-        if (this.shouldPlaySFX && this.sfxInstanceId) this.stopSFX()
-        if (this.shouldHoldEffect && this.holdEffectInstanceId) this.destroyHoldEffect()
+        if (time.now < this.inputTime.max && this.trackSharedMemory.isActive) return
         this.despawn = true
 
         if (time.now < this.inputTime.min) return

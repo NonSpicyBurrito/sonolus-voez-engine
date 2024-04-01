@@ -81,6 +81,8 @@ export abstract class Note extends Archetype {
             this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
         this.z = getZ(layer.note.body, this.targetTime)
+
+        this.result.accuracy = this.windows.good.max
     }
 
     touchOrder = 1

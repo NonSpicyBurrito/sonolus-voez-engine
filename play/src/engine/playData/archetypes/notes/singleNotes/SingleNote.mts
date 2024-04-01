@@ -16,12 +16,6 @@ export abstract class SingleNote extends Note {
         this.spawnTime = Math.min(this.visualTime.min, this.scheduleSFXTime)
     }
 
-    initialize() {
-        super.initialize()
-
-        this.result.accuracy = this.windows.good.max
-    }
-
     scheduleSFX() {
         super.scheduleSFX()
 
