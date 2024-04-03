@@ -1,4 +1,4 @@
-import { EngineArchetypeName } from 'sonolus-core'
+import { EngineArchetypeName } from '@sonolus/core'
 import { BpmChange } from './BpmChange.mjs'
 import { HoldConnector } from './HoldConnector.mjs'
 import { Initialization } from './Initialization.mjs'

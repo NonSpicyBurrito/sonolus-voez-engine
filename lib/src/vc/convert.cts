@@ -3,7 +3,7 @@ import {
     EngineArchetypeName,
     LevelData,
     LevelDataEntity,
-} from 'sonolus-core'
+} from '@sonolus/core'
 import { VC, VCTrackCommand } from './index.cjs'
 
 const ease = [

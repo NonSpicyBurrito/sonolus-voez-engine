@@ -1,5 +1,5 @@
+import { DatabaseEngineItem } from '@sonolus/core'
 import { resolve } from 'node:path'
-import { DatabaseEngineItem } from 'sonolus-core'
 
 export { vcToLevelData } from './vc/convert.cjs'
 export * from './vc/index.cjs'

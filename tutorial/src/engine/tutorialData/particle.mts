@@ -1,4 +1,4 @@
-import { ParticleEffectName } from 'sonolus-core'
+import { ParticleEffectName } from '@sonolus/core'
 import { scaledScreen } from './scaledScreen.mjs'
 
 export const particle = defineParticle({
