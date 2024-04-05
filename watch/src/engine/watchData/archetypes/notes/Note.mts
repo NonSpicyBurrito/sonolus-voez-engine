@@ -1,4 +1,4 @@
-import { EngineArchetypeDataName } from 'sonolus-core'
+import { EngineArchetypeDataName } from '@sonolus/core'
 import { options } from '../../../configuration/options.mjs'
 import { note, noteLayout } from '../../note.mjs'
 import { getZ, layer } from '../../skin.mjs'
@@ -7,12 +7,23 @@ import { archetypes } from '../index.mjs'
 export abstract class Note extends Archetype {
     hasInput = true
 
-    data = this.defineData({
+    import = this.defineImport({
         trackRef: { name: 'trackRef', type: Number },
         beat: { name: EngineArchetypeDataName.Beat, type: Number },
+        judgment: { name: EngineArchetypeDataName.Judgment, type: DataType<Judgment> },
+        accuracy: { name: EngineArchetypeDataName.Accuracy, type: Number },
+        accuracyDiff: { name: 'accuracyDiff', type: Number },
+    })
+
+    sharedMemory = this.defineSharedMemory({
+        despawnTime: Number,
     })
 
     abstract sprite: SkinSprite
+
+    abstract windows: JudgmentWindows
+
+    abstract bucket: Bucket
 
     initialized = this.entityMemory(Boolean)
 
@@ -29,16 +40,36 @@ export abstract class Note extends Archetype {
     y = this.entityMemory(Number)
 
     globalPreprocess() {
+        const toMs = ({ min, max }: JudgmentWindow) => ({
+            min: Math.round(min * 1000),
+            max: Math.round(max * 1000),
+        })
+
+        this.bucket.set({
+            perfect: toMs(this.windows.perfect),
+            great: toMs(this.windows.great),
+            good: toMs(this.windows.good),
+        })
+
         this.life.miss = -40
     }
 
     preprocess() {
-        this.targetTime = bpmChanges.at(this.data.beat).time
+        this.targetTime = bpmChanges.at(this.import.beat).time
 
         this.visualTime.max = this.targetTime
         this.visualTime.min = this.visualTime.max - note.duration
 
+        this.sharedMemory.despawnTime = this.hitTime
+
         this.result.time = this.targetTime
+
+        if (!replay.isReplay) {
+            this.result.bucket.index = this.bucket.index
+        } else if (this.import.judgment) {
+            this.result.bucket.index = this.bucket.index
+            this.result.bucket.value = this.import.accuracy * 1000
+        }
     }
 
     spawnTime() {
@@ -46,7 +77,7 @@ export abstract class Note extends Archetype {
     }
 
     despawnTime() {
-        return this.visualTime.max
+        return this.sharedMemory.despawnTime
     }
 
     initialize() {
@@ -62,8 +93,15 @@ export abstract class Note extends Archetype {
         this.render()
     }
 
+    get hitTime() {
+        return (
+            this.targetTime +
+            (replay.isReplay ? this.import.accuracy + this.import.accuracyDiff : 0)
+        )
+    }
+
     get trackSharedMemory() {
-        return archetypes.Track.sharedMemory.get(this.data.trackRef)
+        return archetypes.Track.sharedMemory.get(this.import.trackRef)
     }
 
     get x() {

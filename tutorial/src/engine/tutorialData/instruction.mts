@@ -1,12 +1,12 @@
-import { InstructionIconName, InstructionText } from 'sonolus-core'
+import { InstructionIconName, Text } from '@sonolus/core'
 import { hand } from './hand.mjs'
 
 export const instruction = defineInstruction({
     texts: {
-        tap: InstructionText.Tap,
-        tapAndFlick: InstructionText.TapAndFlick,
-        tapAndHold: InstructionText.TapAndHold,
-        hold: InstructionText.Hold,
+        tap: Text.Tap,
+        tapAndFlick: Text.TapFlick,
+        tapAndHold: Text.TapHold,
+        hold: Text.Hold,
     },
 
     icons: {

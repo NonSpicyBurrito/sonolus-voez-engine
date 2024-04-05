@@ -1,11 +1,13 @@
 import { options } from '../../configuration/options.mjs'
+import { effect, getScheduleSFXTime } from '../effect.mjs'
 import { note, noteLayout } from '../note.mjs'
+import { effectLayout, particle } from '../particle.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
 import { getZ, layer, skin } from '../skin.mjs'
 import { archetypes } from './index.mjs'
 
 export class HoldConnector extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         headRef: { name: 'headRef', type: Number },
         tailRef: { name: 'tailRef', type: Number },
     })
@@ -22,6 +24,8 @@ export class HoldConnector extends Archetype {
 
     spawnTime = this.entityMemory(Number)
 
+    scheduleSFXTime = this.entityMemory(Number)
+
     visualTime = this.entityMemory({
         min: Number,
         max: Number,
@@ -33,14 +37,22 @@ export class HoldConnector extends Archetype {
         slide: Number,
     })
 
+    hasSFXScheduled = this.entityMemory(Boolean)
+
+    sfxInstanceId = this.entityMemory(LoopedEffectClipInstanceId)
+
+    effectInstanceId = this.entityMemory(ParticleEffectInstanceId)
+
     nextLineTime = this.entityMemory(Number)
 
     preprocess() {
-        this.head.time = bpmChanges.at(this.headData.beat).time
+        this.head.time = bpmChanges.at(this.headImport.beat).time
+
+        this.scheduleSFXTime = getScheduleSFXTime(this.head.time)
 
         this.visualTime.min = this.head.time - note.duration
 
-        this.spawnTime = this.visualTime.min
+        this.spawnTime = Math.min(this.scheduleSFXTime, this.visualTime.min)
     }
 
     spawnOrder() {
@@ -52,9 +64,9 @@ export class HoldConnector extends Archetype {
     }
 
     initialize() {
-        this.trackRef = this.headData.trackRef
+        this.trackRef = this.headImport.trackRef
 
-        this.tail.time = bpmChanges.at(this.tailData.beat).time
+        this.tail.time = bpmChanges.at(this.tailImport.beat).time
 
         this.visualTime.max = this.tail.time
 
@@ -67,9 +79,9 @@ export class HoldConnector extends Archetype {
         this.nextLineTime = 999999
         if (this.tail.time - this.head.time <= 0.08) return
 
-        let nextRef = this.trackData.moveRef
+        let nextRef = this.trackImport.moveRef
         while (nextRef) {
-            const data = archetypes.TrackMoveCommand.data.get(nextRef)
+            const commandImport = archetypes.TrackMoveCommand.import.get(nextRef)
 
             const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(nextRef)
             if (sharedMemory.startTime >= this.tail.time) break
@@ -79,7 +91,7 @@ export class HoldConnector extends Archetype {
                 break
             }
 
-            nextRef = data.nextRef
+            nextRef = commandImport.nextRef
         }
     }
 
@@ -87,6 +99,17 @@ export class HoldConnector extends Archetype {
         if (this.isDead) {
             this.despawn = true
             return
+        }
+
+        if (this.shouldScheduleSFX && !this.hasSFXScheduled && time.now >= this.scheduleSFXTime)
+            this.scheduleSFX()
+
+        if (this.shouldPlaySFX && !this.sfxInstanceId && this.isActive) this.playSFX()
+
+        if (this.shouldSpawnHoldEffect && this.isActive) {
+            if (!this.effectInstanceId) this.spawnHoldEffect()
+
+            this.moveHoldEffect()
         }
 
         this.spawnLine()
@@ -100,32 +123,89 @@ export class HoldConnector extends Archetype {
         this.renderSlide()
     }
 
-    get headInfo() {
-        return entityInfos.get(this.data.headRef)
+    terminate() {
+        if (this.shouldPlaySFX && this.sfxInstanceId) this.stopSFX()
+
+        if (this.shouldSpawnHoldEffect && this.effectInstanceId) this.destroyHoldEffect()
     }
 
-    get headData() {
-        return archetypes.HoldStartNote.data.get(this.data.headRef)
+    get headInfo() {
+        return entityInfos.get(this.import.headRef)
+    }
+
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.import.headRef)
+    }
+
+    get headSharedMemory() {
+        return archetypes.HoldStartNote.sharedMemory.get(this.import.headRef)
     }
 
     get tailInfo() {
-        return entityInfos.get(this.data.tailRef)
+        return entityInfos.get(this.import.tailRef)
     }
 
-    get trackData() {
-        return archetypes.Track.data.get(this.trackRef)
+    get trackImport() {
+        return archetypes.Track.import.get(this.trackRef)
     }
 
     get trackSharedMemory() {
         return archetypes.Track.sharedMemory.get(this.trackRef)
     }
 
-    get tailData() {
-        return archetypes.HoldEndNote.data.get(this.data.tailRef)
+    get tailImport() {
+        return archetypes.HoldEndNote.import.get(this.import.tailRef)
+    }
+
+    get shouldScheduleSFX() {
+        return options.sfxEnabled && effect.clips.hold.exists && options.autoSFX
+    }
+
+    get shouldPlaySFX() {
+        return options.sfxEnabled && effect.clips.hold.exists && !options.autoSFX
+    }
+
+    get shouldSpawnHoldEffect() {
+        return options.noteEffectEnabled && particle.effects.hold.exists
+    }
+
+    get isActive() {
+        return this.headInfo.state === EntityState.Despawned && this.headSharedMemory.activated
     }
 
     get isDead() {
         return this.tailInfo.state === EntityState.Despawned
+    }
+
+    scheduleSFX() {
+        const id = effect.clips.hold.scheduleLoop(this.head.time)
+        effect.clips.scheduleStopLoop(id, this.tail.time)
+
+        this.hasSFXScheduled = true
+    }
+
+    playSFX() {
+        this.sfxInstanceId = effect.clips.hold.loop()
+    }
+
+    stopSFX() {
+        effect.clips.stopLoop(this.sfxInstanceId)
+    }
+
+    spawnHoldEffect() {
+        const layout = effectLayout(this.trackSharedMemory.x)
+
+        this.effectInstanceId = particle.effects.hold.spawn(layout, 0.5, true)
+    }
+
+    moveHoldEffect() {
+        const layout = effectLayout(this.trackSharedMemory.x)
+
+        particle.effects.move(this.effectInstanceId, layout)
+    }
+
+    destroyHoldEffect() {
+        particle.effects.destroy(this.effectInstanceId)
     }
 
     spawnLine() {
@@ -133,7 +213,7 @@ export class HoldConnector extends Archetype {
 
         archetypes.HoldLine.spawn({
             time: this.nextLineTime,
-            tailRef: this.data.tailRef,
+            tailRef: this.import.tailRef,
             trackRef: this.trackRef,
         })
 

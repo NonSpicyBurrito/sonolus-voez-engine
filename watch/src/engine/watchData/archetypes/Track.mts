@@ -19,7 +19,7 @@ const colorSprites = [
 ]
 
 export class Track extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         x: { name: 'x', type: Number },
         w: { name: 'w', type: Number },
         c: { name: 'c', type: Number },
@@ -52,11 +52,11 @@ export class Track extends Archetype {
     })
 
     preprocess() {
-        if (options.mirror) this.data.x *= -1
+        if (options.mirror) this.import.x *= -1
 
-        this.times.start = bpmChanges.at(this.data.startBeat).time
+        this.times.start = bpmChanges.at(this.import.startBeat).time
 
-        this.times.end = bpmChanges.at(this.data.endBeat).time
+        this.times.end = bpmChanges.at(this.import.endBeat).time
         this.times.ended = this.times.end + animateDuration
     }
 
@@ -76,12 +76,12 @@ export class Track extends Archetype {
     }
 
     updateSequential() {
-        this.sharedMemory.x = this.data.x
-        this.sharedMemory.w = this.data.w
+        this.sharedMemory.x = this.import.x
+        this.sharedMemory.w = this.import.w
         for (let i = 0; i < this.sharedMemory.c.length; i++) {
             this.sharedMemory.c.set(i, 0)
         }
-        this.sharedMemory.c.set(this.data.c, 1)
+        this.sharedMemory.c.set(this.import.c, 1)
     }
 
     updateParallel() {
@@ -99,7 +99,7 @@ export class Track extends Archetype {
     }
 
     globalInitialize() {
-        this.times.started = this.times.start + (this.data.animateStart ? animateDuration : 0)
+        this.times.started = this.times.start + (this.import.animateStart ? animateDuration : 0)
 
         this.zs.body = getZ(layer.track.body, -this.times.start)
         this.zs.line = getZ(layer.track.line, -this.times.start)

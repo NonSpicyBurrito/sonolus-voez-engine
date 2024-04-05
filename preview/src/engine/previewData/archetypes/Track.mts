@@ -31,7 +31,7 @@ const colorSprites = [
 ]
 
 export class Track extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         x: { name: 'x', type: Number },
         w: { name: 'w', type: Number },
         c: { name: 'c', type: Number },
@@ -43,16 +43,16 @@ export class Track extends Archetype {
     })
 
     preprocess() {
-        chart.beats = Math.max(chart.beats, this.data.endBeat)
-        chart.duration = Math.max(chart.duration, bpmChanges.at(this.data.endBeat).time)
+        chart.beats = Math.max(chart.beats, this.import.endBeat)
+        chart.duration = Math.max(chart.duration, bpmChanges.at(this.import.endBeat).time)
 
-        if (options.mirror) this.data.x *= -1
+        if (options.mirror) this.import.x *= -1
     }
 
     render() {
         const t = {
-            min: bpmChanges.at(this.data.startBeat).time,
-            max: bpmChanges.at(this.data.endBeat).time,
+            min: bpmChanges.at(this.import.startBeat).time,
+            max: bpmChanges.at(this.import.endBeat).time,
         }
 
         const index = {

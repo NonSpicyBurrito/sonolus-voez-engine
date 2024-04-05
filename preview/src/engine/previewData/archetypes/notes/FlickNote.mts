@@ -7,14 +7,14 @@ import { getZ, layer, skin } from '../../skin.mjs'
 import { Note } from './Note.mjs'
 
 export class FlickNote extends Note {
-    flickData = this.defineData({
+    flickImport = this.defineImport({
         direction: { name: 'direction', type: DataType<FlickDirection> },
     })
 
     preprocess() {
         super.preprocess()
 
-        if (options.mirror) this.flickData.direction *= -1
+        if (options.mirror) this.flickImport.direction *= -1
     }
 
     render() {
@@ -27,7 +27,7 @@ export class FlickNote extends Note {
 
             const s = note.h * scaledScreen.hToW * options.noteSize
 
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 skin.sprites.flickNoteFallbackMarker.draw(
                     leftRotated(layout).translate(-s, 0),
                     markerZ,
@@ -41,7 +41,7 @@ export class FlickNote extends Note {
                 )
             }
         } else {
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 skin.sprites.flickNote.draw(leftRotated(layout), z, 1)
             } else {
                 skin.sprites.flickNote.draw(rightRotated(layout), z, 1)

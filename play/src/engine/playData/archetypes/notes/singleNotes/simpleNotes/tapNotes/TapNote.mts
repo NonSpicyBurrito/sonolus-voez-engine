@@ -1,6 +1,6 @@
+import { windows } from '../../../../../../../../../shared/src/engine/data/windows.mjs'
 import { buckets } from '../../../../../buckets.mjs'
 import { skin } from '../../../../../skin.mjs'
-import { windows } from '../../../../../windows.mjs'
 import { isUsed, markAsUsed } from '../../../../InputManager.mjs'
 import { SimpleNote } from '../SimpleNote.mjs'
 
@@ -11,7 +11,7 @@ export class TapNote extends SimpleNote {
 
     windows = windows.tapNote
 
-    bucket = buckets.tapNote
+    bucket: Bucket = buckets.tapNote
 
     touch() {
         if (time.now < this.inputTime.min) return

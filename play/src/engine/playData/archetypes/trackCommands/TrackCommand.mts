@@ -2,7 +2,7 @@ import { Ease, ease } from '../../../../../../shared/src/engine/data/Ease.mjs'
 import { archetypes } from '../index.mjs'
 
 export abstract class TrackCommand extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         trackRef: { name: 'trackRef', type: Number },
         startBeat: { name: 'startBeat', type: Number },
         startValue: { name: 'startValue', type: Number },
@@ -18,8 +18,8 @@ export abstract class TrackCommand extends Archetype {
     })
 
     preprocess() {
-        this.sharedMemory.startTime = bpmChanges.at(this.data.startBeat).time
-        this.sharedMemory.endTime = bpmChanges.at(this.data.endBeat).time
+        this.sharedMemory.startTime = bpmChanges.at(this.import.startBeat).time
+        this.sharedMemory.endTime = bpmChanges.at(this.import.endBeat).time
     }
 
     spawnOrder() {
@@ -48,10 +48,10 @@ export abstract class TrackCommand extends Archetype {
     abstract update(value: number): void
 
     get trackSharedMemory() {
-        return archetypes.Track.sharedMemory.get(this.data.trackRef)
+        return archetypes.Track.sharedMemory.get(this.import.trackRef)
     }
 
     ease(x: number) {
-        return ease(this.data.ease, x)
+        return ease(this.import.ease, x)
     }
 }

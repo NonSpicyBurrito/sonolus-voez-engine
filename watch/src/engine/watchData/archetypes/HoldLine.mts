@@ -46,24 +46,24 @@ export class HoldLine extends SpawnableArchetype({
         if (options.hidden > 0)
             this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
-        const data = archetypes.Track.data.get(this.spawnData.trackRef)
-        this.x = data.x
+        const trackImport = archetypes.Track.import.get(this.spawnData.trackRef)
+        this.x = trackImport.x
 
-        let nextRef = data.moveRef
+        let nextRef = trackImport.moveRef
         while (nextRef) {
-            const data = archetypes.TrackMoveCommand.data.get(nextRef)
+            const commandImport = archetypes.TrackMoveCommand.import.get(nextRef)
 
             const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(nextRef)
             if (sharedMemory.startTime > this.spawnData.time) break
 
             if (sharedMemory.endTime < this.spawnData.time) {
-                this.x = data.endValue
+                this.x = commandImport.endValue
             } else {
                 this.x = Math.lerp(
-                    data.startValue,
-                    data.endValue,
+                    commandImport.startValue,
+                    commandImport.endValue,
                     ease(
-                        data.ease,
+                        commandImport.ease,
                         Math.unlerpClamped(
                             sharedMemory.startTime,
                             sharedMemory.endTime,
@@ -74,7 +74,7 @@ export class HoldLine extends SpawnableArchetype({
                 break
             }
 
-            nextRef = data.nextRef
+            nextRef = commandImport.nextRef
         }
     }
 

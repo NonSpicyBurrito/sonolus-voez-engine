@@ -1,4 +1,4 @@
-import { EngineArchetypeDataName } from 'sonolus-core'
+import { EngineArchetypeDataName } from '@sonolus/core'
 import { options } from '../../../configuration/options.mjs'
 import { note } from '../../note.mjs'
 import { getZ, layer } from '../../skin.mjs'
@@ -7,9 +7,13 @@ import { archetypes } from '../index.mjs'
 export abstract class Note extends Archetype {
     hasInput = true
 
-    data = this.defineData({
+    import = this.defineImport({
         trackRef: { name: 'trackRef', type: Number },
         beat: { name: EngineArchetypeDataName.Beat, type: Number },
+    })
+
+    export = this.defineExport({
+        accuracyDiff: { name: 'accuracyDiff', type: Number },
     })
 
     abstract sprites: {
@@ -59,7 +63,7 @@ export abstract class Note extends Archetype {
     }
 
     preprocess() {
-        this.targetTime = bpmChanges.at(this.data.beat).time
+        this.targetTime = bpmChanges.at(this.import.beat).time
 
         this.visualTime.max = this.targetTime
         this.visualTime.min = this.visualTime.max - note.duration
@@ -81,6 +85,8 @@ export abstract class Note extends Archetype {
             this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
 
         this.z = getZ(layer.note.body, this.targetTime)
+
+        this.result.accuracy = this.windows.good.max
     }
 
     touchOrder = 1
@@ -94,7 +100,6 @@ export abstract class Note extends Archetype {
 
         if (time.now < this.visualTime.min) return
         if (options.hidden > 0 && time.now > this.visualTime.hidden) return
-        if (!this.shouldRender) return
 
         this.render()
     }
@@ -108,7 +113,7 @@ export abstract class Note extends Archetype {
     }
 
     get trackSharedMemory() {
-        return archetypes.Track.sharedMemory.get(this.data.trackRef)
+        return archetypes.Track.sharedMemory.get(this.import.trackRef)
     }
 
     get x() {
@@ -127,12 +132,13 @@ export abstract class Note extends Archetype {
         this.hasSFXScheduled = true
     }
 
-    // eslint-disable-next-line @typescript-eslint/class-literal-property-style
-    get shouldRender() {
-        return true
-    }
-
     render() {
         this.y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
+    }
+
+    incomplete(hitTime: number) {
+        this.export('accuracyDiff', hitTime - this.result.accuracy - this.targetTime)
+
+        this.despawn = true
     }
 }

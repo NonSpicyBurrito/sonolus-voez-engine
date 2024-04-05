@@ -1,5 +1,6 @@
 import { FlickDirection } from '../../../../../../../shared/src/engine/data/FlickDirection.mjs'
 import { leftRotated, rightRotated } from '../../../../../../../shared/src/engine/data/utils.mjs'
+import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
 import { options } from '../../../../configuration/options.mjs'
 import { buckets } from '../../../buckets.mjs'
 import { flick } from '../../../flick.mjs'
@@ -7,12 +8,11 @@ import { note, noteLayout } from '../../../note.mjs'
 import { particle } from '../../../particle.mjs'
 import { scaledScreen } from '../../../scaledScreen.mjs'
 import { getZ, layer, skin } from '../../../skin.mjs'
-import { windows } from '../../../windows.mjs'
 import { isUsed, markAsUsed } from '../../InputManager.mjs'
 import { SingleNote } from './SingleNote.mjs'
 
 export class FlickNote extends SingleNote {
-    flickData = this.defineData({
+    flickImport = this.defineImport({
         direction: { name: 'direction', type: DataType<FlickDirection> },
     })
 
@@ -40,7 +40,7 @@ export class FlickNote extends SingleNote {
     preprocess() {
         super.preprocess()
 
-        if (options.mirror) this.flickData.direction *= -1
+        if (options.mirror) this.flickImport.direction *= -1
     }
 
     initialize() {
@@ -50,7 +50,7 @@ export class FlickNote extends SingleNote {
         const w = h / scaledScreen.wToH
 
         if (this.useFallbackSprites) {
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 leftRotated({ l: -2 * w, r: 0, t: -h, b: h }).copyTo(this.layout)
             } else {
                 rightRotated({ l: 0, r: 2 * w, t: -h, b: h }).copyTo(this.layout)
@@ -58,7 +58,7 @@ export class FlickNote extends SingleNote {
 
             this.markerZ = getZ(layer.note.marker, this.targetTime)
         } else {
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
             } else {
                 rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
@@ -95,13 +95,13 @@ export class FlickNote extends SingleNote {
         for (const touch of touches) {
             if (touch.id !== this.activatedTouchId) continue
 
-            const p = (touch.position.x - touch.startPosition.x) * this.flickData.direction
+            const p = (touch.position.x - touch.startPosition.x) * this.flickImport.direction
             const d = touch.position.sub(touch.startPosition).length
 
             if (p >= 0 && d >= flick.distance) {
                 this.complete(touch)
             } else if (touch.ended) {
-                this.despawn = true
+                this.incomplete(touch.t)
             }
             return
         }
@@ -110,6 +110,7 @@ export class FlickNote extends SingleNote {
     complete(touch: Touch) {
         this.result.judgment = input.judge(touch.startTime, this.targetTime, this.windows)
         this.result.accuracy = touch.startTime - this.targetTime
+        this.export('accuracyDiff', time.now - touch.startTime)
 
         this.result.bucket.index = this.bucket.index
         this.result.bucket.value = this.result.accuracy * 1000

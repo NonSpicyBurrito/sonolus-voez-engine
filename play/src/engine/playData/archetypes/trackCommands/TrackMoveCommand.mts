@@ -6,12 +6,12 @@ export class TrackMoveCommand extends TrackCommand {
         super.preprocess()
 
         if (options.mirror) {
-            this.data.startValue *= -1
-            this.data.endValue *= -1
+            this.import.startValue *= -1
+            this.import.endValue *= -1
         }
     }
 
     update(value: number) {
-        this.trackSharedMemory.x = Math.lerp(this.data.startValue, this.data.endValue, value)
+        this.trackSharedMemory.x = Math.lerp(this.import.startValue, this.import.endValue, value)
     }
 }

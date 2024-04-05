@@ -1,6 +1,8 @@
 import { FlickDirection } from '../../../../../../../shared/src/engine/data/FlickDirection.mjs'
 import { leftRotated, rightRotated } from '../../../../../../../shared/src/engine/data/utils.mjs'
+import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
 import { options } from '../../../../configuration/options.mjs'
+import { buckets } from '../../../buckets.mjs'
 import { note, noteLayout } from '../../../note.mjs'
 import { particle } from '../../../particle.mjs'
 import { scaledScreen } from '../../../scaledScreen.mjs'
@@ -17,7 +19,11 @@ export class FlickNote extends SingleNote {
 
     effect = particle.effects.flick
 
-    flickData = this.defineData({
+    windows = windows.flickNote
+
+    bucket = buckets.flickNote
+
+    flickImport = this.defineImport({
         direction: { name: 'direction', type: DataType<FlickDirection> },
     })
 
@@ -27,7 +33,7 @@ export class FlickNote extends SingleNote {
     preprocess() {
         super.preprocess()
 
-        if (options.mirror) this.flickData.direction *= -1
+        if (options.mirror) this.flickImport.direction *= -1
     }
 
     globalInitialize() {
@@ -37,7 +43,7 @@ export class FlickNote extends SingleNote {
         const w = h / scaledScreen.wToH
 
         if (this.useFallbackSprites) {
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 leftRotated({ l: -2 * w, r: 0, t: -h, b: h }).copyTo(this.layout)
             } else {
                 rightRotated({ l: 0, r: 2 * w, t: -h, b: h }).copyTo(this.layout)
@@ -45,7 +51,7 @@ export class FlickNote extends SingleNote {
 
             this.markerZ = getZ(layer.note.marker, this.targetTime)
         } else {
-            if (this.flickData.direction === FlickDirection.Left) {
+            if (this.flickImport.direction === FlickDirection.Left) {
                 leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
             } else {
                 rightRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)

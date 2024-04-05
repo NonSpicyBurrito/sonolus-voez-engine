@@ -7,7 +7,7 @@ import { getZ, layer, skin } from '../skin.mjs'
 import { archetypes } from './index.mjs'
 
 export class HoldConnector extends Archetype {
-    data = this.defineData({
+    import = this.defineImport({
         headRef: { name: 'headRef', type: Number },
         tailRef: { name: 'tailRef', type: Number },
     })
@@ -39,10 +39,10 @@ export class HoldConnector extends Archetype {
 
     preprocessOrder = 1
     preprocess() {
-        this.trackRef = this.headData.trackRef
+        this.trackRef = this.headImport.trackRef
 
-        this.head.time = bpmChanges.at(this.headData.beat).time
-        this.tail.time = bpmChanges.at(this.tailData.beat).time
+        this.head.time = bpmChanges.at(this.headImport.beat).time
+        this.tail.time = bpmChanges.at(this.tailImport.beat).time
 
         this.visualTime.min = this.head.time - note.duration
         this.visualTime.max = this.tail.time
@@ -57,8 +57,11 @@ export class HoldConnector extends Archetype {
         }
 
         if (options.sfxEnabled) {
-            const id = effect.clips.hold.scheduleLoop(this.head.time)
-            effect.clips.scheduleStopLoop(id, this.tail.time)
+            if (replay.isReplay) {
+                this.scheduleReplaySFX()
+            } else {
+                this.scheduleSFX()
+            }
         }
     }
 
@@ -66,8 +69,10 @@ export class HoldConnector extends Archetype {
         return this.visualTime.min
     }
 
-    despawnTime() {
-        return this.visualTime.max
+    despawnTime(): number {
+        return replay.isReplay
+            ? Math.min(this.tailSharedMemory.despawnTime, this.tail.time)
+            : this.tail.time
     }
 
     initialize() {
@@ -84,27 +89,37 @@ export class HoldConnector extends Archetype {
 
         if (time.now < this.head.time) return
 
+        this.renderSlide()
+
+        if (time.now < this.headSharedMemory.despawnTime) return
+
         if (this.shouldScheduleHoldEffect && !this.holdEffectInstanceId) this.spawnHoldEffect()
 
         if (this.holdEffectInstanceId) this.updateHoldEffect()
-
-        this.renderSlide()
     }
 
     terminate() {
         if (this.shouldScheduleHoldEffect && this.holdEffectInstanceId) this.destroyHoldEffect()
     }
 
-    get headData() {
-        return archetypes.HoldStartNote.data.get(this.data.headRef)
+    get headImport() {
+        return archetypes.HoldStartNote.import.get(this.import.headRef)
     }
 
-    get tailData() {
-        return archetypes.HoldEndNote.data.get(this.data.tailRef)
+    get headSharedMemory() {
+        return archetypes.HoldEndNote.sharedMemory.get(this.import.headRef)
     }
 
-    get trackData() {
-        return archetypes.Track.data.get(this.trackRef)
+    get tailImport() {
+        return archetypes.HoldEndNote.import.get(this.import.tailRef)
+    }
+
+    get tailSharedMemory() {
+        return archetypes.HoldEndNote.sharedMemory.get(this.import.tailRef)
+    }
+
+    get trackImport() {
+        return archetypes.Track.import.get(this.trackRef)
     }
 
     get trackSharedMemory() {
@@ -118,16 +133,16 @@ export class HoldConnector extends Archetype {
     get shouldSpawnLines() {
         if (this.tail.time - this.head.time <= 0.08) return false
 
-        let nextRef = this.trackData.moveRef
+        let nextRef = this.trackImport.moveRef
         while (nextRef) {
-            const data = archetypes.TrackMoveCommand.data.get(nextRef)
+            const commandImport = archetypes.TrackMoveCommand.import.get(nextRef)
 
             const sharedMemory = archetypes.TrackMoveCommand.sharedMemory.get(nextRef)
             if (sharedMemory.startTime >= this.tail.time) return false
 
             if (sharedMemory.endTime > this.head.time) return true
 
-            nextRef = data.nextRef
+            nextRef = commandImport.nextRef
         }
 
         return false
@@ -139,6 +154,22 @@ export class HoldConnector extends Archetype {
 
         this.zs.connector = getZ(layer.connector, this.head.time)
         this.zs.slide = getZ(layer.slide, this.head.time)
+    }
+
+    scheduleSFX() {
+        const id = effect.clips.hold.scheduleLoop(this.head.time)
+        effect.clips.scheduleStopLoop(id, this.tail.time)
+    }
+
+    scheduleReplaySFX() {
+        if (!this.headImport.judgment) return
+
+        const start = Math.max(this.head.time, this.headSharedMemory.despawnTime)
+        const end = Math.min(this.tail.time, this.tailSharedMemory.despawnTime)
+        if (start >= end) return
+
+        const id = effect.clips.hold.scheduleLoop(start)
+        effect.clips.scheduleStopLoop(id, end)
     }
 
     renderConnector() {

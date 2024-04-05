@@ -1,6 +1,6 @@
+import { windows } from '../../../../../../../../../shared/src/engine/data/windows.mjs'
 import { buckets } from '../../../../../buckets.mjs'
 import { skin } from '../../../../../skin.mjs'
-import { windows } from '../../../../../windows.mjs'
 import { TapNote } from './TapNote.mjs'
 
 export class HoldStartNote extends TapNote {
@@ -12,7 +12,19 @@ export class HoldStartNote extends TapNote {
 
     bucket = buckets.holdStartNote
 
-    get shouldRender() {
-        return time.now < this.targetTime
+    sharedMemory = this.defineSharedMemory({
+        activated: Boolean,
+    })
+
+    render() {
+        if (time.now >= this.targetTime) return
+
+        super.render()
+    }
+
+    complete(touch: Touch) {
+        super.complete(touch)
+
+        this.sharedMemory.activated = true
     }
 }
