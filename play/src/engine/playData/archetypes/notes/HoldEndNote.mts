@@ -24,7 +24,7 @@ export class HoldEndNote extends Note {
         const minHeadInputTime =
             bpmChanges.at(this.headImport.beat).time + windows.holdStartNote.good.min + input.offset
 
-        this.spawnTime = Math.min(this.scheduleSFXTime, this.visualTime.min, minHeadInputTime)
+        this.spawnTime = Math.min(this.visualTime.min, minHeadInputTime)
     }
 
     updateParallel() {

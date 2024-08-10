@@ -1,5 +1,5 @@
 import { options } from '../../configuration/options.mjs'
-import { effect, getScheduleSFXTime } from '../effect.mjs'
+import { effect } from '../effect.mjs'
 import { note, noteLayout } from '../note.mjs'
 import { effectLayout, particle } from '../particle.mjs'
 import { scaledScreen } from '../scaledScreen.mjs'
@@ -24,8 +24,6 @@ export class HoldConnector extends Archetype {
 
     spawnTime = this.entityMemory(Number)
 
-    scheduleSFXTime = this.entityMemory(Number)
-
     visualTime = this.entityMemory({
         min: Number,
         max: Number,
@@ -37,8 +35,6 @@ export class HoldConnector extends Archetype {
         slide: Number,
     })
 
-    hasSFXScheduled = this.entityMemory(Boolean)
-
     sfxInstanceId = this.entityMemory(LoopedEffectClipInstanceId)
 
     effectInstanceId = this.entityMemory(ParticleEffectInstanceId)
@@ -47,12 +43,13 @@ export class HoldConnector extends Archetype {
 
     preprocess() {
         this.head.time = bpmChanges.at(this.headImport.beat).time
-
-        this.scheduleSFXTime = getScheduleSFXTime(this.head.time)
+        this.tail.time = bpmChanges.at(this.tailImport.beat).time
 
         this.visualTime.min = this.head.time - note.duration
 
-        this.spawnTime = Math.min(this.scheduleSFXTime, this.visualTime.min)
+        this.spawnTime = this.visualTime.min
+
+        if (this.shouldScheduleSFX) this.scheduleSFX()
     }
 
     spawnOrder() {
@@ -65,8 +62,6 @@ export class HoldConnector extends Archetype {
 
     initialize() {
         this.trackRef = this.headImport.trackRef
-
-        this.tail.time = bpmChanges.at(this.tailImport.beat).time
 
         this.visualTime.max = this.tail.time
 
@@ -100,9 +95,6 @@ export class HoldConnector extends Archetype {
             this.despawn = true
             return
         }
-
-        if (this.shouldScheduleSFX && !this.hasSFXScheduled && time.now >= this.scheduleSFXTime)
-            this.scheduleSFX()
 
         if (this.shouldPlaySFX && !this.sfxInstanceId && this.isActive) this.playSFX()
 
@@ -180,8 +172,6 @@ export class HoldConnector extends Archetype {
     scheduleSFX() {
         const id = effect.clips.hold.scheduleLoop(this.head.time)
         effect.clips.scheduleStopLoop(id, this.tail.time)
-
-        this.hasSFXScheduled = true
     }
 
     playSFX() {

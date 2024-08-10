@@ -1,5 +1,5 @@
 import { options } from '../../../../configuration/options.mjs'
-import { effect, getScheduleSFXTime, sfxDistance } from '../../../effect.mjs'
+import { effect, sfxDistance } from '../../../effect.mjs'
 import { effectLayout } from '../../../particle.mjs'
 import { Note } from '../Note.mjs'
 
@@ -11,14 +11,20 @@ export abstract class SingleNote extends Note {
     preprocess() {
         super.preprocess()
 
-        this.scheduleSFXTime = getScheduleSFXTime(this.targetTime)
+        this.spawnTime = this.visualTime.min
 
-        this.spawnTime = Math.min(this.visualTime.min, this.scheduleSFXTime)
+        if (this.shouldScheduleSFX) this.scheduleSFX()
+    }
+
+    get shouldScheduleSFX() {
+        return options.sfxEnabled && options.autoSFX
+    }
+
+    get shouldPlaySFX() {
+        return options.sfxEnabled && !options.autoSFX
     }
 
     scheduleSFX() {
-        super.scheduleSFX()
-
         effect.clips.perfect.schedule(this.targetTime, sfxDistance)
     }
 
