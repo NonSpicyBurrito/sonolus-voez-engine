@@ -11,7 +11,7 @@ export abstract class SingleNote extends Note {
     preprocess() {
         super.preprocess()
 
-        this.spawnTime = this.visualTime.min
+        this.spawnTime = Math.min(this.visualTime.min, this.inputTime.min)
 
         if (this.shouldScheduleSFX) this.scheduleSFX()
     }
