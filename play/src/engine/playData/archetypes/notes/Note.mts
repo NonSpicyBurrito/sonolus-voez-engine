@@ -28,15 +28,11 @@ export abstract class Note extends Archetype {
 
     spawnTime = this.entityMemory(Number)
 
-    scheduleSFXTime = this.entityMemory(Number)
-
     visualTime = this.entityMemory({
         min: Number,
         max: Number,
         hidden: Number,
     })
-
-    hasSFXScheduled = this.entityMemory(Boolean)
 
     inputTime = this.entityMemory({
         min: Number,
@@ -95,21 +91,10 @@ export abstract class Note extends Archetype {
         if (time.now > this.inputTime.max) this.despawn = true
         if (this.despawn) return
 
-        if (this.shouldScheduleSFX && !this.hasSFXScheduled && time.now >= this.scheduleSFXTime)
-            this.scheduleSFX()
-
         if (time.now < this.visualTime.min) return
         if (options.hidden > 0 && time.now > this.visualTime.hidden) return
 
         this.render()
-    }
-
-    get shouldScheduleSFX() {
-        return options.sfxEnabled && options.autoSFX
-    }
-
-    get shouldPlaySFX() {
-        return options.sfxEnabled && !options.autoSFX
     }
 
     get trackSharedMemory() {
@@ -126,10 +111,6 @@ export abstract class Note extends Archetype {
 
     isInTrack(touch: Touch) {
         return touch.x >= this.hitbox.l && touch.x <= this.hitbox.r
-    }
-
-    scheduleSFX() {
-        this.hasSFXScheduled = true
     }
 
     render() {
