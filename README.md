@@ -4,8 +4,8 @@ A recreation of VOEZ engine in [Sonolus](https://sonolus.com).
 
 ## Links
 
--   [Sonolus Website](https://sonolus.com)
--   [Sonolus Wiki](https://github.com/NonSpicyBurrito/sonolus-wiki)
+- [Sonolus Website](https://sonolus.com)
+- [Sonolus Wiki](https://github.com/NonSpicyBurrito/sonolus-wiki)
 
 ## Installation
 
@@ -75,11 +75,11 @@ Path to Engine Thumbnail file.
 
 Converts VS (VOEZ Source) to VC (VOEZ Chart).
 
--   `vs`: VOEZ source.
+- `vs`: VOEZ source.
 
 ### `vcToLevelData(vc, offset?)`
 
 Converts VC (VOEZ Chart) to Level Data.
 
--   `vc`: VOEZ chart.
--   `offset`: offset (default: `0`).
+- `vc`: VOEZ chart.
+- `offset`: offset (default: `0`).
