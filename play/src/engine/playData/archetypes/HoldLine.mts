@@ -9,20 +9,16 @@ export class HoldLine extends SpawnableArchetype({
     tailRef: Number,
     trackRef: Number,
 }) {
-    visualTime = this.entityMemory({
-        min: Number,
-        max: Number,
-        hidden: Number,
-    })
+    visualTime = this.entityMemory(Range)
+    hiddenTime = this.entityMemory(Number)
 
     x = this.entityMemory(Number)
 
     initialize() {
-        this.visualTime.max = this.spawnData.time
-        this.visualTime.min = this.visualTime.max - note.duration
+        this.visualTime.copyFrom(Range.l.mul(note.duration).add(this.spawnData.time))
 
         if (options.hidden > 0)
-            this.visualTime.hidden = this.visualTime.max - note.duration * options.hidden
+            this.hiddenTime = this.visualTime.max - note.duration * options.hidden
 
         const trackImport = archetypes.Track.import.get(this.spawnData.trackRef)
         this.x = trackImport.x
@@ -62,7 +58,7 @@ export class HoldLine extends SpawnableArchetype({
             return
         }
 
-        if (options.hidden > 0 && time.now > this.visualTime.hidden) return
+        if (options.hidden > 0 && time.now > this.hiddenTime) return
 
         this.render()
     }
