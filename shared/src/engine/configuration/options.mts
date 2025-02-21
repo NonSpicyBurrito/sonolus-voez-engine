@@ -92,4 +92,38 @@ export const optionsDefinition = {
         step: 0.05,
         unit: Text.PercentageUnit,
     },
+    previewVerticalScale: {
+        name: Text.PreviewScaleVertical,
+        scope: 'VOEZ',
+        type: 'slider',
+        def: 1,
+        min: 0.5,
+        max: 2,
+        step: 0.05,
+        unit: Text.PercentageUnit,
+    },
+    previewMeasure: {
+        name: Text.PreviewMeasure,
+        scope: 'VOEZ',
+        type: 'toggle',
+        def: 1,
+    },
+    previewBeat: {
+        name: Text.PreviewBeat,
+        scope: 'VOEZ',
+        type: 'toggle',
+        def: 1,
+    },
+    previewTime: {
+        name: Text.PreviewTime,
+        scope: 'VOEZ',
+        type: 'toggle',
+        def: 1,
+    },
+    previewBpm: {
+        name: Text.PreviewBpm,
+        scope: 'VOEZ',
+        type: 'toggle',
+        def: 1,
+    },
 } satisfies Record<string, EngineConfigurationOption>
