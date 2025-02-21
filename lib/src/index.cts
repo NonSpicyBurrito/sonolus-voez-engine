@@ -9,7 +9,7 @@ export const version = '1.5.0'
 
 export const databaseEngineItem = {
     name: 'voez',
-    version: 12,
+    version: 13,
     title: {
         en: 'VOEZ',
     },

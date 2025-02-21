@@ -64,7 +64,7 @@ export const ui: EngineConfigurationUI = {
             ease: 'linear',
         },
     },
-    judgmentErrorStyle: 'arrowDown',
-    judgmentErrorPlacement: 'both',
+    judgmentErrorStyle: 'late',
+    judgmentErrorPlacement: 'bottom',
     judgmentErrorMin: 20,
 }
