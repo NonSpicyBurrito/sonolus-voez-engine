@@ -19,7 +19,7 @@ export const skin = defineSkin({
         trackLine: 'VOEZ Preview Track Line',
         trackLeftBorder: 'VOEZ Preview Track Left Border',
         trackRightBorder: 'VOEZ Preview Track Right Border',
-        trackFallback: SkinSpriteName.LaneSeamless,
+        trackFallback: SkinSpriteName.Lane,
 
         tapNote: SkinSpriteName.NoteHeadRed,
 
