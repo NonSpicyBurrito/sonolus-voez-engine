@@ -204,7 +204,7 @@ export class HoldConnector extends Archetype {
     }
 
     spawnHoldEffect() {
-        this.holdEffectInstanceId = particle.effects.hold.spawn(new Quad(), 0.5, true)
+        this.holdEffectInstanceId = particle.effects.hold.spawn(new Quad(), 1, true)
     }
 
     updateHoldEffect() {

@@ -181,7 +181,7 @@ export class HoldConnector extends Archetype {
     spawnHoldEffect() {
         const layout = effectLayout(this.trackSharedMemory.x)
 
-        this.effectInstanceId = particle.effects.hold.spawn(layout, 0.5, true)
+        this.effectInstanceId = particle.effects.hold.spawn(layout, 1, true)
     }
 
     moveHoldEffect() {

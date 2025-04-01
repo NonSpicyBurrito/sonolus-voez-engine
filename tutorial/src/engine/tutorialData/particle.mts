@@ -19,4 +19,4 @@ const effectLayout = () =>
 
 export const playNoteEffect = () => particle.effects.hit.spawn(effectLayout(), 0.5, false)
 
-export const spawnHoldEffect = () => particle.effects.hold.spawn(effectLayout(), 0.5, true)
+export const spawnHoldEffect = () => particle.effects.hold.spawn(effectLayout(), 1, true)
