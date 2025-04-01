@@ -1,15 +1,15 @@
-import { FlickDirection } from '../../../../../../../shared/src/engine/data/FlickDirection.mjs'
-import { leftRotated, rightRotated } from '../../../../../../../shared/src/engine/data/utils.mjs'
-import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
-import { options } from '../../../../configuration/options.mjs'
-import { buckets } from '../../../buckets.mjs'
-import { note, noteLayout } from '../../../note.mjs'
-import { particle } from '../../../particle.mjs'
-import { scaledScreen } from '../../../scaledScreen.mjs'
-import { getZ, layer, skin } from '../../../skin.mjs'
-import { SingleNote } from './SingleNote.mjs'
+import { FlickDirection } from '../../../../../../shared/src/engine/data/FlickDirection.mjs'
+import { leftRotated, rightRotated } from '../../../../../../shared/src/engine/data/utils.mjs'
+import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
+import { options } from '../../../configuration/options.mjs'
+import { buckets } from '../../buckets.mjs'
+import { note, noteLayout } from '../../note.mjs'
+import { particle } from '../../particle.mjs'
+import { scaledScreen } from '../../scaledScreen.mjs'
+import { getZ, layer, skin } from '../../skin.mjs'
+import { Note } from './Note.mjs'
 
-export class FlickNote extends SingleNote {
+export class FlickNote extends Note {
     sprite = skin.sprites.flickNote
 
     fallbackSprites = {
@@ -63,14 +63,12 @@ export class FlickNote extends SingleNote {
         return !this.sprite.exists
     }
 
-    render() {
-        this.y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
-
+    render(y: number) {
         if (this.useFallbackSprites) {
-            this.fallbackSprites.note.draw(noteLayout().translate(this.x, this.y), this.z, 1)
-            this.fallbackSprites.marker.draw(this.layout.translate(this.x, this.y), this.markerZ, 1)
+            this.fallbackSprites.note.draw(noteLayout().translate(this.x, y), this.z, 1)
+            this.fallbackSprites.marker.draw(this.layout.translate(this.x, y), this.markerZ, 1)
         } else {
-            this.sprite.draw(this.layout.translate(this.x, this.y), this.z, 1)
+            this.sprite.draw(this.layout.translate(this.x, y), this.z, 1)
         }
     }
 }

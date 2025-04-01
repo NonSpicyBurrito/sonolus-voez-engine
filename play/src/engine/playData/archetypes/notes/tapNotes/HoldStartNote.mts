@@ -1,6 +1,6 @@
-import { windows } from '../../../../../../../../../shared/src/engine/data/windows.mjs'
-import { buckets } from '../../../../../buckets.mjs'
-import { skin } from '../../../../../skin.mjs'
+import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
+import { buckets } from '../../../buckets.mjs'
+import { skin } from '../../../skin.mjs'
 import { TapNote } from './TapNote.mjs'
 
 export class HoldStartNote extends TapNote {
@@ -16,10 +16,10 @@ export class HoldStartNote extends TapNote {
         activated: Boolean,
     })
 
-    render() {
+    render(y: number) {
         if (time.now >= this.targetTime) return
 
-        super.render()
+        super.render(y)
     }
 
     complete(touch: Touch) {

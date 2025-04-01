@@ -1,11 +1,16 @@
-import { windows } from '../../../../../../../../shared/src/engine/data/windows.mjs'
-import { buckets } from '../../../../buckets.mjs'
-import { skin } from '../../../../skin.mjs'
-import { SimpleNote } from './SimpleNote.mjs'
+import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
+import { buckets } from '../../buckets.mjs'
+import { particle } from '../../particle.mjs'
+import { skin } from '../../skin.mjs'
+import { Note } from './Note.mjs'
 
-export class SlideNote extends SimpleNote {
+export class SlideNote extends Note {
     sprites = {
         note: skin.sprites.slideNote,
+    }
+
+    effects = {
+        hit: particle.effects.hit,
     }
 
     windows = windows.slideNote

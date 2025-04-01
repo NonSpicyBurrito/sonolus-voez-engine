@@ -1,5 +1,6 @@
 import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
 import { buckets } from '../../buckets.mjs'
+import { particle } from '../../particle.mjs'
 import { skin } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
@@ -10,6 +11,8 @@ export class HoldEndNote extends Note {
     })
 
     sprite = skin.sprites.holdEndNote
+
+    effect = particle.effects.hit
 
     windows = windows.holdEndNote
 
