@@ -5,7 +5,9 @@ import { skin } from '../../skin.mjs'
 import { Note } from './Note.mjs'
 
 export class HoldStartNote extends Note {
-    sprite = skin.sprites.holdStartNote
+    sprites = {
+        note: skin.sprites.holdStartNote,
+    }
 
     effects = {
         perfect: particle.effects.hitPerfect,

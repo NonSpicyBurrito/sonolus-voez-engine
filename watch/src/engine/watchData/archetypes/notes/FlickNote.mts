@@ -10,11 +10,12 @@ import { getZ, layer, skin } from '../../skin.mjs'
 import { Note } from './Note.mjs'
 
 export class FlickNote extends Note {
-    sprite = skin.sprites.flickNote
-
-    fallbackSprites = {
-        note: skin.sprites.flickNoteFallback,
-        marker: skin.sprites.flickNoteFallbackMarker,
+    sprites = {
+        note: skin.sprites.flickNote,
+        fallback: {
+            note: skin.sprites.flickNoteFallback,
+            marker: skin.sprites.flickNoteFallbackMarker,
+        },
     }
 
     effects = {
@@ -66,15 +67,15 @@ export class FlickNote extends Note {
     }
 
     get useFallbackSprites() {
-        return !this.sprite.exists
+        return !this.sprites.note.exists
     }
 
     render(y: number) {
         if (this.useFallbackSprites) {
-            this.fallbackSprites.note.draw(noteLayout().translate(this.x, y), this.z, 1)
-            this.fallbackSprites.marker.draw(this.layout.translate(this.x, y), this.markerZ, 1)
+            this.sprites.fallback.note.draw(noteLayout().translate(this.x, y), this.z, 1)
+            this.sprites.fallback.marker.draw(this.layout.translate(this.x, y), this.markerZ, 1)
         } else {
-            this.sprite.draw(this.layout.translate(this.x, y), this.z, 1)
+            this.sprites.note.draw(this.layout.translate(this.x, y), this.z, 1)
         }
     }
 }

@@ -22,7 +22,9 @@ export abstract class Note extends Archetype {
         despawnTime: Number,
     })
 
-    abstract sprite: SkinSprite
+    abstract sprites: {
+        note: SkinSprite
+    }
 
     abstract effects: {
         perfect: ParticleEffect
@@ -154,7 +156,7 @@ export abstract class Note extends Archetype {
     }
 
     render(y: number) {
-        this.sprite.draw(noteLayout().translate(this.x, y), this.z, 1)
+        this.sprites.note.draw(noteLayout().translate(this.x, y), this.z, 1)
     }
 
     despawnTerminate() {

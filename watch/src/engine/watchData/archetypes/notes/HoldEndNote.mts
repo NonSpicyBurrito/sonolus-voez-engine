@@ -10,7 +10,9 @@ export class HoldEndNote extends Note {
         headRef: { name: 'headRef', type: Number },
     })
 
-    sprite = skin.sprites.holdEndNote
+    sprites = {
+        note: skin.sprites.holdEndNote,
+    }
 
     effects = {
         perfect: particle.effects.releasePerfect,
