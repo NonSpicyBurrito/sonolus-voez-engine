@@ -12,6 +12,7 @@ export class HoldStartNote extends Note {
         great: particle.effects.hitGreat,
         good: particle.effects.hitGood,
         fallback: particle.effects.hitFallback,
+        duration: 0.5,
     }
 
     windows = windows.holdStartNote

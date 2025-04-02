@@ -28,6 +28,7 @@ export abstract class Note extends Archetype {
         great: ParticleEffect
         good: ParticleEffect
         fallback: ParticleEffect
+        duration: number
     }
 
     abstract windows: Windows
@@ -147,17 +148,17 @@ export abstract class Note extends Archetype {
         const layout = effectLayout(this.trackSharedMemory.x)
 
         if (this.useFallbackEffects) {
-            this.effects.fallback.spawn(layout, 0.5, false)
+            this.effects.fallback.spawn(layout, this.effects.duration, false)
         } else {
             switch (this.result.judgment) {
                 case Judgment.Perfect:
-                    this.effects.perfect.spawn(layout, 0.5, false)
+                    this.effects.perfect.spawn(layout, this.effects.duration, false)
                     break
                 case Judgment.Great:
-                    this.effects.great.spawn(layout, 0.5, false)
+                    this.effects.great.spawn(layout, this.effects.duration, false)
                     break
                 case Judgment.Good:
-                    this.effects.good.spawn(layout, 0.5, false)
+                    this.effects.good.spawn(layout, this.effects.duration, false)
                     break
             }
         }

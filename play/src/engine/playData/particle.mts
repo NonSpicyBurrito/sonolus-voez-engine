@@ -14,6 +14,11 @@ export const particle = defineParticle({
         holdGreat: 'VOEZ Hold Great',
         holdGood: 'VOEZ Hold Good',
         holdFallback: ParticleEffectName.NoteCircularHoldRed,
+
+        releasePerfect: 'VOEZ Release Perfect',
+        releaseGreat: 'VOEZ Release Great',
+        releaseGood: 'VOEZ Release Good',
+        releaseFallback: ParticleEffectName.NoteCircularTapRed,
     },
 })
 

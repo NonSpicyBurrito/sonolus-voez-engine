@@ -15,6 +15,7 @@ export class TapNote extends Note {
         great: particle.effects.hitGreat,
         good: particle.effects.hitGood,
         fallback: particle.effects.hitFallback,
+        duration: 0.5,
     }
 
     windows = windows.tapNote
