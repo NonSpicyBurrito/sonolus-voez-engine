@@ -1,7 +1,9 @@
 import { EngineArchetypeDataName } from '@sonolus/core'
 import { toBucketWindows, Windows } from '../../../../../../shared/src/engine/data/windows.mjs'
 import { options } from '../../../configuration/options.mjs'
-import { note } from '../../note.mjs'
+import { effect, sfxDistance } from '../../effect.mjs'
+import { note, noteLayout } from '../../note.mjs'
+import { effectLayout } from '../../particle.mjs'
 import { getZ, layer } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 
@@ -21,6 +23,14 @@ export abstract class Note extends Archetype {
         note: SkinSprite
     }
 
+    abstract effects: {
+        perfect: ParticleEffect
+        great: ParticleEffect
+        good: ParticleEffect
+        fallback: ParticleEffect
+        duration: number
+    }
+
     abstract windows: Windows
 
     abstract bucket: Bucket
@@ -36,8 +46,6 @@ export abstract class Note extends Archetype {
 
     z = this.entityMemory(Number)
 
-    y = this.entityMemory(Number)
-
     globalPreprocess() {
         this.bucket.set(toBucketWindows(this.windows))
 
@@ -50,6 +58,10 @@ export abstract class Note extends Archetype {
         this.visualTime.copyFrom(Range.l.mul(note.duration).add(this.targetTime))
 
         this.inputTime.copyFrom(this.windows.good.add(this.targetTime).add(input.offset))
+
+        this.spawnTime = Math.min(this.visualTime.min, this.inputTime.min)
+
+        if (this.shouldScheduleSFX) this.scheduleSFX()
     }
 
     spawnOrder() {
@@ -78,7 +90,9 @@ export abstract class Note extends Archetype {
         if (time.now < this.visualTime.min) return
         if (options.hidden > 0 && time.now > this.hiddenTime) return
 
-        this.render()
+        const y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
+
+        this.render(y)
     }
 
     get trackSharedMemory() {
@@ -93,12 +107,69 @@ export abstract class Note extends Archetype {
         return this.trackSharedMemory.hitbox
     }
 
+    get shouldScheduleSFX() {
+        return options.sfxEnabled && options.autoSFX
+    }
+
+    get shouldPlaySFX() {
+        return options.sfxEnabled && !options.autoSFX
+    }
+
+    get useFallbackEffects() {
+        return (
+            !this.effects.perfect.exists || !this.effects.great.exists || !this.effects.good.exists
+        )
+    }
+
+    scheduleSFX() {
+        effect.clips.perfect.schedule(this.targetTime, sfxDistance)
+    }
+
+    playSFX() {
+        switch (this.result.judgment) {
+            case Judgment.Perfect:
+                effect.clips.perfect.play(sfxDistance)
+                break
+            case Judgment.Great:
+                effect.clips.great.play(sfxDistance)
+                break
+            case Judgment.Good:
+                effect.clips.good.play(sfxDistance)
+                break
+        }
+    }
+
+    playHitEffects() {
+        if (this.shouldPlaySFX) this.playSFX()
+        if (options.noteEffectEnabled) this.playNoteEffect()
+    }
+
+    playNoteEffect() {
+        const layout = effectLayout(this.trackSharedMemory.x)
+
+        if (this.useFallbackEffects) {
+            this.effects.fallback.spawn(layout, this.effects.duration, false)
+        } else {
+            switch (this.result.judgment) {
+                case Judgment.Perfect:
+                    this.effects.perfect.spawn(layout, this.effects.duration, false)
+                    break
+                case Judgment.Great:
+                    this.effects.great.spawn(layout, this.effects.duration, false)
+                    break
+                case Judgment.Good:
+                    this.effects.good.spawn(layout, this.effects.duration, false)
+                    break
+            }
+        }
+    }
+
     isInTrack(touch: Touch) {
         return touch.x >= this.hitbox.l && touch.x <= this.hitbox.r
     }
 
-    render() {
-        this.y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
+    render(y: number) {
+        this.sprites.note.draw(noteLayout().translate(this.x, y), this.z, 1)
     }
 
     incomplete(hitTime: number) {

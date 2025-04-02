@@ -88,9 +88,9 @@ export class HoldConnector extends Archetype {
 
         this.renderSlide()
 
-        if (time.now < this.headSharedMemory.despawnTime) return
+        if (!this.shouldScheduleHoldEffect || !this.isActive) return
 
-        if (this.shouldScheduleHoldEffect && !this.holdEffectInstanceId) this.spawnHoldEffect()
+        if (!this.holdEffectInstanceId) this.spawnHoldEffect()
 
         if (this.holdEffectInstanceId) this.updateHoldEffect()
     }
@@ -124,7 +124,25 @@ export class HoldConnector extends Archetype {
     }
 
     get shouldScheduleHoldEffect() {
-        return options.noteEffectEnabled && particle.effects.hold.exists
+        return (
+            options.noteEffectEnabled &&
+            (!this.useFallbackEffects || particle.effects.holdFallback.exists)
+        )
+    }
+
+    get useFallbackEffects() {
+        return (
+            !particle.effects.holdPerfect.exists ||
+            !particle.effects.holdGreat.exists ||
+            !particle.effects.holdGood.exists
+        )
+    }
+
+    get isActive() {
+        return (
+            (!replay.isReplay || this.headImport.judgment) &&
+            time.now >= this.headSharedMemory.despawnTime
+        )
     }
 
     get shouldSpawnLines() {
@@ -204,7 +222,23 @@ export class HoldConnector extends Archetype {
     }
 
     spawnHoldEffect() {
-        this.holdEffectInstanceId = particle.effects.hold.spawn(new Quad(), 0.5, true)
+        const layout = new Quad()
+
+        if (this.useFallbackEffects) {
+            this.holdEffectInstanceId = particle.effects.holdFallback.spawn(layout, 1, true)
+        } else {
+            switch (replay.isReplay ? this.headImport.judgment : Judgment.Perfect) {
+                case Judgment.Perfect:
+                    this.holdEffectInstanceId = particle.effects.holdPerfect.spawn(layout, 1, true)
+                    break
+                case Judgment.Great:
+                    this.holdEffectInstanceId = particle.effects.holdGreat.spawn(layout, 1, true)
+                    break
+                case Judgment.Good:
+                    this.holdEffectInstanceId = particle.effects.holdGood.spawn(layout, 1, true)
+                    break
+            }
+        }
     }
 
     updateHoldEffect() {

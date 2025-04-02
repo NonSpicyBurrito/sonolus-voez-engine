@@ -37,6 +37,20 @@ npm install sonolus-voez-engine
 | `VOEZ Track Glow Right Border` |
 | `VOEZ Flick`                   |
 
+### Particle Effects
+
+| Name                   |
+| ---------------------- |
+| `VOEZ Hit Perfect`     |
+| `VOEZ Hit Great`       |
+| `VOEZ Hit Good`        |
+| `VOEZ Hold Perfect`    |
+| `VOEZ Hold Great`      |
+| `VOEZ Hold Good`       |
+| `VOEZ Release Perfect` |
+| `VOEZ Release Great`   |
+| `VOEZ Release Good`    |
+
 ## Documentation
 
 ### `version`

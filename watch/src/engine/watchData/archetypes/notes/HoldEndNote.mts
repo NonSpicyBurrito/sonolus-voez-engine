@@ -1,5 +1,6 @@
 import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
 import { buckets } from '../../buckets.mjs'
+import { particle } from '../../particle.mjs'
 import { skin } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
@@ -9,7 +10,17 @@ export class HoldEndNote extends Note {
         headRef: { name: 'headRef', type: Number },
     })
 
-    sprite = skin.sprites.holdEndNote
+    sprites = {
+        note: skin.sprites.holdEndNote,
+    }
+
+    effects = {
+        perfect: particle.effects.releasePerfect,
+        great: particle.effects.releaseGreat,
+        good: particle.effects.releaseGood,
+        fallback: particle.effects.releaseFallback,
+        duration: 0.3,
+    }
 
     windows = windows.holdEndNote
 

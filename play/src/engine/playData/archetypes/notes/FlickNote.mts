@@ -1,17 +1,17 @@
-import { FlickDirection } from '../../../../../../../shared/src/engine/data/FlickDirection.mjs'
-import { leftRotated, rightRotated } from '../../../../../../../shared/src/engine/data/utils.mjs'
-import { windows } from '../../../../../../../shared/src/engine/data/windows.mjs'
-import { options } from '../../../../configuration/options.mjs'
-import { buckets } from '../../../buckets.mjs'
-import { flick } from '../../../flick.mjs'
-import { note, noteLayout } from '../../../note.mjs'
-import { particle } from '../../../particle.mjs'
-import { scaledScreen } from '../../../scaledScreen.mjs'
-import { getZ, layer, skin } from '../../../skin.mjs'
-import { isUsed, markAsUsed } from '../../InputManager.mjs'
-import { SingleNote } from './SingleNote.mjs'
+import { FlickDirection } from '../../../../../../shared/src/engine/data/FlickDirection.mjs'
+import { leftRotated, rightRotated } from '../../../../../../shared/src/engine/data/utils.mjs'
+import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
+import { options } from '../../../configuration/options.mjs'
+import { buckets } from '../../buckets.mjs'
+import { flick } from '../../flick.mjs'
+import { note, noteLayout } from '../../note.mjs'
+import { particle } from '../../particle.mjs'
+import { scaledScreen } from '../../scaledScreen.mjs'
+import { getZ, layer, skin } from '../../skin.mjs'
+import { isUsed, markAsUsed } from '../InputManager.mjs'
+import { Note } from './Note.mjs'
 
-export class FlickNote extends SingleNote {
+export class FlickNote extends Note {
     flickImport = this.defineImport({
         direction: { name: 'direction', type: DataType<FlickDirection> },
     })
@@ -25,7 +25,11 @@ export class FlickNote extends SingleNote {
     }
 
     effects = {
-        hit: particle.effects.flick,
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.flickFallback,
+        duration: 0.5,
     }
 
     windows = windows.flickNote
@@ -124,18 +128,12 @@ export class FlickNote extends SingleNote {
         return !this.sprites.note.exists
     }
 
-    render() {
-        super.render()
-
+    render(y: number) {
         if (this.useFallbackSprites) {
-            this.sprites.fallback.note.draw(noteLayout().translate(this.x, this.y), this.z, 1)
-            this.sprites.fallback.marker.draw(
-                this.layout.translate(this.x, this.y),
-                this.markerZ,
-                1,
-            )
+            this.sprites.fallback.note.draw(noteLayout().translate(this.x, y), this.z, 1)
+            this.sprites.fallback.marker.draw(this.layout.translate(this.x, y), this.markerZ, 1)
         } else {
-            this.sprites.note.draw(this.layout.translate(this.x, this.y), this.z, 1)
+            this.sprites.note.draw(this.layout.translate(this.x, y), this.z, 1)
         }
     }
 }

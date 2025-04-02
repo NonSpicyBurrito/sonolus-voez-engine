@@ -154,11 +154,22 @@ export class HoldConnector extends Archetype {
     }
 
     get shouldSpawnHoldEffect() {
-        return options.noteEffectEnabled && particle.effects.hold.exists
+        return (
+            options.noteEffectEnabled &&
+            (!this.useFallbackEffects || particle.effects.holdFallback.exists)
+        )
+    }
+
+    get useFallbackEffects() {
+        return (
+            !particle.effects.holdPerfect.exists ||
+            !particle.effects.holdGreat.exists ||
+            !particle.effects.holdGood.exists
+        )
     }
 
     get isActive() {
-        return this.headInfo.state === EntityState.Despawned && this.headSharedMemory.activated
+        return this.headInfo.state === EntityState.Despawned && this.headSharedMemory.judgment
     }
 
     get isDead() {
@@ -179,9 +190,23 @@ export class HoldConnector extends Archetype {
     }
 
     spawnHoldEffect() {
-        const layout = effectLayout(this.trackSharedMemory.x)
+        const layout = new Quad()
 
-        this.effectInstanceId = particle.effects.hold.spawn(layout, 0.5, true)
+        if (this.useFallbackEffects) {
+            this.effectInstanceId = particle.effects.holdFallback.spawn(layout, 1, true)
+        } else {
+            switch (this.headSharedMemory.judgment) {
+                case Judgment.Perfect:
+                    this.effectInstanceId = particle.effects.holdPerfect.spawn(layout, 1, true)
+                    break
+                case Judgment.Great:
+                    this.effectInstanceId = particle.effects.holdGreat.spawn(layout, 1, true)
+                    break
+                case Judgment.Good:
+                    this.effectInstanceId = particle.effects.holdGood.spawn(layout, 1, true)
+                    break
+            }
+        }
     }
 
     moveHoldEffect() {

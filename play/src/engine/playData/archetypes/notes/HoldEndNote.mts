@@ -1,6 +1,6 @@
 import { windows } from '../../../../../../shared/src/engine/data/windows.mjs'
 import { buckets } from '../../buckets.mjs'
-import { noteLayout } from '../../note.mjs'
+import { particle } from '../../particle.mjs'
 import { skin } from '../../skin.mjs'
 import { archetypes } from '../index.mjs'
 import { Note } from './Note.mjs'
@@ -12,6 +12,14 @@ export class HoldEndNote extends Note {
 
     sprites = {
         note: skin.sprites.holdEndNote,
+    }
+
+    effects = {
+        perfect: particle.effects.releasePerfect,
+        great: particle.effects.releaseGreat,
+        good: particle.effects.releaseGood,
+        fallback: particle.effects.releaseFallback,
+        duration: 0.3,
     }
 
     windows = windows.holdEndNote
@@ -28,7 +36,7 @@ export class HoldEndNote extends Note {
     }
 
     updateParallel() {
-        if (this.headSharedMemory.activated) {
+        if (this.headSharedMemory.judgment) {
             this.handleInput()
         } else if (this.headInfo.state === EntityState.Despawned) {
             this.despawn = true
@@ -62,14 +70,10 @@ export class HoldEndNote extends Note {
             this.result.bucket.value = this.result.accuracy * 1000
         }
 
+        this.playHitEffects()
+
         this.export('accuracyDiff', time.now - this.result.accuracy - this.targetTime)
 
         this.despawn = true
-    }
-
-    render() {
-        super.render()
-
-        this.sprites.note.draw(noteLayout().translate(this.x, this.y), this.z, 1)
     }
 }
