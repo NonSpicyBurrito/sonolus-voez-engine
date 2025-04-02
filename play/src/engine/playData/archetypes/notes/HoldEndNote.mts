@@ -15,7 +15,10 @@ export class HoldEndNote extends Note {
     }
 
     effects = {
-        hit: particle.effects.hit,
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
     }
 
     windows = windows.holdEndNote
@@ -32,7 +35,7 @@ export class HoldEndNote extends Note {
     }
 
     updateParallel() {
-        if (this.headSharedMemory.activated) {
+        if (this.headSharedMemory.judgment) {
             this.handleInput()
         } else if (this.headInfo.state === EntityState.Despawned) {
             this.despawn = true

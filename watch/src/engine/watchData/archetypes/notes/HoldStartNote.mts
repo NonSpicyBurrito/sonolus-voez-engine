@@ -7,7 +7,12 @@ import { Note } from './Note.mjs'
 export class HoldStartNote extends Note {
     sprite = skin.sprites.holdStartNote
 
-    effect = particle.effects.hit
+    effects = {
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
+    }
 
     windows = windows.holdStartNote
 

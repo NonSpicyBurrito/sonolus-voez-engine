@@ -3,9 +3,12 @@ import { scaledScreen } from './scaledScreen.mjs'
 
 export const particle = defineParticle({
     effects: {
-        hit: ParticleEffectName.NoteCircularTapRed,
-        flick: ParticleEffectName.NoteCircularAlternativeCyan,
-        hold: ParticleEffectName.NoteCircularHoldRed,
+        hitPerfect: 'VOEZ Hit Perfect',
+        hitFallback: ParticleEffectName.NoteCircularTapRed,
+        flickFallback: ParticleEffectName.NoteCircularAlternativeCyan,
+
+        holdPerfect: 'VOEZ Hold Perfect',
+        holdFallback: ParticleEffectName.NoteCircularHoldRed,
     },
 })
 
@@ -17,6 +20,26 @@ const effectLayout = () =>
         b: 3 * scaledScreen.wToH,
     }).translate(0, 1)
 
-export const playNoteEffect = () => particle.effects.hit.spawn(effectLayout(), 0.5, false)
+export const playHitEffect = () => {
+    if (particle.effects.hitPerfect.exists) {
+        particle.effects.hitPerfect.spawn(effectLayout(), 0.5, false)
+    } else {
+        particle.effects.hitFallback.spawn(effectLayout(), 0.5, false)
+    }
+}
 
-export const spawnHoldEffect = () => particle.effects.hold.spawn(effectLayout(), 1, true)
+export const playFlickEffect = () => {
+    if (particle.effects.hitPerfect.exists) {
+        particle.effects.hitPerfect.spawn(effectLayout(), 0.5, false)
+    } else {
+        particle.effects.flickFallback.spawn(effectLayout(), 0.5, false)
+    }
+}
+
+export const spawnHoldEffect = () => {
+    if (particle.effects.holdPerfect.exists) {
+        return particle.effects.holdPerfect.spawn(effectLayout(), 1, true)
+    } else {
+        return particle.effects.holdFallback.spawn(effectLayout(), 1, true)
+    }
+}

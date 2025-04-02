@@ -12,7 +12,12 @@ export class HoldEndNote extends Note {
 
     sprite = skin.sprites.holdEndNote
 
-    effect = particle.effects.hit
+    effects = {
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
+    }
 
     windows = windows.holdEndNote
 

@@ -25,7 +25,10 @@ export class FlickNote extends Note {
     }
 
     effects = {
-        hit: particle.effects.flick,
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.flickFallback,
     }
 
     windows = windows.flickNote

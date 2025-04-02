@@ -7,7 +7,12 @@ import { Note } from './Note.mjs'
 export class TapNote extends Note {
     sprite = skin.sprites.tapNote
 
-    effect = particle.effects.hit
+    effects = {
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
+    }
 
     windows = windows.tapNote
 

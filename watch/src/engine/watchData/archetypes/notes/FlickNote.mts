@@ -17,7 +17,12 @@ export class FlickNote extends Note {
         marker: skin.sprites.flickNoteFallbackMarker,
     }
 
-    effect = particle.effects.flick
+    effects = {
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.flickFallback,
+    }
 
     windows = windows.flickNote
 

@@ -4,9 +4,16 @@ import { scaledScreen } from './scaledScreen.mjs'
 
 export const particle = defineParticle({
     effects: {
-        hit: ParticleEffectName.NoteCircularTapRed,
-        flick: ParticleEffectName.NoteCircularAlternativeCyan,
-        hold: ParticleEffectName.NoteCircularHoldRed,
+        hitPerfect: 'VOEZ Hit Perfect',
+        hitGreat: 'VOEZ Hit Great',
+        hitGood: 'VOEZ Hit Good',
+        hitFallback: ParticleEffectName.NoteCircularTapRed,
+        flickFallback: ParticleEffectName.NoteCircularAlternativeCyan,
+
+        holdPerfect: 'VOEZ Hold Perfect',
+        holdGreat: 'VOEZ Hold Great',
+        holdGood: 'VOEZ Hold Good',
+        holdFallback: ParticleEffectName.NoteCircularHoldRed,
     },
 })
 

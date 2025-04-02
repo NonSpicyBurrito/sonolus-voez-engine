@@ -24,7 +24,12 @@ export abstract class Note extends Archetype {
 
     abstract sprite: SkinSprite
 
-    abstract effect: ParticleEffect
+    abstract effects: {
+        perfect: ParticleEffect
+        great: ParticleEffect
+        good: ParticleEffect
+        fallback: ParticleEffect
+    }
 
     abstract windows: Windows
 
@@ -114,6 +119,12 @@ export abstract class Note extends Archetype {
         return this.trackSharedMemory.x
     }
 
+    get useFallbackEffects() {
+        return (
+            !this.effects.perfect.exists || !this.effects.great.exists || !this.effects.good.exists
+        )
+    }
+
     scheduleSFX() {
         effect.clips.perfect.schedule(this.hitTime, sfxDistance)
     }
@@ -154,6 +165,20 @@ export abstract class Note extends Archetype {
     playNoteEffect() {
         const layout = effectLayout(this.trackSharedMemory.x)
 
-        this.effect.spawn(layout, 0.5, false)
+        if (this.useFallbackEffects) {
+            this.effects.fallback.spawn(layout, 0.5, false)
+        } else {
+            switch (replay.isReplay ? this.import.judgment : Judgment.Perfect) {
+                case Judgment.Perfect:
+                    this.effects.perfect.spawn(layout, 0.5, false)
+                    break
+                case Judgment.Great:
+                    this.effects.great.spawn(layout, 0.5, false)
+                    break
+                case Judgment.Good:
+                    this.effects.good.spawn(layout, 0.5, false)
+                    break
+            }
+        }
     }
 }

@@ -10,7 +10,10 @@ export class SlideNote extends Note {
     }
 
     effects = {
-        hit: particle.effects.hit,
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
     }
 
     windows = windows.slideNote

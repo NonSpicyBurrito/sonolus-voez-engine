@@ -13,7 +13,7 @@ export class HoldStartNote extends TapNote {
     bucket = buckets.holdStartNote
 
     sharedMemory = this.defineSharedMemory({
-        activated: Boolean,
+        judgment: DataType<Judgment>,
     })
 
     render(y: number) {
@@ -25,6 +25,6 @@ export class HoldStartNote extends TapNote {
     complete(touch: Touch) {
         super.complete(touch)
 
-        this.sharedMemory.activated = true
+        this.sharedMemory.judgment = this.result.judgment
     }
 }

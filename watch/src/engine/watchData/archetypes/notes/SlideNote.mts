@@ -7,7 +7,12 @@ import { Note } from './Note.mjs'
 export class SlideNote extends Note {
     sprite = skin.sprites.slideNote
 
-    effect = particle.effects.hit
+    effects = {
+        perfect: particle.effects.hitPerfect,
+        great: particle.effects.hitGreat,
+        good: particle.effects.hitGood,
+        fallback: particle.effects.hitFallback,
+    }
 
     windows = windows.slideNote
 
