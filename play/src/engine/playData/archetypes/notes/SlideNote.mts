@@ -21,20 +21,42 @@ export class SlideNote extends Note {
 
     bucket = buckets.slideNote
 
+    hasEarlyHit = this.entityMemory(Boolean)
+    earlyHitTime = this.entityMemory(Number)
+
     touch() {
         if (time.now < this.inputTime.min) return
 
-        for (const touch of touches) {
-            if (!this.isInTrack(touch)) continue
+        const hitTime = time.now - input.offset
+        if (hitTime < this.targetTime) {
+            let isHolding = false
 
-            this.complete(touch)
-            return
+            for (const touch of touches) {
+                if (!this.isInTrack(touch)) continue
+                isHolding ||= !touch.ended
+
+                this.hasEarlyHit = true
+                this.earlyHitTime = hitTime
+            }
+
+            if (this.hasEarlyHit && !isHolding) {
+                this.complete(this.earlyHitTime)
+            }
+        } else {
+            for (const touch of touches) {
+                if (!this.isInTrack(touch)) continue
+
+                this.complete(Math.max(touch.t, this.targetTime))
+                return
+            }
+
+            if (this.hasEarlyHit) {
+                this.complete(this.earlyHitTime)
+            }
         }
     }
 
-    complete(touch: Touch) {
-        const hitTime = Math.max(touch.time, this.targetTime)
-
+    complete(hitTime: number) {
         this.result.judgment = input.judge(hitTime, this.targetTime, this.windows)
         this.result.accuracy = hitTime - this.targetTime
 
