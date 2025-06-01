@@ -27,7 +27,7 @@ const fromSeconds = (perfect: Seconds, great: Seconds, good: Seconds) => {
 
 export const windows = {
     tapNote: fromSeconds(0.03, 0.1, 0.15),
-    slideNote: fromSeconds([0, 0.03], [0, 0.1], [0, 0.15]),
+    slideNote: fromSeconds(0.03, 0.1, 0.15),
     flickNote: fromSeconds(0.03, 0.1, 0.15),
     holdStartNote: fromSeconds(0.03, 0.1, 0.15),
     holdEndNote: fromSeconds([-0.03, 0], [-0.1, 0], [-0.15, 0]),
