@@ -48,6 +48,7 @@ export class Track extends Archetype {
         body: Number,
         line: Number,
         border: Number,
+        glow: Number,
         slot: Number,
     })
 
@@ -98,12 +99,31 @@ export class Track extends Archetype {
         )
     }
 
+    get shouldDrawTrackGlow() {
+        return (
+            skin.sprites.trackGlowBody.exists &&
+            skin.sprites.trackGlowLeftBorder.exists &&
+            skin.sprites.trackGlowRightBorder.exists
+        )
+    }
+
+    get isActive() {
+        const startTime = streams.getPreviousKey(this.info.index, time.now)
+        if (startTime < time.now) {
+            const endTime = streams.getValue(this.info.index, startTime)
+            if (time.now < endTime) return true
+        }
+
+        return false
+    }
+
     globalInitialize() {
         this.times.started = this.times.start + (this.import.animateStart ? animateDuration : 0)
 
         this.zs.body = getZ(layer.track.body, -this.times.start)
         this.zs.line = getZ(layer.track.line, -this.times.start)
         this.zs.border = getZ(layer.track.border, -this.times.start)
+        this.zs.glow = getZ(layer.trackGlow, -this.times.start)
         this.zs.slot = getZ(layer.slot, -this.times.start)
     }
 
@@ -127,6 +147,10 @@ export class Track extends Archetype {
             this.drawFallbackTrack(w, h)
         } else {
             this.drawVoezTrack(w, h)
+        }
+
+        if (this.shouldDrawTrackGlow) {
+            this.drawTrackGlow(w, h)
         }
     }
 
@@ -185,6 +209,44 @@ export class Track extends Archetype {
         }).translate(this.sharedMemory.x, 1)
 
         skin.sprites.trackFallback.draw(layout, this.zs.body, 1)
+    }
+
+    drawTrackGlow(w: number, h: number) {
+        if (!options.laneEffectEnabled) return
+        if (!this.isActive) return
+
+        const l = this.sharedMemory.x - w
+        const r = this.sharedMemory.x + w
+
+        const b = (-27 / 128) * h
+        const t = b + h
+
+        const bodyLayout = new Rect({
+            l,
+            r,
+            t,
+            b,
+        }).translate(0, 1)
+
+        skin.sprites.trackGlowBody.draw(bodyLayout, this.zs.glow, 1)
+
+        const leftLayout = new Rect({
+            l: -52 / 128,
+            r: 0,
+            t,
+            b,
+        }).translate(l, 1)
+
+        skin.sprites.trackGlowLeftBorder.draw(leftLayout, this.zs.glow, 1)
+
+        const rightLayout = new Rect({
+            l: 0,
+            r: 52 / 128,
+            t,
+            b,
+        }).translate(r, 1)
+
+        skin.sprites.trackGlowRightBorder.draw(rightLayout, this.zs.glow, 1)
     }
 
     drawSlot() {
