@@ -53,6 +53,8 @@ export class Track extends Archetype {
         slot: Number,
     })
 
+    exportStartTime = this.entityMemory(Number)
+
     preprocess() {
         if (options.mirror) this.import.x *= -1
 
@@ -84,6 +86,8 @@ export class Track extends Archetype {
         this.zs.border = getZ(layer.track.border, -this.times.start)
         this.zs.glow = getZ(layer.trackGlow, -this.times.start)
         this.zs.slot = getZ(layer.slot, -this.times.start)
+
+        this.exportStartTime = -1000
     }
 
     updateSequentialOrder = 1
@@ -107,6 +111,8 @@ export class Track extends Archetype {
     }
 
     updateParallel() {
+        this.exportActive()
+
         if (time.now >= this.times.ended) {
             this.despawn = true
             return
@@ -131,6 +137,20 @@ export class Track extends Archetype {
             skin.sprites.trackGlowLeftBorder.exists &&
             skin.sprites.trackGlowRightBorder.exists
         )
+    }
+
+    exportActive() {
+        if (this.sharedMemory.isActive) {
+            if (this.exportStartTime !== -1000) return
+
+            streams.set(this.info.index, time.now, 999999)
+            this.exportStartTime = time.now
+        } else {
+            if (this.exportStartTime === -1000) return
+
+            streams.set(this.info.index, this.exportStartTime, time.now)
+            this.exportStartTime = -1000
+        }
     }
 
     drawTrack() {

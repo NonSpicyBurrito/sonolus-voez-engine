@@ -19,6 +19,10 @@ export const skin = defineSkin({
         trackRightBorder: 'VOEZ Track Right Border',
         trackFallback: SkinSpriteName.Lane,
 
+        trackGlowBody: 'VOEZ Track Glow Body',
+        trackGlowLeftBorder: 'VOEZ Track Glow Left Border',
+        trackGlowRightBorder: 'VOEZ Track Glow Right Border',
+
         slot: SkinSpriteName.NoteSlot,
 
         tapNote: SkinSpriteName.NoteHeadRed,
