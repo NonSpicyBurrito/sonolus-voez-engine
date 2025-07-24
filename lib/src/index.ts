@@ -5,7 +5,7 @@ export * from './vc/index.js'
 export { vsToVC } from './vs/convert.js'
 export * from './vs/index.js'
 
-export const version = '1.5.4'
+export const version = '1.6.0'
 
 export const databaseEngineItem = {
     name: 'voez',
