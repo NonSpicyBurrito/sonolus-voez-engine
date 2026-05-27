@@ -66,5 +66,3 @@ export const layer = {
         body: 0,
     },
 }
-
-export const getZ = (layer: number, time: number) => layer - time / 1000

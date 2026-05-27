@@ -3,7 +3,7 @@ import { leftRotated, rightRotated } from '../../../../../../shared/src/engine/d
 import { options } from '../../../configuration/options.js'
 import { note } from '../../note.js'
 import { scaledScreen } from '../../scaledScreen.js'
-import { getZ, layer, skin } from '../../skin.js'
+import { layer, skin } from '../../skin.js'
 import { Note } from './Note.js'
 
 export class FlickNote extends Note {
@@ -18,37 +18,35 @@ export class FlickNote extends Note {
     }
 
     render() {
-        const { time, layout, z } = super.render()
+        const { time, layout } = super.render()
 
         if (this.useFallbackSprites) {
-            skin.sprites.flickNoteFallback.draw(layout, z, 1)
-
-            const markerZ = getZ(layer.note.marker, time)
+            skin.sprites.flickNoteFallback.draw(layout, [layer.note.body, -time], 1)
 
             const s = note.h * scaledScreen.hToW * options.noteSize
 
             if (this.flickImport.direction === FlickDirection.Left) {
                 skin.sprites.flickNoteFallbackMarker.draw(
                     leftRotated(layout).translate(-s, 0),
-                    markerZ,
+                    [layer.note.marker, -time],
                     1,
                 )
             } else {
                 skin.sprites.flickNoteFallbackMarker.draw(
                     rightRotated(layout).translate(s, 0),
-                    markerZ,
+                    [layer.note.marker, -time],
                     1,
                 )
             }
         } else {
             if (this.flickImport.direction === FlickDirection.Left) {
-                skin.sprites.flickNote.draw(leftRotated(layout), z, 1)
+                skin.sprites.flickNote.draw(leftRotated(layout), [layer.note.body, -time], 1)
             } else {
-                skin.sprites.flickNote.draw(rightRotated(layout), z, 1)
+                skin.sprites.flickNote.draw(rightRotated(layout), [layer.note.body, -time], 1)
             }
         }
 
-        return { time, layout, z }
+        return { time, layout }
     }
 
     get useFallbackSprites() {

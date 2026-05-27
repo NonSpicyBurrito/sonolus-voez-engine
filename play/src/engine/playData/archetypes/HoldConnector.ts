@@ -3,7 +3,7 @@ import { effect } from '../effect.js'
 import { note, noteLayout } from '../note.js'
 import { effectLayout, particle } from '../particle.js'
 import { scaledScreen } from '../scaledScreen.js'
-import { getZ, layer, skin } from '../skin.js'
+import { layer, skin } from '../skin.js'
 import { archetypes } from './index.js'
 
 export class HoldConnector extends Archetype {
@@ -26,11 +26,6 @@ export class HoldConnector extends Archetype {
 
     visualTime = this.entityMemory(Range)
     hiddenTime = this.entityMemory(Number)
-
-    zs = this.entityMemory({
-        connector: Number,
-        slide: Number,
-    })
 
     sfxInstanceId = this.entityMemory(LoopedEffectClipInstanceId)
 
@@ -63,9 +58,6 @@ export class HoldConnector extends Archetype {
         this.visualTime.max = this.tail.time
 
         if (options.hidden > 0) this.hiddenTime = this.tail.time - note.duration * options.hidden
-
-        this.zs.connector = getZ(layer.connector, this.head.time)
-        this.zs.slide = getZ(layer.slide, this.head.time)
 
         this.nextLineTime = 999999
         if (this.tail.time - this.head.time <= 0.08) return
@@ -257,13 +249,13 @@ export class HoldConnector extends Archetype {
             b: y.max,
         }).translate(this.trackSharedMemory.x, 0)
 
-        skin.sprites.holdConnector.draw(layout, this.zs.connector, 1)
+        skin.sprites.holdConnector.draw(layout, [layer.connector, -this.head.time], 1)
     }
 
     renderSlide() {
         skin.sprites.holdStartNote.draw(
             noteLayout().translate(this.trackSharedMemory.x, 1),
-            this.zs.slide,
+            [layer.slide, -this.head.time],
             1,
         )
     }

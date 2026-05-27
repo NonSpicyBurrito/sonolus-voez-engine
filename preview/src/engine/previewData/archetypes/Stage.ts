@@ -36,7 +36,7 @@ export class Stage extends Archetype {
                     b,
                     t,
                 }),
-                layer.stage,
+                [layer.stage],
                 1,
             )
             skin.sprites.stageRightBorder.draw(
@@ -46,7 +46,7 @@ export class Stage extends Archetype {
                     b,
                     t,
                 }),
-                layer.stage,
+                [layer.stage],
                 1,
             )
         }

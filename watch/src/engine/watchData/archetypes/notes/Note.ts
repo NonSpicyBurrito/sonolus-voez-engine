@@ -4,7 +4,7 @@ import { options } from '../../../configuration/options.js'
 import { effect, sfxDistance } from '../../effect.js'
 import { note, noteLayout } from '../../note.js'
 import { effectLayout } from '../../particle.js'
-import { getZ, layer } from '../../skin.js'
+import { layer } from '../../skin.js'
 import { archetypes } from '../index.js'
 
 export abstract class Note extends Archetype {
@@ -44,8 +44,6 @@ export abstract class Note extends Archetype {
 
     visualTime = this.entityMemory(Range)
     hiddenTime = this.entityMemory(Number)
-
-    z = this.entityMemory(Number)
 
     globalPreprocess() {
         this.bucket.set(toBucketWindows(this.windows))
@@ -151,12 +149,14 @@ export abstract class Note extends Archetype {
     globalInitialize() {
         if (options.hidden > 0)
             this.hiddenTime = this.visualTime.max - note.duration * options.hidden
-
-        this.z = getZ(layer.note.body, this.targetTime)
     }
 
     render(y: number) {
-        this.sprites.note.draw(noteLayout().translate(this.x, y), this.z, 1)
+        this.sprites.note.draw(
+            noteLayout().translate(this.x, y),
+            [layer.note.body, -this.targetTime],
+            1,
+        )
     }
 
     despawnTerminate() {

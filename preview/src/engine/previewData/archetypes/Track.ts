@@ -1,7 +1,7 @@
 import { options } from '../../configuration/options.js'
 import { chart } from '../chart.js'
 import { panel } from '../panel.js'
-import { getZ, layer, skin } from '../skin.js'
+import { layer, skin } from '../skin.js'
 import { TrackCQuery } from './queries/TrackCQuery.js'
 import { TrackWQuery } from './queries/TrackWQuery.js'
 import { TrackXQuery } from './queries/TrackXQuery.js'
@@ -9,12 +9,6 @@ import { TrackXQuery } from './queries/TrackXQuery.js'
 type Values<T = number> = {
     min: T
     max: T
-}
-
-type Z = {
-    body: number
-    line: number
-    border: number
 }
 
 const colorSprites = [
@@ -60,12 +54,6 @@ export class Track extends Archetype {
             max: Math.floor(t.max / panel.h),
         }
 
-        const z = {
-            body: getZ(layer.track.body, -t.min),
-            line: getZ(layer.track.line, -t.min),
-            border: getZ(layer.track.border, -t.min),
-        }
-
         const xQuery = new TrackXQuery(this.info.index)
         const wQuery = new TrackWQuery(this.info.index)
         const cQuery = new TrackCQuery(this.info.index)
@@ -96,7 +84,7 @@ export class Track extends Archetype {
                 }
 
                 if (this.useFallbackTrack) {
-                    this.drawFallbackTrack(x, w, pos, z)
+                    this.drawFallbackTrack(x, w, pos, t.min)
                 } else {
                     cQuery.update(st.min)
                     const a = cQuery.p(st.min)
@@ -105,13 +93,13 @@ export class Track extends Archetype {
                         [cQuery.startValue, 1 - a],
                     ]
 
-                    this.drawVoezTrack(x, w, c, pos, z)
+                    this.drawVoezTrack(x, w, c, pos, t.min)
                 }
             }
         }
     }
 
-    drawVoezTrack(x: Values, w: Values, c: number[][], pos: Values<Vec>, z: Z) {
+    drawVoezTrack(x: Values, w: Values, c: number[][], pos: Values<Vec>, z: number) {
         const l = {
             min: pos.min.translate(x.min - w.min, 0),
             max: pos.max.translate(x.max - w.max, 0),
@@ -133,7 +121,7 @@ export class Track extends Archetype {
             const a = i === c[0][0] ? c[0][1] : i === c[1][0] ? c[1][1] : 0
             if (a <= 0) continue
 
-            sprite.draw(layout, z.body - i / 100000, a)
+            sprite.draw(layout, [layer.track.body, z, -i], a)
         }
 
         skin.sprites.trackLine.draw(
@@ -143,7 +131,7 @@ export class Track extends Archetype {
                 p3: pos.max.translate(x.max + (8 * 4) / 64 / 9, 0),
                 p4: pos.min.translate(x.min + (8 * 4) / 64 / 9, 0),
             }),
-            z.line,
+            [layer.track.line, z],
             1,
         )
 
@@ -154,7 +142,7 @@ export class Track extends Archetype {
                 p3: l.max,
                 p4: l.min,
             }),
-            z.border,
+            [layer.track.border, z],
             1,
         )
 
@@ -165,12 +153,12 @@ export class Track extends Archetype {
                 p3: r.max.translate((8 * 33) / 64 / 9, 0),
                 p4: r.min.translate((8 * 33) / 64 / 9, 0),
             }),
-            z.border,
+            [layer.track.border, z],
             1,
         )
     }
 
-    drawFallbackTrack(x: Values, w: Values, pos: Values<Vec>, z: Z) {
+    drawFallbackTrack(x: Values, w: Values, pos: Values<Vec>, z: number) {
         skin.sprites.trackFallback.draw(
             new Quad({
                 p1: pos.min.translate(x.min - w.min, 0),
@@ -178,7 +166,7 @@ export class Track extends Archetype {
                 p3: pos.max.translate(x.max + w.max, 0),
                 p4: pos.min.translate(x.min + w.min, 0),
             }),
-            z.body,
+            [layer.track.body, z],
             1,
         )
     }
