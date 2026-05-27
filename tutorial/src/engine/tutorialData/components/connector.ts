@@ -31,7 +31,7 @@ export const connector = {
 
             const layout = new Rect({ l, r, t, b })
 
-            sprites.connector.draw(layout, layer.connector, a)
+            sprites.connector.draw(layout, [layer.connector], a)
         } else {
             const w = note.h / scaledScreen.wToH
 
@@ -40,7 +40,7 @@ export const connector = {
 
             const layout = new Rect({ l: -w, r: w, b, t })
 
-            sprites.connector.draw(layout, layer.connector, 1)
+            sprites.connector.draw(layout, [layer.connector], 1)
         }
     },
 

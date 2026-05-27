@@ -1,7 +1,7 @@
 import { options } from '../../configuration/options.js'
 import { note } from '../note.js'
 import { scaledScreen } from '../scaledScreen.js'
-import { getZ, layer, skin } from '../skin.js'
+import { layer, skin } from '../skin.js'
 
 const animateDuration = 1 / 3
 
@@ -42,14 +42,6 @@ export class Track extends Archetype {
         started: Number,
         end: Number,
         ended: Number,
-    })
-
-    zs = this.entityMemory({
-        body: Number,
-        line: Number,
-        border: Number,
-        glow: Number,
-        slot: Number,
     })
 
     preprocess() {
@@ -119,12 +111,6 @@ export class Track extends Archetype {
 
     globalInitialize() {
         this.times.started = this.times.start + (this.import.animateStart ? animateDuration : 0)
-
-        this.zs.body = getZ(layer.track.body, -this.times.start)
-        this.zs.line = getZ(layer.track.line, -this.times.start)
-        this.zs.border = getZ(layer.track.border, -this.times.start)
-        this.zs.glow = getZ(layer.trackGlow, -this.times.start)
-        this.zs.slot = getZ(layer.slot, -this.times.start)
     }
 
     drawTrack() {
@@ -169,7 +155,7 @@ export class Track extends Archetype {
             const a = this.sharedMemory.c.get(i)
             if (a <= 0) continue
 
-            sprite.draw(bodyLayout, this.zs.body, a)
+            sprite.draw(bodyLayout, [layer.track.body, this.times.start], a)
         }
 
         const lineLayout = new Rect({
@@ -179,7 +165,7 @@ export class Track extends Archetype {
             b: 0,
         }).translate(this.sharedMemory.x, 1)
 
-        skin.sprites.trackLine.draw(lineLayout, this.zs.line, 1)
+        skin.sprites.trackLine.draw(lineLayout, [layer.track.line, this.times.start], 1)
 
         const leftLayout = new Rect({
             l: -33 / 128,
@@ -188,7 +174,7 @@ export class Track extends Archetype {
             b: 0,
         }).translate(l, 1)
 
-        skin.sprites.trackLeftBorder.draw(leftLayout, this.zs.border, 1)
+        skin.sprites.trackLeftBorder.draw(leftLayout, [layer.track.border, this.times.start], 1)
 
         const rightLayout = new Rect({
             l: 0,
@@ -197,7 +183,7 @@ export class Track extends Archetype {
             b: 0,
         }).translate(r, 1)
 
-        skin.sprites.trackRightBorder.draw(rightLayout, this.zs.border, 1)
+        skin.sprites.trackRightBorder.draw(rightLayout, [layer.track.border, this.times.start], 1)
     }
 
     drawFallbackTrack(w: number, h: number) {
@@ -208,7 +194,7 @@ export class Track extends Archetype {
             b: 0,
         }).translate(this.sharedMemory.x, 1)
 
-        skin.sprites.trackFallback.draw(layout, this.zs.body, 1)
+        skin.sprites.trackFallback.draw(layout, [layer.track.body, this.times.start], 1)
     }
 
     drawTrackGlow(w: number, h: number) {
@@ -228,7 +214,7 @@ export class Track extends Archetype {
             b,
         }).translate(0, 1)
 
-        skin.sprites.trackGlowBody.draw(bodyLayout, this.zs.glow, 1)
+        skin.sprites.trackGlowBody.draw(bodyLayout, [layer.trackGlow, this.times.start], 1)
 
         const leftLayout = new Rect({
             l: -52 / 128,
@@ -237,7 +223,7 @@ export class Track extends Archetype {
             b,
         }).translate(l, 1)
 
-        skin.sprites.trackGlowLeftBorder.draw(leftLayout, this.zs.glow, 1)
+        skin.sprites.trackGlowLeftBorder.draw(leftLayout, [layer.trackGlow, this.times.start], 1)
 
         const rightLayout = new Rect({
             l: 0,
@@ -246,7 +232,7 @@ export class Track extends Archetype {
             b,
         }).translate(r, 1)
 
-        skin.sprites.trackGlowRightBorder.draw(rightLayout, this.zs.glow, 1)
+        skin.sprites.trackGlowRightBorder.draw(rightLayout, [layer.trackGlow, this.times.start], 1)
     }
 
     drawSlot() {
@@ -271,6 +257,6 @@ export class Track extends Archetype {
             b: h,
         }).translate(this.sharedMemory.x, 1)
 
-        skin.sprites.slot.draw(layout, this.zs.slot, 1)
+        skin.sprites.slot.draw(layout, [layer.slot, this.times.start], 1)
     }
 }

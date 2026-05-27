@@ -4,7 +4,6 @@ import { options } from '../../../configuration/options.js'
 import { note } from '../../note.js'
 import { panel } from '../../panel.js'
 import { scaledScreen } from '../../scaledScreen.js'
-import { getZ, layer } from '../../skin.js'
 import { archetypes } from '../index.js'
 
 export abstract class Note extends Archetype {
@@ -25,9 +24,7 @@ export abstract class Note extends Archetype {
             .add(panel.getPos(time))
             .translate((8 * this.getX(time)) / 9, 0)
 
-        const z = getZ(layer.note.body, time)
-
-        return { time, layout, z }
+        return { time, layout }
     }
 
     getX(time: number) {

@@ -2,7 +2,7 @@ import { options } from '../../configuration/options.js'
 import { note } from '../note.js'
 import { panel } from '../panel.js'
 import { scaledScreen } from '../scaledScreen.js'
-import { getZ, layer, skin } from '../skin.js'
+import { layer, skin } from '../skin.js'
 import { archetypes } from './index.js'
 import { TrackXQuery } from './queries/TrackXQuery.js'
 
@@ -22,8 +22,6 @@ export class HoldConnector extends Archetype {
             min: Math.floor(t.min / panel.h),
             max: Math.floor(t.max / panel.h),
         }
-
-        const z = getZ(layer.connector, t.min)
 
         const xQuery = new TrackXQuery(this.headImport.trackRef)
 
@@ -56,7 +54,7 @@ export class HoldConnector extends Archetype {
                         p3: pos.max.translate(x.max + w, 0),
                         p4: pos.min.translate(x.min + w, 0),
                     }),
-                    z,
+                    [layer.connector, -t.min],
                     1,
                 )
             }

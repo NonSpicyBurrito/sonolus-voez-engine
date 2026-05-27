@@ -31,7 +31,7 @@ export const trackGlow = {
             b,
         }).translate(0, 1)
 
-        sprites.body.draw(bodyLayout, layer.trackGlow, 1)
+        sprites.body.draw(bodyLayout, [layer.trackGlow], 1)
 
         const leftLayout = new Rect({
             l: -52 / 128,
@@ -40,7 +40,7 @@ export const trackGlow = {
             b,
         }).translate(l, 1)
 
-        sprites.leftBorder.draw(leftLayout, layer.trackGlow, 1)
+        sprites.leftBorder.draw(leftLayout, [layer.trackGlow], 1)
 
         const rightLayout = new Rect({
             l: 0,
@@ -49,7 +49,7 @@ export const trackGlow = {
             b,
         }).translate(r, 1)
 
-        sprites.rightBorder.draw(rightLayout, layer.trackGlow, 1)
+        sprites.rightBorder.draw(rightLayout, [layer.trackGlow], 1)
     },
 
     show() {

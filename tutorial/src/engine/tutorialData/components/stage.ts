@@ -15,6 +15,6 @@ export const stage = {
             b: note.h,
         }).translate(0, 1)
 
-        sprites.judgmentLine.draw(layout, layer.judgmentLine, 1)
+        sprites.judgmentLine.draw(layout, [layer.judgmentLine], 1)
     },
 }

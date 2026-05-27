@@ -7,7 +7,7 @@ import { flick } from '../../flick.js'
 import { note, noteLayout } from '../../note.js'
 import { particle } from '../../particle.js'
 import { scaledScreen } from '../../scaledScreen.js'
-import { getZ, layer, skin } from '../../skin.js'
+import { layer, skin } from '../../skin.js'
 import { isUsed, markAsUsed } from '../InputManager.js'
 import { Note } from './Note.js'
 
@@ -37,7 +37,6 @@ export class FlickNote extends Note {
     bucket = buckets.flickNote
 
     layout = this.entityMemory(Quad)
-    markerZ = this.entityMemory(Number)
 
     activatedTouchId = this.entityMemory(TouchId)
 
@@ -59,8 +58,6 @@ export class FlickNote extends Note {
             } else {
                 rightRotated({ l: 0, r: 2 * w, t: -h, b: h }).copyTo(this.layout)
             }
-
-            this.markerZ = getZ(layer.note.marker, this.targetTime)
         } else {
             if (this.flickImport.direction === FlickDirection.Left) {
                 leftRotated({ l: -w, r: w, t: -h, b: h }).copyTo(this.layout)
@@ -130,10 +127,22 @@ export class FlickNote extends Note {
 
     render(y: number) {
         if (this.useFallbackSprites) {
-            this.sprites.fallback.note.draw(noteLayout().translate(this.x, y), this.z, 1)
-            this.sprites.fallback.marker.draw(this.layout.translate(this.x, y), this.markerZ, 1)
+            this.sprites.fallback.note.draw(
+                noteLayout().translate(this.x, y),
+                [layer.note.body, -this.targetTime],
+                1,
+            )
+            this.sprites.fallback.marker.draw(
+                this.layout.translate(this.x, y),
+                [layer.note.marker, -this.targetTime],
+                1,
+            )
         } else {
-            this.sprites.note.draw(this.layout.translate(this.x, y), this.z, 1)
+            this.sprites.note.draw(
+                this.layout.translate(this.x, y),
+                [layer.note.body, -this.targetTime],
+                1,
+            )
         }
     }
 }

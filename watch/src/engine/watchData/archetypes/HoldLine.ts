@@ -77,6 +77,6 @@ export class HoldLine extends SpawnableArchetype({
     render() {
         const y = Math.unlerp(this.visualTime.min, this.visualTime.max, time.now)
 
-        skin.sprites.holdLine.draw(noteLayout().translate(this.x, y), layer.holdLine, 1)
+        skin.sprites.holdLine.draw(noteLayout().translate(this.x, y), [layer.holdLine], 1)
     }
 }

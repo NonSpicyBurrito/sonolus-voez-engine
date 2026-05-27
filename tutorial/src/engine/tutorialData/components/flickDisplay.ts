@@ -42,14 +42,14 @@ export const flickDisplay = {
             const layout = new Rect({ l, r, t, b })
 
             if (sprites.useFallback) {
-                sprites.fallback.note.draw(layout, layer.note.body, a)
+                sprites.fallback.note.draw(layout, [layer.note.body], a)
                 sprites.fallback.marker.draw(
                     rightRotated(layout).translate(layout.r, 0),
-                    layer.note.marker,
+                    [layer.note.marker],
                     a,
                 )
             } else {
-                sprites.note.draw(rightRotated(layout), layer.note.marker, a)
+                sprites.note.draw(rightRotated(layout), [layer.note.marker], a)
             }
         } else {
             const y = mode === Mode.Fall ? Math.unlerp(0, 2, segment.time) : 1
@@ -57,14 +57,14 @@ export const flickDisplay = {
             const layout = noteLayout()
 
             if (sprites.useFallback) {
-                sprites.fallback.note.draw(layout.translate(0, y), layer.note.body, 1)
+                sprites.fallback.note.draw(layout.translate(0, y), [layer.note.body], 1)
                 sprites.fallback.marker.draw(
                     rightRotated(layout).translate(layout.r, y),
-                    layer.note.marker,
+                    [layer.note.marker],
                     1,
                 )
             } else {
-                sprites.note.draw(rightRotated(layout).translate(0, y), layer.note.marker, 1)
+                sprites.note.draw(rightRotated(layout).translate(0, y), [layer.note.marker], 1)
             }
         }
     },
