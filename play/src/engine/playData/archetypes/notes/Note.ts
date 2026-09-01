@@ -1,4 +1,5 @@
 import { EngineArchetypeDataName } from '@sonolus/core'
+
 import { toBucketWindows, Windows } from '../../../../../../shared/src/engine/data/windows.js'
 import { options } from '../../../configuration/options.js'
 import { effect, sfxDistance } from '../../effect.js'

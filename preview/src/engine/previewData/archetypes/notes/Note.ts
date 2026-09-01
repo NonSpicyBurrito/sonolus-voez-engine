@@ -1,4 +1,5 @@
 import { EngineArchetypeDataName } from '@sonolus/core'
+
 import { ease } from '../../../../../../shared/src/engine/data/Ease.js'
 import { options } from '../../../configuration/options.js'
 import { note } from '../../note.js'
