@@ -4,6 +4,7 @@ import {
     LevelData,
     LevelDataEntity,
 } from '@sonolus/core'
+
 import { VC, VCTrackCommand } from './index.js'
 
 const ease = [
